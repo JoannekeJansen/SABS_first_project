@@ -22,26 +22,47 @@ Equation \eqref{eq:a} is a system of ODE's that models the membrane dynamics. Th
 with $\mathbf{M}_e=\lambda \mathbf{M}_i$. Here, $\mathbf{M}_e$ and $\mathbf{M}_i$ are the extracellular and intracellular conductivities (in mm$^2$/ms), divided by the product of the membrane capacitance (in $\mu$F/(mm$^2$)) and the cell membrane area-to-volume ratio (in 1/mm). By assuming that there exists a $\lambda$ such that $\mathbf{M}_e=\lambda \mathbf{M}_i$ the monodomain equations can be derived from the more complicated bidomain equations \cite{Sundnes}.
 
 \section{A basic test case} \label{A basic test case}
-For our test case, we take a square of $10$ mm $\times\: 10$ mm as our domain $H$. We will use the Grandi cell model to model the membrane kinetics \cite{Grandi}. We solve our test case with the cbcbeat splittingsolver with the default parameter values and default initial conditions for $v$ and $s$. We take $M_i=2, M_e=1$, so that $M=2/3$. After 0.5 ms, we apply a stimulus during 10 ms of $250$ mV/ms over 1 mm$^2$ in the centre of the square. 
+For our test case, we take a square of $10$ mm $\times\: 10$ mm as our domain $H$. We will use the Grandi cell model to model the membrane kinetics \cite{Grandi}. We solve our test case with the \url{splittingsolver} module from the cbcbeat Python package\footnote{\url{bitbucket.org/meg/cbcbeat}} with the default parameter values and default initial conditions for $v$ and $s$. The \url{splittingsolver} solves the monodomain PDE system and its coupled cell membrame dynamics ODE system separately, using the operator splitting scheme as described in \cite{Sundnes}.  \begin{color}{red} We take 
+%\begin{equation}
+%M=\left[\begin{matrix}
+%\sigma_l & 0 \\ 0 & \sigma_t
+%\end{matrix}\right],
+%\end{equation}
+$\sigma_l=0.255$ and $\sigma_t=0.0775$, where $\sigma_l$ and $\sigma_t$ are the longitudinal and tangential conductivity values respectively. \end{color}
+We apply a stimulus of $25$ mV/ms over 1 mm$^2$ in the centre of the square. In Figure \ref{fig:1}, we show a heat map of $u$ at $t=15, 20$ and $30$ ms.
+\begin{figure}
 
+\begin{minipage}{0.47\textwidth}
+ \textbf{(a)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{5s}
+      \textbf{(c)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{25s}
+    \end{minipage}
+    \begin{minipage}{0.47\textwidth}
+  \textbf{(b)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{15s}
+  \textbf{(d)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{35s}
+    \end{minipage}
+    \caption{Heat maps of $u$ of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=25$ms and \textbf{(d)} $t=35$ms.}
+    \label{fig:1}
+\end{figure}
+%trim={<left> <lower> <right> <upper>}
 \section{The inverse problem} \label{The inverse problem}
-Now assume we have measurements $\Phi$ of the transmembrane potential over time at some subdomain $\tilde{H}\subset H$. Using those measurements, we would like to estimate the conductivity tensor $\mathbf{M}$. %\begin{color}{red} For example. We could also try to estimate other parameters from our cell membrane dynamics model.
-%\end{color} 
-We can formulate this problem as an optimisation problem: find $\mathbf{M}$, such that the functional
-\begin{eqnarray} 
-\mathcal{J}(v, \mathbf{M})=
-\frac{1}{2} \int_0^T \int_{\tilde{H}}(v-\Phi)^2 \: \text{d}\textbf{x} \text{dt} + \frac{\alpha}{2}\mathcal{R}(\mathbf{M}), \label{J}
-\end{eqnarray}
-is minimized, subject to the requirements that $v$ and $\mathbf{M}$ satisfy the state system of equations \eqref{eq:a}-\eqref{eq:c} and initial conditions $v(\textbf{x},0)=v_0(\textbf{x})$ and $\mathbf{s}(\mathbf{x},0)=\mathbf{s}_0(\mathbf{x})$. Here, $\mathcal{R}$ is a regularization term, and $\alpha$ a regularization parameter.
-To find a minimum for our functional $\mathcal{J}$, we will need to determine its total derivative with respect to the optimization parameter $\mathbf{M}=(M_1,M_2)$. Assuming that $M_1=M_2=M$, we obtain:
+It is possible to obtain measurements $u_{\text{obs}}$ of the transmembrane potential and measurements $c_{\text{obs}}$ of the intracellular calcium concentration $c$ over the whole domain $H$ at discrete points in time, where the calcium concentration $c$ is one of the 38 state variables $\mathbf{s}$ of the Grandi cell model. With those measurements, we can estimate the value of the parameters in our model, using an adjoint-based approach.\footnote{See, for example, \cite{Gunzburger} for an introductory text in adjoint-based optimization methods.} Here, as an example, we will try to estimate the values of the $GNa$ parameter from the Grandi cell model.
+We can formulate this problem as an optimisation problem: find $GNa$, such that the functional
 \begin{eqnarray}
-\frac{\text{D}\mathcal{J}}{\text{D}{M}}=\frac{\partial \mathcal{J}}{\partial v}\frac{\partial v}{\partial M}+\frac{\partial \mathcal{J}}{\partial M}
-=\int_0^T\int_{\tilde{H}}(v-\Phi)\frac{\partial v}{\partial M} \: \text{d}\textbf{x}\text{dt}  + \frac{\alpha}{2}\frac{\partial\mathcal{R}}{\partial M}.
+\mathcal{J}(v, c, GNa)= \frac{1}{N} \sum_{i=1}^{N} ||v-v_{\text{obs}}(t_i)||^2_{L^2(H)} + ||c-c_{\text{obs}}(t_i) ||^2_{L^2(H)},\label{J}
+\end{eqnarray}
+%\begin{eqnarray} \nonumber
+%\mathcal{J}(v, c, GNa)= \\ \frac{1}{N} \sum_{i=1}^{N} \int_{H}(v(\textbf{x},t_i)-\Phi(\textbf{x},t_i))^2 \: \text{d}\textbf{x} + \int_{H}\left(c(\textbf{x},t_i)-\Psi(\textbf{x},t_i)\right)^2 \: \text{d}\textbf{x},\label{J}
+%\end{eqnarray}
+is minimized, subject to the requirements that $v, c$ and $GNa$ satisfy the state system of equations \eqref{eq:a}-\eqref{eq:c} and initial conditions $v(\textbf{x},0)=v_0(\textbf{x})$ and $\mathbf{s}(\mathbf{x},0)=\mathbf{s}_0(\mathbf{x})$. Here, $N$ are the number of measurements in time and $t_i$, $i=1, \dots N$ the respective moments in time.
+% https://fenicsproject.org/qa/6675/hdf-file-read-write-for-time-series
+To find a minimum for our functional $\mathcal{J}$, we will need to determine its total derivative with respect to the optimization parameter $Gna$. We use the 
+%\begin{eqnarray}
+%\frac{\text{D}\mathcal{J}}{\text{D}{Gna}}=\frac{\partial \mathcal{J}}{\partial v}\frac{\partial v}{\partial Gna}
 %\frac{\text{D}\mathcal{J}}{\text{D}{M_1}}=\frac{\partial \mathcal{J}}{\partial v}\frac{\partial v}{\partial M_1}+\frac{\partial \mathcal{J}}{\partial M_1}
 %=\int_0^T\int_{\tilde{H}}(v-\Phi)\frac{\partial v}{\partial M_1} \: \text{d}\textbf{x}\text{dt}  + \frac{\alpha}{2}\frac{\partial\mathcal{R}}{\partial M_1} \\
 %\frac{\text{D}\mathcal{J}}{\text{D}{M_2}}=\frac{\partial \mathcal{J}}{\partial v}\frac{\partial v}{\partial M_2}+\frac{\partial \mathcal{J}}{\partial M_2}
 %=\int_0^T\int_{\tilde{H}}(v-\Phi)\frac{\partial v}{\partial M_2} \: \text{d}\textbf{x}\text{dt}  + \frac{\alpha}{2}\frac{\partial\mathcal{R}}{\partial M_2}. \label{totdef}
-\end{eqnarray}
+%\end{eqnarray}
 
 %We will use an adjoint-based approach.\footnote{See, for example, \cite{Gunzburger} for an introductory text in adjoint-based optimization methods. See \cite{Yang} for an adjoint-based approach for the estimation of the cardiac conductivity paramters of the bidomain equations.} Consider the Lagrangian functional:
 %\begin{eqnarray} 
@@ -170,6 +191,6 @@ To find a minimum for our functional $\mathcal{J}$, we will need to determine it
 \bibitem{Grandi} Grandi, Pasqualini, Puglisi, \& Bers. (2009). A Novel Computational Model of the Human Ventricular Action Potential and Ca transient. \textit{Biophysical Journal, 96}(3), 664a-665a.
 \bibitem{Gunzburger} Gunzburger, M. (2003). \textit{Perspectives in flow control and optimization} (Advances in design and control). Philadelphia, Pa.: SIAM.
 \bibitem{Sundnes} Sundnes, J., Nielsen, B., Mardal, K., Cai, X., Lines, G., \& Tveito, A. (2006). On the Computational Complexity of the Bidomain and the Monodomain Models of Electrophysiology. \textit{Annals of Biomedical Engineering, 34}(7), 1088-1097.
-\bibitem{Yang} Yang, H., \& Veneziani, A. (2015). Estimation of cardiac conductivities in ventricular tissue by a variational approach. \textit{Inverse Problems, 31}(11), 115001.
+%\bibitem{Yang} Yang, H., \& Veneziani, A. (2015). Estimation of cardiac conductivities in ventricular tissue by a variational approach. \textit{Inverse Problems, 31}(11), 115001.
 \end{thebibliography}
 \end{document}

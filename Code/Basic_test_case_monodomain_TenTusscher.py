@@ -4,7 +4,6 @@
 # This test case solves the monodomain equations on a [0,10]^2 square,
 # with the Ten Tusscher Panfilov cell model, using the splittingsolver with the default 
 # parameter values and default initial conditions. 
-# A stimulus is applied at t=[5,15], x[0]=x[1]=[4.5,5.5].
 
 # Import the cbcbeat module
 from cbcbeat import *
@@ -61,7 +60,7 @@ dt = 0.01
 T = 25.0
 interval = (0.0, T)
 
-vtkfile = File('Results/Basic_test_case_monodomain.pvd')
+vtkfile = File('Results/Basic_test_case_monodomain_TenTusscher.pvd')
 
 # Solve
 for (timestep, fields) in solver.solve(interval, dt):
