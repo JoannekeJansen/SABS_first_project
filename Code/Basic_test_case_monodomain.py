@@ -26,7 +26,7 @@ mesh = generate_mesh(domain, 100)
 time = Constant(0.0)
 
 # Define the conductivity (tensor)
-M_i = as_matrix(((0.255, 0.0), (0.0, 0.0775)))
+M = as_matrix(((0.255, 0.0), (0.0, 0.0775)))
 
 # We use the Grandi cell model
 cell_model = Grandi_pasqualini_bers_2010()
@@ -37,7 +37,7 @@ stimulus = Expression('(x[0] > 4.5 and x[0] < 5.5 and x[1] > 4.5 \
 	and x[1] < 5.5 and t > 0 and t < 300 ? p : 0)', p=p, t=time, degree=1)
 
 # Collect this information into the CardiacModel class
-cardiac_model = CardiacModel(mesh, time, M_i, 'none', cell_model, stimulus)
+cardiac_model = CardiacModel(mesh, time, M, 'none', cell_model, stimulus)
 
 # Customize and create a splitting solver
 ps = SplittingSolver.default_parameters()

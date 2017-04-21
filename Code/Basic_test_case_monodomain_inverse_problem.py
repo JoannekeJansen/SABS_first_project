@@ -20,19 +20,23 @@ domain = Rectangle(Point(0.0, 0.0), Point(10.0, 10.0))
 mesh = generate_mesh(domain, 100)
 
 # Define the conductivity (tensor)
-M_i = as_matrix(((0.255, 0.0), (0.0, 0.0775)))
+#M = as_matrix(((0.255, 0.0), (0.0, 0.0775)))
+M=0.255
 
 Q = FunctionSpace(mesh, "CG", 1)
 
-def forward(Gna):
+def forward(GNa):
 	# Define time
 	time = Constant(0.0)
-	v = Function(Q)
+	
+	#v = Function(Q)
 
 	# We use the Grandi cell model
 	#cell_model = Grandi_pasqualini_bers_2010()
-	params = FitzHughNagumoManual.default_parameters()
-	cell_model = FitzHughNagumoManual(params={"a":Gna})
+	#cell_model.set_parameters(GNa=GNa)
+
+	cell_model = FitzHughNagumoManual()
+	cell_model.set_parameters(v_rest=GNa)
 
 	# Define the external stimulus
 	p = Expression('25', degree=1, domain=mesh)
@@ -40,7 +44,7 @@ def forward(Gna):
 		and x[1] < 5.5 and t > 0 and t < 100 ? p : 0)', p=p, t=time, degree=1)
 
 	# Collect this information into the CardiacModel class
-	cardiac_model = CardiacModel(mesh, time, M_i, 'none', cell_model, stimulus)
+	cardiac_model = CardiacModel(mesh, time, M, 'none', cell_model, stimulus)
 
 	# Customize and create a splitting solver
 	ps = SplittingSolver.default_parameters()
@@ -69,9 +73,9 @@ def forward(Gna):
 	    # Extract the components of the field (vs_ at previous timestep,
 	    # current vs, current vur)
 	    (vs_, vs, vur) = fields
-	    v.assign(vs.split(deepcopy=True)[0])
+	#    v.assign(vur)
 
-	return v
+	return vur
 
 # # Load synthetic data
 # Q = FunctionSpace(mesh, "CG", 1)
@@ -94,26 +98,33 @@ def forward(Gna):
 # del hdf_v, hdf_c
 
 if __name__ == "__main__":
-    Gna = Constant(0.13)	      	  # initial guess.
-    v = forward(Gna)                  # solve the forward problem once. 
+    GNa = Constant(-85)	      	  # initial guess.
+    v = forward(GNa)                  # solve the forward problem once. 
+
+    #success = replay_dolfin(tol=0.0, stop=True)
+    # adj_html("forward.html", "forward")
+    # adj_html("adjoint.html", "adjoint")
     
     # Define functional of interest
     J = Functional(inner(v, v)*dx*dt[FINISH_TIME])
 
     # Indicate the control parameter of interest
-    dJdnu = compute_gradient(J, Control(Gna))
+    dJdnu = compute_gradient(J, Control(GNa))
     Jnu = assemble(inner(v, v)*dx) # current value
 
+    parameters["adjoint"]["test_derivative"] = True
     parameters["adjoint"]["stop_annotating"] = True # stop registering equations
 
-    def Jhat(Gna): # the functional as a pure function of Gna
-         v = forward(Gna)
+    def Jhat(GNa): # the functional as a pure function of GNa
+         v = forward(GNa)
          return assemble(inner(v, v)*dx)
 
-    conv_rate = taylor_test(Jhat, Control(Gna), Jnu, dJdnu, seed=(0.00001))
+    conv_rate = taylor_test(Jhat, Control(GNa), Jnu, dJdnu, seed=(10))
+    #conv_rate = taylor_test(Jhat, Control(GNa), Jnu, dJdnu)
+
 
 # Define the reduced functional and solve the optimisation problem:
-#rf = ReducedFunctional(J, Gna)
+#rf = ReducedFunctional(J, GNa)
 #opt_ctrls = minimize(rf, options={"maxiter": 50})
 
 print "Success!"
