@@ -14,7 +14,7 @@ flags = ["-O3", "-ffast-math", "-march=native"]
 parameters["form_compiler"]["cpp_optimize_flags"] = " ".join(flags)
 parameters["form_compiler"]["quadrature_degree"] = 3
 
-# Define a [0,5]^2 domain
+# Define a [0,10]^2 domain
 from mshr import *
 domain = Rectangle(Point(0.0, 0.0), Point(5.0, 5.0))
 mesh = generate_mesh(domain, 100)
@@ -78,28 +78,22 @@ def forward(sigma_l):
 
 if __name__ == "__main__":
     sigma_l = Constant(0.10)     	  # initial guess, sigma_l=0.15 in the test problem.
-    vs = forward(sigma_l)             # solve the forward problem once. 
+    vs = forward(sigma_l)              # solve the forward problem once. 
 
     # Load recorded data and define functional of interest
     I = 0
     Q = FunctionSpace(mesh, "CG", 1)
     times = np.loadtxt("Results/recorded_times.txt")
     hdf_v = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_v.h5", "r")
-    hdf_Ca_sl = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_Ca_sl.h5", "r")
     attr_v = hdf_v.attributes("v")
     N = attr_v['count']
     v_obs = {}
-    Ca_sl_obs = {}
     for i in range(N):
      	v_obs[i] = Function(Q, annotate=False)
-     	Ca_sl_obs[i] = Function(Q, annotate=False)
      	dataset_v = "v/vector_%d"%i
-     	dataset_Ca_sl= "Ca_sl/vector_%d"%i
      	hdf_v.read(v_obs[i], dataset_v)
-     	hdf_Ca_sl.read(Ca_sl_obs[i], dataset_Ca_sl)
      	I = I + inner(split(vs)[0] - v_obs[i], split(vs)[0] - v_obs[i])*dx*dt[times[i]]
-     	#I = I + inner(split(vs)[38] - Ca_sl_obs[i], split(vs)[38] - Ca_sl_obs[i])*dx*dt[times[i]]
-    del hdf_v, hdf_Ca_sl
+    del hdf_v
     J=Functional(I/N)
 
     # # Test convergence
