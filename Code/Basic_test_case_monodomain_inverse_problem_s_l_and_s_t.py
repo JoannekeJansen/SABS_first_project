@@ -22,11 +22,12 @@ mesh = generate_mesh(domain, 100)
 # Averaged nominal conductivities, surface to volume ratio and membrane
 # capacitance, as found in Sepulveda, Roth, & Wikswo. (1989), Table 1
 #sigma_l = 0.15         # mS / mm
-sigma_t = 0.02          # mS / mm
+#sigma_t = 0.02          # mS / mm
 beta = 200.0            # mm^{-1}
 C_m = 0.2               # mu F / mm^2
 
-def forward(sigma_l):
+#def forward(sigma_t):
+def forward(sigma_l, sigma_t):
     # Define time
     time = Constant(0.0)
 
@@ -67,8 +68,8 @@ def forward(sigma_l):
     vs.assign(cell_model.initial_conditions())
 
     # Time stepping parameters
-    h = 1.0 # Time step size
-    T = 10.0 # Final time
+    h = 0.5  # Time step size
+    T = 5.0 # Final time
     interval = (0.0, T)
 
     # Solve forward problem
@@ -82,9 +83,12 @@ def forward(sigma_l):
 
 if __name__ == "__main__":
     sigma_l = Constant(0.10)          # initial guess, sigma_l=0.15 in the test problem.
+    sigma_t = Constant(0.01)          # initial guess, sigma_t=0.02 in the test problem.
     #GNa= Constant(23)                # initial guess, GNa=23 in the test problem.
     ctrl1 = sigma_l
-    (vs_, vs, vur) = forward(ctrl1)             # solve the forward problem once. 
+    ctrl2 = sigma_t
+    (vs_, vs, vur) = forward(ctrl1, ctrl2)   # solve the forward problem once. 
+    #(vs_, vs, vur) = forward(ctrl1, ctrl2)   # solve the forward problem once. 
 
     # Load recorded data and define functional of interest
     times = np.loadtxt("Results/recorded_times.txt")
@@ -104,11 +108,13 @@ if __name__ == "__main__":
     J=Functional(I/N)
 
     # Define the reduced functional and solve the optimisation problem:
-    rf = ReducedFunctional(J, Control(ctrl1))
-    assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
-    opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10})
-    #opt_ctrls = minimize(rf, options={"gtol": 1e-15, "factr": 1e7})
+    rf = ReducedFunctional(J, [Control(ctrl1), Control(ctrl2)])
+    #assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
+    #opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10})
+    opt_ctrls = minimize(rf)
     print("ctrl1 = %f" %float(opt_ctrls))
+    np.savetxt("Results/saved.txt", opt_ctrls)
+
     
 
   

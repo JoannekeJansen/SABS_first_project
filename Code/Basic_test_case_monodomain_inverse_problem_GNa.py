@@ -21,18 +21,19 @@ mesh = generate_mesh(domain, 100)
 
 # Averaged nominal conductivities, surface to volume ratio and membrane
 # capacitance, as found in Sepulveda, Roth, & Wikswo. (1989), Table 1
-#sigma_l = 0.15         # mS / mm
+sigma_l = 0.15         # mS / mm
 sigma_t = 0.02          # mS / mm
 beta = 200.0            # mm^{-1}
 C_m = 0.2               # mu F / mm^2
 
-def forward(sigma_l):
+#def forward(sigma_t):
+def forward(GNa):
     # Define time
     time = Constant(0.0)
 
     # We use the Grandi cell model
     cell_model = Grandi_pasqualini_bers_2010()
-    #cell_model.set_parameters(GNa=GNa)
+    cell_model.set_parameters(GNa=GNa)
     #cell_model = FitzHughNagumoManual() # For fast tests
 
     # Define the external stimulus
@@ -67,8 +68,8 @@ def forward(sigma_l):
     vs.assign(cell_model.initial_conditions())
 
     # Time stepping parameters
-    h = 1.0 # Time step size
-    T = 10.0 # Final time
+    h = 0.5  # Time step size
+    T = 5.0 # Final time
     interval = (0.0, T)
 
     # Solve forward problem
@@ -81,10 +82,9 @@ def forward(sigma_l):
     return vs_, vs, vur
 
 if __name__ == "__main__":
-    sigma_l = Constant(0.10)          # initial guess, sigma_l=0.15 in the test problem.
-    #GNa= Constant(23)                # initial guess, GNa=23 in the test problem.
-    ctrl1 = sigma_l
-    (vs_, vs, vur) = forward(ctrl1)             # solve the forward problem once. 
+    GNa= Constant(23)                # initial guess, GNa=23 in the test problem.
+    ctrl1 = GNa
+    (vs_, vs, vur) = forward(GNa)   # solve the forward problem once. 
 
     # Load recorded data and define functional of interest
     times = np.loadtxt("Results/recorded_times.txt")
@@ -104,11 +104,23 @@ if __name__ == "__main__":
     J=Functional(I/N)
 
     # Define the reduced functional and solve the optimisation problem:
-    rf = ReducedFunctional(J, Control(ctrl1))
-    assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
-    opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10})
-    #opt_ctrls = minimize(rf, options={"gtol": 1e-15, "factr": 1e7})
-    print("ctrl1 = %f" %float(opt_ctrls))
+    rf = ReducedFunctional(J, [Control(ctrl1)])
+    #assert rf.taylor_test(ctrl1, seed=1) > 1.5
+    #opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10})
+    #opt_ctrls = minimize(rf)
+    #print("ctrl1 = %f" %float(opt_ctrls))
+    rf.taylor_test(ctrl1, seed=0.000001)
+    rf.taylor_test(ctrl1, seed=0.00001)
+    rf.taylor_test(ctrl1, seed=0.0001)
+    rf.taylor_test(ctrl1, seed=0.001)
+    rf.taylor_test(ctrl1, seed=0.01)
+    rf.taylor_test(ctrl1, seed=0.1)
+    rf.taylor_test(ctrl1, seed=1)
+    rf.taylor_test(ctrl1, seed=10)
+    rf.taylor_test(ctrl1, seed=100)
+    rf.taylor_test(ctrl1, seed=1000)
+
+
     
 
   

@@ -4,15 +4,20 @@
 # This test case solves the monodomain equations on a [0,5]^2 square domain,
 # with the Grandi cell model, using the splittingsolver with the default 
 # parameter values and default initial conditions. 
+#
+# When Synthetic_observations == True, we record synthetic observations with 
+# random, spatially varying values for sigma_l and sigma_t
+#
 
 # Import the cbcbeat module
 from cbcbeat import *
 from mshr import *
 import numpy as np
+import numpy.random
 
 # Set to 'True' to create synthetic obervations, 
 # to be used in Basic_test_case_monodomain_inverse_problem.py
-Synthetic_observations=False
+Synthetic_observations=True
 
 # Turn on FFC/FEniCS optimizations
 parameters["form_compiler"]["representation"] = "uflacs"
@@ -28,10 +33,12 @@ parameters["adjoint"]["stop_annotating"] = True
 domain = Rectangle(Point(0.0, 0.0), Point(5.0, 5.0))
 mesh = generate_mesh(domain, 100)
 
-# Define averaged nominal conductivities, surface to volume ratio and membrane
-# capacitance, as found in Sepulveda, Roth, & Wikswo. (1989), Table 1
-sigma_l = 0.15			# mS / mm
-sigma_t = 0.02			# mS / mm
+# Define random, spatially varying values for sigma_l and sigma_t
+Q = FunctionSpace(mesh, "DG", 0)
+sigma_l = Function(Q)
+sigma_l.vector()[:] = 0.15 + 0.1*numpy.random.rand(Q.dim())
+sigma_t = Function(Q)
+sigma_t.vector()[:] = 0.02 + 0.01*numpy.random.rand(Q.dim())
 beta = 200.0			# mm^{-1}
 C_m = 0.2				# mu F / mm^2
 
@@ -69,20 +76,20 @@ solver = SplittingSolver(cardiac_model, params=ps)
 
 # Extract the solution fields and set the initial conditions
 (vs_, vs, vur) = solver.solution_fields()
-vs_.assign(cell_model.initial_conditions())
+vs_.assign(cell_model.initial_conditions(), solver.VS)
+vs.assign(cell_model.initial_conditions())
 
 # Time stepping parameters
 h = 1 # Time step size
-T = 50000.0 # Final time
+T = 10.0 # Final time
 interval = (0.0, T)
 
 vtkfile_v = File('Results/Basic_test_case_monodomain_v.pvd')
 vtkfile_Ca_sl = File('Results/Basic_test_case_monodomain_Ca_sl.pvd')
 
 if Synthetic_observations == True:
-    # Create HDF5 file to save v and Ca_sl
-    hdf_v = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_v.h5", "w")
-    hdf_Ca_sl = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_Ca_sl.h5", "w")
+    # Create HDF5 file to save vs
+    hdf_vs = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_vs_random.h5", "w")
     times = []
     i=0
 
@@ -95,15 +102,14 @@ for (timestep, fields) in solver.solve(interval, h):
     (vs_, vs, vur) = fields
     vtkfile_v << vs.split(deepcopy=True)[0]
     vtkfile_Ca_sl << vs.split(deepcopy=True)[38]
-    # If Synthetic_observations == True, record v and Ca_sl each ms
+    # If Synthetic_observations == True, record vs each ms
     if Synthetic_observations == True and (round(timestep[1])-timestep[1]) < (0.1*h):
-        hdf_v.write(vs.sub(0),"v",i)
-        hdf_Ca_sl.write(vs.sub(38),"Ca_sl",i)
+        hdf_vs.write(vs,"vs",i)
         times.append(timestep[1])
         i=i+1
 
 if Synthetic_observations == True:
     np.savetxt("Results/recorded_times.txt", times)
-    del hdf_v, hdf_Ca_sl
+    del hdf_vs
 
 print "Success!"
