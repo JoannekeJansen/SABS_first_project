@@ -1,10 +1,10 @@
 # Solver for the inverse problem of Basic_test_case_monodomain.py
 # ===========================================================
 #
+# Joanneke E Jansen, April 2017
 
 # Import the cbcbeat module
 from cbcbeat import *
-from mshr import *
 import numpy as np
 
 # Turn on FFC/FEniCS optimizations
@@ -15,9 +15,7 @@ parameters["form_compiler"]["cpp_optimize_flags"] = " ".join(flags)
 parameters["form_compiler"]["quadrature_degree"] = 3
 
 # Define a [0,5]^2 domain
-from mshr import *
-domain = Rectangle(Point(0.0, 0.0), Point(5.0, 5.0))
-mesh = generate_mesh(domain, 100)
+mesh = RectangleMesh(Point(0.0, 0.0), Point(5.0, 5.0), 100, 100)
 
 # Averaged nominal conductivities, surface to volume ratio and membrane
 # capacitance, as found in Sepulveda, Roth, & Wikswo. (1989), Table 1
@@ -36,9 +34,8 @@ def forward(sigma_l):
     #cell_model = FitzHughNagumoManual() # For fast tests
 
     # Define the external stimulus
-    p = Expression('10', degree=1, domain=mesh)
-    stimulus = Expression('(x[0] > 2.0 and x[0] < 3.0 and x[1] > 2.0 \
-    and x[1] < 3.0 and t < 3.0 ? p : 0)', p=p, t=time, degree=1)
+    stimulus = Expression('(x[0] > 2.25 && x[0] < 2.75 && x[1] > 2.25 \
+    and x[1] < 2.75 and t < 3.0 ? p : 0)', p=10.0, t=time, degree=1)
 
     # Scale conducitivites by 1/(C_m * chi)
     M_l = sigma_l/(C_m*beta) # mm^2 / ms
@@ -52,9 +49,11 @@ def forward(sigma_l):
 
     # Customize and create a splitting solver
     ps = SplittingSolver.default_parameters()
-    ps["theta"] = 0.5                        # Second order splitting scheme
+    ps["theta"] = 1.0                       # First order Godunov splitting scheme
+    #ps["theta"] = 0.5                       # Second order Strang splitting scheme
     ps["pde_solver"] = "monodomain"          # Use Monodomain model for the PDEs
-    ps["CardiacODESolver"]["scheme"] = "GRL1" #  1st order Rush-Larsen for the ODEs
+    ps["CardiacODESolver"]["scheme"] = "GRL1" # 1st order Rush-Larsen for the ODEs
+    #ps["MonodomainSolver"]["linear_solver_type"] = "direct"
     ps["MonodomainSolver"]["linear_solver_type"] = "iterative"
     ps["MonodomainSolver"]["algorithm"] = "cg"
     ps["MonodomainSolver"]["preconditioner"] = "petsc_amg"
@@ -67,24 +66,25 @@ def forward(sigma_l):
     vs.assign(cell_model.initial_conditions())
 
     # Time stepping parameters
-    h = 1.0 # Time step size
-    T = 10.0 # Final time
+    h = 0.05 # Time step size
+    T = 20   # Final time
     interval = (0.0, T)
 
     # Solve forward problem
     for (timestep, fields) in solver.solve(interval, h):
-        print "(t_0, t_1) = ", timestep
         # Extract the components of the field (vs_ at previous timestep,
         # current vs, current vur)
         (vs_, vs, vur) = fields
+        print "(t_0, t_1) = ", timestep
+        #print "v(2.5,2.5) = ", vs((2.5,2.5))[0]
 
     return vs_, vs, vur
 
 if __name__ == "__main__":
-    sigma_l = Constant(0.10)          # initial guess, sigma_l=0.15 in the test problem.
+    sigma_l = Constant(0.15)          # initial guess, sigma_l=0.15 in the test problem.
     #GNa= Constant(23)                # initial guess, GNa=23 in the test problem.
     ctrl1 = sigma_l
-    (vs_, vs, vur) = forward(ctrl1)             # solve the forward problem once. 
+    (vs_, vs, vur) = forward(ctrl1)   # solve the forward problem once. 
 
     # Load recorded data and define functional of interest
     times = np.loadtxt("Results/recorded_times.txt")
@@ -103,12 +103,19 @@ if __name__ == "__main__":
     del hdf_vs
     J=Functional(I/N)
 
-    # Define the reduced functional and solve the optimisation problem:
-    rf = ReducedFunctional(J, Control(ctrl1))
-    assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
-    opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10})
-    #opt_ctrls = minimize(rf, options={"gtol": 1e-15, "factr": 1e7})
-    print("ctrl1 = %f" %float(opt_ctrls))
+    # Compute size of gradient for different values of ctrl1 and save to file
+    dJdctrl1 = {}
+    control_values=np.linspace(0.5*ctrl1, 1.5*ctrl1, num=50)
+    for i in range(np.size(control_values))
+        dJdctrl1[i] = compute_gradient(J, Control(control_values(i))
+    np.savetxt("Results/size_of_gradient.txt", dJdctrl1, control_values)
+
+    # # Define the reduced functional and solve the optimisation problem:
+    # rf = ReducedFunctional(J, Control(ctrl1))
+    # # assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
+    # rf.taylor_test(ctrl1, seed=1e-2)
+    # opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10, "ftol": 1e-15})
+    # print("ctrl1 = %f" %float(opt_ctrls))
     
 
   

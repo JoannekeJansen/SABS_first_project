@@ -4,15 +4,19 @@
 # This test case solves the monodomain equations on a [0,5]^2 square domain,
 # with the Grandi cell model, using the splittingsolver with the default 
 # parameter values and default initial conditions. 
+#
+# Joanneke E Jansen, April 2017
 
 # Import the cbcbeat module
 from cbcbeat import *
-from mshr import *
 import numpy as np
 
 # Set to 'True' to create synthetic obervations, 
 # to be used in Basic_test_case_monodomain_inverse_problem.py
 Synthetic_observations=True
+
+# Set to 'True' to create files that can be opened in Paraview
+Postprocessing=True
 
 # Turn on FFC/FEniCS optimizations
 parameters["form_compiler"]["representation"] = "uflacs"
@@ -25,8 +29,7 @@ parameters["form_compiler"]["quadrature_degree"] = 3
 parameters["adjoint"]["stop_annotating"] = True
 
 # Define a [0,5]^2 domain
-domain = Rectangle(Point(0.0, 0.0), Point(5.0, 5.0))
-mesh = generate_mesh(domain, 100)
+mesh = RectangleMesh(Point(0.0, 0.0), Point(5.0, 5.0), 100, 100)
 
 # Define averaged nominal conductivities, surface to volume ratio and membrane
 # capacitance, as found in Sepulveda, Roth, & Wikswo. (1989), Table 1
@@ -49,18 +52,19 @@ time = Constant(0.0)
 cell_model = Grandi_pasqualini_bers_2010()
 
 # Define the external stimulus
-p = Expression('10', degree=1, domain=mesh)
-stimulus = Expression('(x[0] > 2.0 and x[0] < 3.0 and x[1] > 2.0 \
-	and x[1] < 3.0 and t < 3.0 ? p : 0)', p=p, t=time, degree=1)
+stimulus = Expression('(x[0] > 2.25 && x[0] < 2.75 && x[1] > 2.25 \
+	and x[1] < 2.75 and t < 3.0 ? p : 0)', p=10.0, t=time, degree=1)
 
 # Collect this information into the CardiacModel class
 cardiac_model = CardiacModel(mesh, time, M, 'none', cell_model, stimulus)
 
 # Customize and create a splitting solver
 ps = SplittingSolver.default_parameters()
-ps["theta"] = 0.5                        # Second order splitting scheme
+ps["theta"] = 1.0                       # First order Godunov splitting scheme
+#ps["theta"] = 0.5                       # Second order Strang splitting scheme
 ps["pde_solver"] = "monodomain"          # Use Monodomain model for the PDEs
 ps["CardiacODESolver"]["scheme"] = "GRL1" # 1st order Rush-Larsen for the ODEs
+#ps["MonodomainSolver"]["linear_solver_type"] = "direct"
 ps["MonodomainSolver"]["linear_solver_type"] = "iterative"
 ps["MonodomainSolver"]["algorithm"] = "cg"
 ps["MonodomainSolver"]["preconditioner"] = "petsc_amg"
@@ -73,12 +77,9 @@ vs_.assign(cell_model.initial_conditions(), solver.VS)
 vs.assign(cell_model.initial_conditions())
 
 # Time stepping parameters
-h = 0.5 # Time step size
-T = 5.0 # Final time
+h = 0.05 # Time step size
+T = 20   # Final time
 interval = (0.0, T)
-
-vtkfile_v = File('Results/Basic_test_case_monodomain_v.pvd')
-vtkfile_Ca_sl = File('Results/Basic_test_case_monodomain_Ca_sl.pvd')
 
 if Synthetic_observations == True:
     # Create HDF5 file to save vs
@@ -86,24 +87,43 @@ if Synthetic_observations == True:
     times = []
     i=0
 
+#timer = Timer("xxx:Solve")
+
 # Solve
 for (timestep, fields) in solver.solve(interval, h):
-    print "(t_0, t_1) = ", timestep
-
     # Extract the components of the field (vs_ at previous timestep,
     # current vs, current vur)
     (vs_, vs, vur) = fields
-    vtkfile_v << vs.split(deepcopy=True)[0]
-    vtkfile_Ca_sl << vs.split(deepcopy=True)[38]
-    # If Synthetic_observations == True, record vs each ms
+    print "(t_0, t_1) = ", timestep
+    #print "v(2.5,2.5) = ", vs((2.5,2.5))[0]
+    #If Synthetic_observations == True, record vs at each time step or at each ms
     if Synthetic_observations == True:
     #if Synthetic_observations == True and (round(timestep[1])-timestep[1]) < (0.1*h):
         hdf_vs.write(vs,"vs",i)
         times.append(timestep[1])
         i=i+1
 
+#timer.stop()
+#list_timings(TimingClear_keep, [TimingType_wall])
+
 if Synthetic_observations == True:
     np.savetxt("Results/recorded_times.txt", times)
     del hdf_vs
 
+# Postprocess recorded_times for plotting in Paraview
+if Postprocessing == True:
+    hdf_vs = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_vs.h5", "r")
+    xf_vs = XDMFFile(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_vs.xdmf")
+    attr_vs = hdf_vs.attributes("vs")
+    N = attr_vs['count']
+    Q = vs.function_space()
+    vs_obs = {}
+    for i in range(N):
+      vs_obs[i] = Function(Q, annotate=False)
+      dataset_vs = "vs/vector_%d"%i
+      hdf_vs.read(vs_obs[i], dataset_vs)
+      xf.write(u)
+    del hdf_vs
+
 print "Success!"
+
