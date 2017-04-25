@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  24 APR 2017 23:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  25 APR 2017 09:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -544,30 +544,20 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 12.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-
-LaTeX Warning: Reference `fig:2' on page 1 undefined on input line 26.
-
-
-LaTeX Warning: Reference `fig:3' on page 1 undefined on input line 26.
-
-
-LaTeX Warning: Reference `fig:4' on page 1 undefined on input line 26.
-
-[1
+) [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<5s.png, id=18, 890.32625pt x 452.69125pt>
-File: 5s.png Graphic file (type png)
- <use 5s.png>
-Package pdftex.def Info: 5s.png used on input line 33.
-(pdftex.def)             Requested size: 164.9693pt x 143.48956pt.
+<v5.png, id=18, 890.32625pt x 452.69125pt>
+File: v5.png Graphic file (type png)
+ <use v5.png>
+Package pdftex.def Info: v5.png used on input line 33.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
-<25s.png, id=20, 890.32625pt x 452.69125pt>
-File: 25s.png Graphic file (type png)
- <use 25s.png>
-Package pdftex.def Info: 25s.png used on input line 34.
-(pdftex.def)             Requested size: 164.9693pt x 143.48956pt.
+<v15.png, id=20, 890.32625pt x 452.69125pt>
+File: v15.png Graphic file (type png)
+ <use v15.png>
+Package pdftex.def Info: v15.png used on input line 34.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
 Overfull \hbox (1.3424pt too wide) in paragraph at lines 33--35
 []\OT1/cmr/bx/n/12 (a) []
@@ -578,17 +568,17 @@ Overfull \hbox (0.7799pt too wide) in paragraph at lines 33--35
 \OT1/cmr/bx/n/12 (c) [] 
  []
 
-<15s.png, id=22, 890.32625pt x 452.69125pt>
-File: 15s.png Graphic file (type png)
- <use 15s.png>
-Package pdftex.def Info: 15s.png used on input line 37.
-(pdftex.def)             Requested size: 164.9693pt x 143.48956pt.
+<v40.png, id=22, 890.32625pt x 452.69125pt>
+File: v40.png Graphic file (type png)
+ <use v40.png>
+Package pdftex.def Info: v40.png used on input line 37.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
-<35s.png, id=24, 890.32625pt x 452.69125pt>
-File: 35s.png Graphic file (type png)
- <use 35s.png>
-Package pdftex.def Info: 35s.png used on input line 38.
-(pdftex.def)             Requested size: 164.9693pt x 143.48956pt.
+<v90.png, id=24, 890.32625pt x 452.69125pt>
+File: v90.png Graphic file (type png)
+ <use v90.png>
+Package pdftex.def Info: v90.png used on input line 38.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
 Overfull \hbox (2.2799pt too wide) in paragraph at lines 37--39
 []\OT1/cmr/bx/n/12 (b) []
@@ -599,8 +589,78 @@ Overfull \hbox (2.2799pt too wide) in paragraph at lines 37--39
 \OT1/cmr/bx/n/12 (d) [] 
  []
 
-[2 <./5s.png (PNG copy)> <./25s.png (PNG copy)> <./15s.png (PNG copy)> <./35s.p
-ng (PNG copy)>]
+File: v5.png Graphic file (type png)
+<use v5.png>
+Package pdftex.def Info: v5.png used on input line 47.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
+File: v15.png Graphic file (type png)
+ <use v15.png>
+Package pdftex.def Info: v15.png used on input line 48.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
+
+Overfull \hbox (1.3424pt too wide) in paragraph at lines 47--49
+[]\OT1/cmr/bx/n/12 (a) []
+ []
+
+
+Overfull \hbox (0.7799pt too wide) in paragraph at lines 47--49
+\OT1/cmr/bx/n/12 (c) [] 
+ []
+
+File: v40.png Graphic file (type png)
+<use v40.png>
+Package pdftex.def Info: v40.png used on input line 51.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
+ <Casl80.png, id=29, 890.32625pt x 452.69125pt>
+File: Casl80.png Graphic file (type png)
+ <use Casl80.png>
+Package pdftex.def Info: Casl80.png used on input line 52.
+(pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
+
+Overfull \hbox (2.2799pt too wide) in paragraph at lines 51--53
+[]\OT1/cmr/bx/n/12 (b) []
+ []
+
+
+Overfull \hbox (2.2799pt too wide) in paragraph at lines 51--53
+\OT1/cmr/bx/n/12 (d) [] 
+ []
+
+<v150.png, id=31, 440.64626pt x 452.69125pt>
+File: v150.png Graphic file (type png)
+ <use v150.png>
+Package pdftex.def Info: v150.png used on input line 61.
+(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
+
+<v1500.png, id=32, 440.64626pt x 452.69125pt>
+File: v1500.png Graphic file (type png)
+ <use v1500.png>
+Package pdftex.def Info: v1500.png used on input line 62.
+(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+[][] \OT1/cmr/bx/n/12 (a)
+ []
+
+<Casl700.png, id=33, 440.64626pt x 452.69125pt>
+File: Casl700.png Graphic file (type png)
+ <use Casl700.png>
+Package pdftex.def Info: Casl700.png used on input line 69.
+(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
+
+<Casl8000.png, id=34, 440.64626pt x 452.69125pt>
+File: Casl8000.png Graphic file (type png)
+ <use Casl8000.png>
+Package pdftex.def Info: Casl8000.png used on input line 70.
+(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+[][] \OT1/cmr/bx/n/12 (a)
+ []
+
+[2 <./v5.png (PNG copy)> <./v15.png (PNG copy)> <./v40.png (PNG copy)> <./v90.p
+ng (PNG copy)>] [3 <./Casl80.png (PNG copy)>] [4 <./v150.png (PNG copy)> <./v15
+00.png (PNG copy)>] [5 <./Casl700.png (PNG copy)> <./Casl8000.png (PNG copy)>]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
@@ -610,41 +670,39 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [3]
-Underfull \hbox (badness 1990) in paragraph at lines 221--222
+
+[6]
+Underfull \hbox (badness 1990) in paragraph at lines 252--253
 []\OT1/cmr/m/n/12 Barr, & Plon-sey. (1984). Prop-a-ga-tion of ex-ci-ta-tion in 
 ide-al-ized
  []
 
-[4] (./Notes_21Apr2017.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[7] (./Notes_21Apr2017.aux) ) 
 Here is how much of TeX's memory you used:
- 17725 strings out of 493089
- 411483 string characters out of 6134841
- 531403 words of memory out of 5000000
- 20908 multiletter control sequences out of 15000+600000
+ 17750 strings out of 493089
+ 411828 string characters out of 6134841
+ 531427 words of memory out of 5000000
+ 20928 multiletter control sequences out of 15000+600000
  11470 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,9n,56p,1349b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Notes_21Apr2017.pdf (4 pages, 287195 bytes).
+</usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+t12.pfb>
+Output written on Notes_21Apr2017.pdf (7 pages, 341069 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -23,24 +23,55 @@ with $\mathbf{M}_e=\lambda \mathbf{M}_i$. Here, $\mathbf{M}_e$ and $\mathbf{M}_i
 
 \section{A basic test case} \label{A basic test case}
 For our test case, we take a square of $5$ mm $\times\: 5$ mm as our domain $H$. We will use the Grandi cell model to model the membrane kinetics \cite{Grandi}. We solve our test case with the \url{splittingsolver} module from the cbcbeat Python package \cite{cbcbeat}\footnote{This electrophysiology solver package is based on the FEniCS Project software \cite{fenics} and the dolfin-adjoint software \cite{dolfin-adjoint}} with the default parameter values and default initial conditions for $v$ and $s$. The \url{splittingsolver} solves the monodomain PDE system and its coupled cell membrame dynamics ODE system separately, using the operator splitting scheme as described in \cite{Sundnes}. We take typical values $\sigma_l=0.1$ and $\sigma_t=0.02$ (in mS/mm) for the longitudinal and tangential conductivity respectively and take $C_m=0.2$ for the membrane capacitance (in $\mu$F/(mm$^2$)) and $\beta=200$ for the cell membrane area-to-volume ratio (in 1/mm) \cite{Roth}, data from \cite{Plonsey1882, Plonsey1984}.
-We apply a stimulus of $10$ mV/ms over 1 mm$^2$ in the centre of the square from $t=0$ to $t=3$ ms. In Figure \ref{fig:1}, we show a heat map of $u$ at $t=15, 20, 30$ and $40$ ms. In Figure \ref{fig:2}, we show a heat map of $Ca\_sl$ at the same times. This variable is one of the 37 state variables $\mathbf{s}$ of the Grandi cell model and measures the intracellular calcium concentration \cite{Grandi}. In Figures \ref{fig:3} and \ref{fig:4}, we plotted $u$ and $Ca\_sl$ over time, both at a point at the centre of the domain (in blue) and at a point at the left lower edge (in green). We see that the ...
+We apply a stimulus of $10$ mV/ms over 1 mm$^2$ in the centre of the square from $t=0$ to $t=3$ ms. In Figure \ref{fig:1}, we show a heat map of $v$ at $t=5, 15, 40$ and $80$ ms. In Figure \ref{fig:2}, we show a heat map of $Ca\_sl$ at the same times. This variable is one of the 37 state variables $\mathbf{s}$ of the Grandi cell model and measures the intracellular calcium concentration \cite{Grandi}. In Figures \ref{fig:3} and \ref{fig:4}, we plotted $v$ and $Ca\_sl$ over time, both at a point at the centre of the domain (in blue) and at a point at the left lower edge (in green). We see that the ...
 
 %4 V during 3 ms p. 1487, Lee-peter-2011, misschien kleiner domein nemen?
 
 \begin{figure}
 
 \begin{minipage}{0.47\textwidth}
- \textbf{(a)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{5s}
-      \textbf{(c)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{25s}
+ \textbf{(a)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v5}
+      \textbf{(c)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v15}
     \end{minipage}
     \begin{minipage}{0.47\textwidth}
-  \textbf{(b)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{15s}
-  \textbf{(d)} \includegraphics[trim=11cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{35s}
+  \textbf{(b)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v40}
+  \textbf{(d)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v90}
     \end{minipage}
-    \caption{Heat maps of $u$ of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=25$ms and \textbf{(d)} $t=35$ms.}
+    \caption{Heat maps of $v$ (in mV) of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=40$ms and \textbf{(d)} $t=80$ms.}
     \label{fig:1}
 \end{figure}
+
+\begin{figure}
+
+\begin{minipage}{0.47\textwidth}
+ \textbf{(a)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v5}
+      \textbf{(c)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v15}
+    \end{minipage}
+    \begin{minipage}{0.47\textwidth}
+  \textbf{(b)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v40}
+  \textbf{(d)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{Casl80}
+    \end{minipage}
+    \caption{Heat maps of $Ca\_sl$ of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=40$ms and \textbf{(d)} $t=80$ms.}
+    \label{fig:2}
+\end{figure}
 %trim={<left> <lower> <right> <upper>}
+
+\begin{figure}
+
+ \includegraphics[width=0.7\linewidth]{v150}  \textbf{(a)}
+   \includegraphics[width=0.7\linewidth]{v1500} \textbf{(b)}
+    \caption{Plots of $v$ against $t$.}
+    \label{fig:3}
+\end{figure}
+
+\begin{figure}
+
+ \includegraphics[width=0.7\linewidth]{Casl700}  \textbf{(a)}
+   \includegraphics[width=0.7\linewidth]{Casl8000} \textbf{(b)}
+    \caption{Plots of $Ca\_sl$ against $t$.}
+    \label{fig:4}
+\end{figure}
+
 \section{The inverse problem} \label{The inverse problem}
 It is possible to obtain measurements $u_{\text{obs}}$ of the transmembrane potential and measurements $c_{\text{obs}}$ of the intracellular calcium concentration $Ca\_sl$ over the whole domain $H$ at discrete points in time. With those measurements, we can estimate the value of the parameters in our model, using an adjoint-based approach.\footnote{See, for example, \cite{Gunzburger} for an introductory text in adjoint-based optimization methods.} Here, as an example, we will try to estimate the values of the $\sigma_l$ parameter from the Grandi cell model.
 We can formulate this problem as an optimisation problem: find $\sigma_l$, such that the functional
