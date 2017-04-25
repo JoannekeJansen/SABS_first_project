@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  25 APR 2017 09:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  25 APR 2017 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -553,10 +553,10 @@ File: v5.png Graphic file (type png)
 Package pdftex.def Info: v5.png used on input line 33.
 (pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
-<v15.png, id=20, 890.32625pt x 452.69125pt>
-File: v15.png Graphic file (type png)
- <use v15.png>
-Package pdftex.def Info: v15.png used on input line 34.
+<v40.png, id=20, 890.32625pt x 452.69125pt>
+File: v40.png Graphic file (type png)
+ <use v40.png>
+Package pdftex.def Info: v40.png used on input line 34.
 (pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
 Overfull \hbox (1.3424pt too wide) in paragraph at lines 33--35
@@ -568,10 +568,10 @@ Overfull \hbox (0.7799pt too wide) in paragraph at lines 33--35
 \OT1/cmr/bx/n/12 (c) [] 
  []
 
-<v40.png, id=22, 890.32625pt x 452.69125pt>
-File: v40.png Graphic file (type png)
- <use v40.png>
-Package pdftex.def Info: v40.png used on input line 37.
+<v15.png, id=22, 890.32625pt x 452.69125pt>
+File: v15.png Graphic file (type png)
+ <use v15.png>
+Package pdftex.def Info: v15.png used on input line 37.
 (pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
 <v90.png, id=24, 890.32625pt x 452.69125pt>
@@ -593,9 +593,9 @@ File: v5.png Graphic file (type png)
 <use v5.png>
 Package pdftex.def Info: v5.png used on input line 47.
 (pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
-File: v15.png Graphic file (type png)
- <use v15.png>
-Package pdftex.def Info: v15.png used on input line 48.
+File: v40.png Graphic file (type png)
+ <use v40.png>
+Package pdftex.def Info: v40.png used on input line 48.
 (pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
 
 Overfull \hbox (1.3424pt too wide) in paragraph at lines 47--49
@@ -607,9 +607,9 @@ Overfull \hbox (0.7799pt too wide) in paragraph at lines 47--49
 \OT1/cmr/bx/n/12 (c) [] 
  []
 
-File: v40.png Graphic file (type png)
-<use v40.png>
-Package pdftex.def Info: v40.png used on input line 51.
+File: v15.png Graphic file (type png)
+<use v15.png>
+Package pdftex.def Info: v15.png used on input line 51.
 (pdftex.def)             Requested size: 164.9693pt x 129.3499pt.
  <Casl80.png, id=29, 890.32625pt x 452.69125pt>
 File: Casl80.png Graphic file (type png)
@@ -658,7 +658,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--71
 [][] \OT1/cmr/bx/n/12 (a)
  []
 
-[2 <./v5.png (PNG copy)> <./v15.png (PNG copy)> <./v40.png (PNG copy)> <./v90.p
+[2 <./v5.png (PNG copy)> <./v40.png (PNG copy)> <./v15.png (PNG copy)> <./v90.p
 ng (PNG copy)>] [3 <./Casl80.png (PNG copy)>] [4 <./v150.png (PNG copy)> <./v15
 00.png (PNG copy)>] [5 <./Casl700.png (PNG copy)> <./Casl8000.png (PNG copy)>]
 Missing character: There is no â in font cmr12!
@@ -699,7 +699,7 @@ m/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 t12.pfb>
-Output written on Notes_21Apr2017.pdf (7 pages, 341069 bytes).
+Output written on Notes_21Apr2017.pdf (7 pages, 341067 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
