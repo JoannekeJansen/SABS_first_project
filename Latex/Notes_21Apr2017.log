@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  25 APR 2017 10:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  25 APR 2017 21:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -626,41 +626,20 @@ Overfull \hbox (2.2799pt too wide) in paragraph at lines 51--53
 \OT1/cmr/bx/n/12 (d) [] 
  []
 
-<v150.png, id=31, 440.64626pt x 452.69125pt>
-File: v150.png Graphic file (type png)
- <use v150.png>
-Package pdftex.def Info: v150.png used on input line 61.
-(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
-
-<v1500.png, id=32, 440.64626pt x 452.69125pt>
+<v1500.png, id=31, 440.64626pt x 452.69125pt>
 File: v1500.png Graphic file (type png)
  <use v1500.png>
-Package pdftex.def Info: v1500.png used on input line 62.
-(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
+Package pdftex.def Info: v1500.png used on input line 60.
+(pdftex.def)             Requested size: 390.0pt x 400.67664pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--63
-[][] \OT1/cmr/bx/n/12 (a)
- []
-
-<Casl700.png, id=33, 440.64626pt x 452.69125pt>
-File: Casl700.png Graphic file (type png)
- <use Casl700.png>
-Package pdftex.def Info: Casl700.png used on input line 69.
-(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
-
-<Casl8000.png, id=34, 440.64626pt x 452.69125pt>
+<Casl8000.png, id=32, 440.64626pt x 452.69125pt>
 File: Casl8000.png Graphic file (type png)
  <use Casl8000.png>
-Package pdftex.def Info: Casl8000.png used on input line 70.
-(pdftex.def)             Requested size: 272.99881pt x 280.47226pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 69--71
-[][] \OT1/cmr/bx/n/12 (a)
- []
-
-[2 <./v5.png (PNG copy)> <./v40.png (PNG copy)> <./v15.png (PNG copy)> <./v90.p
-ng (PNG copy)>] [3 <./Casl80.png (PNG copy)>] [4 <./v150.png (PNG copy)> <./v15
-00.png (PNG copy)>] [5 <./Casl700.png (PNG copy)> <./Casl8000.png (PNG copy)>]
+Package pdftex.def Info: Casl8000.png used on input line 66.
+(pdftex.def)             Requested size: 390.0pt x 400.67664pt.
+ [2 <./v5.png (PNG copy)> <./v40.png (PNG copy)> <./v15.png (PNG copy)> <./v90.
+png (PNG copy)>] [3 <./Casl80.png (PNG copy)>] [4 <./v1500.png (PNG copy)>] [5 
+<./Casl8000.png (PNG copy)>]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
@@ -671,38 +650,37 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
 
-[6]
-Underfull \hbox (badness 1990) in paragraph at lines 252--253
+Underfull \hbox (badness 1990) in paragraph at lines 250--251
 []\OT1/cmr/m/n/12 Barr, & Plon-sey. (1984). Prop-a-ga-tion of ex-ci-ta-tion in 
 ide-al-ized
  []
 
-[7] (./Notes_21Apr2017.aux) ) 
+[6] [7] (./Notes_21Apr2017.aux) ) 
 Here is how much of TeX's memory you used:
- 17750 strings out of 493089
- 411828 string characters out of 6134841
+ 17740 strings out of 493089
+ 411695 string characters out of 6134841
  531427 words of memory out of 5000000
- 20928 multiletter control sequences out of 15000+600000
+ 20920 multiletter control sequences out of 15000+600000
  11470 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,9n,56p,1349b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
-t12.pfb>
-Output written on Notes_21Apr2017.pdf (7 pages, 341067 bytes).
+ 62i,10n,56p,1062b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt12.pfb>
+Output written on Notes_21Apr2017.pdf (7 pages, 319975 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -22,8 +22,8 @@ Equation \eqref{eq:a} is a system of ODE's that models the membrane dynamics. Th
 with $\mathbf{M}_e=\lambda \mathbf{M}_i$. Here, $\mathbf{M}_e$ and $\mathbf{M}_i$ are the extracellular and intracellular conductivities (in mm$^2$/ms), divided by the product of the membrane capacitance (in $\mu$F/(mm$^2$)) and the cell membrane area-to-volume ratio (in 1/mm). By assuming that there exists a $\lambda$ such that $\mathbf{M}_e=\lambda \mathbf{M}_i$ the monodomain equations can be derived from the more complicated bidomain equations \cite{Sundnes}.
 
 \section{A basic test case} \label{A basic test case}
-For our test case, we take a square of $5$ mm $\times\: 5$ mm as our domain $H$. We will use the Grandi cell model to model the membrane kinetics \cite{Grandi}. We solve our test case with the \url{splittingsolver} module from the cbcbeat Python package \cite{cbcbeat}\footnote{This electrophysiology solver package is based on the FEniCS Project software \cite{fenics} and the dolfin-adjoint software \cite{dolfin-adjoint}} with the default parameter values and default initial conditions for $v$ and $s$. The \url{splittingsolver} solves the monodomain PDE system and its coupled cell membrame dynamics ODE system separately, using the operator splitting scheme as described in \cite{Sundnes}. We take typical values $\sigma_l=0.1$ and $\sigma_t=0.02$ (in mS/mm) for the longitudinal and tangential conductivity respectively and take $C_m=0.2$ for the membrane capacitance (in $\mu$F/(mm$^2$)) and $\beta=200$ for the cell membrane area-to-volume ratio (in 1/mm) \cite{Roth}, data from \cite{Plonsey1882, Plonsey1984}.
-We apply a stimulus of $10$ mV/ms over 1 mm$^2$ in the centre of the square from $t=0$ to $t=3$ ms. In Figure \ref{fig:1}, we show a heat map of $v$ at $t=5, 15, 40$ and $80$ ms. In Figure \ref{fig:2}, we show a heat map of $Ca\_sl$ at the same times. This variable is one of the 37 state variables $\mathbf{s}$ of the Grandi cell model and measures the intracellular calcium concentration \cite{Grandi}. In Figures \ref{fig:3} and \ref{fig:4}, we plotted $v$ and $Ca\_sl$ over time, both at a point at the centre of the domain (in blue) and at a point at the left lower edge (in green). We see that the ...
+For our test case, we take a square of $5$ mm $\times\: 5$ mm as our domain $H$. We will use the Grandi cell model to model the membrane kinetics \cite{Grandi}. We solve our test case with the \url{splittingsolver} module from the cbcbeat Python package \cite{cbcbeat}\footnote{This electrophysiology solver package is based on the FEniCS Project software \cite{fenics} and the dolfin-adjoint software \cite{dolfin-adjoint}} with the default parameter values and default initial conditions for $v$ and $s$. The \url{splittingsolver} solves the monodomain PDE system and its coupled cell membrame dynamics ODE system separately, using the operator splitting scheme as described in \cite{Sundnes}. We take typical values $\sigma_l=0.15$ and $\sigma_t=0.02$ (in mS/mm) for the longitudinal and tangential conductivity respectively and take $C_m=0.2$ for the membrane capacitance (in $\mu$F/(mm$^2$)) and $\beta=200$ for the cell membrane area-to-volume ratio (in 1/mm) \cite{Roth}, data from \cite{Plonsey1882, Plonsey1984}.
+We apply a stimulus of $10$ mV/ms over 0.25 mm$^2$ in the centre of the square from $t=0$ to $t=3$ ms. In Figure \ref{fig:1}, we show a heat map of $v$ at $t=5, 15, 40$ and $80$ ms. In Figure \ref{fig:2}, we show a heat map of $[Ca]_i$ at the same times. This variable is one of the 37 state variables $\mathbf{s}$ of the Grandi cell model and measures the cytosolic calcium concentration \cite{Grandi}. In Figures \ref{fig:3} and \ref{fig:4}, we plotted $v$ and $[Ca]_i$ (in $\mu$M) over time, both at a point at the centre of the domain (in blue) and at a point at the left lower edge (in green).
 
 %4 V during 3 ms p. 1487, Lee-peter-2011, misschien kleiner domein nemen?
 
@@ -51,39 +51,37 @@ We apply a stimulus of $10$ mV/ms over 1 mm$^2$ in the centre of the square from
   \textbf{(b)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{v15}
   \textbf{(d)} \includegraphics[trim=9cm 0cm 2cm 0cm, clip=true, width=0.9\linewidth]{Casl80}
     \end{minipage}
-    \caption{Heat maps of $Ca\_sl$ of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=40$ms and \textbf{(d)} $t=80$ms.}
+    \caption{Heat maps of $[Ca]_i$ (in $\mu$M) of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=40$ms and \textbf{(d)} $t=80$ms.}
     \label{fig:2}
 \end{figure}
 %trim={<left> <lower> <right> <upper>}
 
 \begin{figure}
-
- \includegraphics[width=0.7\linewidth]{v150}  \textbf{(a)}
-   \includegraphics[width=0.7\linewidth]{v1500} \textbf{(b)}
-    \caption{Plots of $v$ against $t$.}
+   \includegraphics[width=1\linewidth]{v1500} 
+    \caption{Plot of $v$ against $t$.}
     \label{fig:3}
 \end{figure}
 
 \begin{figure}
-
- \includegraphics[width=0.7\linewidth]{Casl700}  \textbf{(a)}
-   \includegraphics[width=0.7\linewidth]{Casl8000} \textbf{(b)}
-    \caption{Plots of $Ca\_sl$ against $t$.}
+   \includegraphics[width=1\linewidth]{Casl8000} 
+    \caption{Plot of $[Ca]_i$ against $t$.}
     \label{fig:4}
 \end{figure}
 
 \section{The inverse problem} \label{The inverse problem}
-It is possible to obtain measurements $u_{\text{obs}}$ of the transmembrane potential and measurements $c_{\text{obs}}$ of the intracellular calcium concentration $Ca\_sl$ over the whole domain $H$ at discrete points in time. With those measurements, we can estimate the value of the parameters in our model, using an adjoint-based approach.\footnote{See, for example, \cite{Gunzburger} for an introductory text in adjoint-based optimization methods.} Here, as an example, we will try to estimate the values of the $\sigma_l$ parameter from the Grandi cell model.
+It is possible to obtain measurements $u_{\text{obs}}$ of the transmembrane potential and measurements $c_{\text{obs}}$ of the cytosolic calcium concentration $[Ca]_i$ over the whole domain $H$ at discrete points in time. With those measurements, we can estimate the value of the parameters in our model, using an adjoint-based approach.\footnote{See, for example, \cite{Gunzburger} for an introductory text in adjoint-based optimization methods.} Here, as an example, we will try to estimate the values of the $\sigma_l$ parameter from the Grandi cell model.
 We can formulate this problem as an optimisation problem: find $\sigma_l$, such that the functional
 \begin{eqnarray}
-\mathcal{J}(v, c, \sigma_l)= \frac{1}{N} \sum_{i=1}^{N} ||v-v_{\text{obs}}(t_i)||^2_{L^2(H)} + ||c-c_{\text{obs}}(t_i) ||^2_{L^2(H)},\label{J}
+\mathcal{J}(v, [Ca]_i, \sigma_l)= \frac{1}{N} \sum_{i=1}^{N} \frac{||v-v_{\text{obs}}(t_i)||^2_{L^2}}{||v_{\text{obs}}(t_i)||^2_{L^2}} + \frac{||[Ca]_i-[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}}{||[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}},\label{J}
 \end{eqnarray}
 %\begin{eqnarray} \nonumber
 %\mathcal{J}(v, c, \sigma_l)= \\ \frac{1}{N} \sum_{i=1}^{N} \int_{H}(v(\textbf{x},t_i)-\Phi(\textbf{x},t_i))^2 \: \text{d}\textbf{x} + \int_{H}\left(c(\textbf{x},t_i)-\Psi(\textbf{x},t_i)\right)^2 \: \text{d}\textbf{x},\label{J}
 %\end{eqnarray}
 is minimized, subject to the requirements that $v, c$ and $\sigma_l$ satisfy the state system of equations \eqref{eq:a}-\eqref{eq:c} and initial conditions $v(\textbf{x},0)=v_0(\textbf{x})$ and $\mathbf{s}(\mathbf{x},0)=\mathbf{s}_0(\mathbf{x})$. Here, $N$ are the number of measurements in time and $t_i$, $i=1, \dots N$ the respective moments in time.
 % https://fenicsproject.org/qa/6675/hdf-file-read-write-for-time-series
-Using cbcbeat and the dolfin-adjoint software on which it is based, we can automatically compute the total derivative of $\mathcal{J}$ with respect to the optimization parameter $\sigma_l$. We can then use the scipy optimisation algorithm \url{minimize()} -which uses the limited memory Broyden–Fletcher–Goldfarb–Shanno (BFGS) method with bound support - to find an optimal value for $\sigma_l$. We first generated some fake observed data fir $\sigma_l=0.15$, from $t=0.0$ to $t=5.0$ ms, with a timestep $dt=0.5$ ms. With $\sigma_l=0.10$ as initial guess, the \url{minimize()} algorithm returned $\sigma_l=0.150004$ after six iterations. Similarly, we can optimize for other parameters, such as $\sigma_t$, or $g\_Na$, $g\_CaL$, $g\_K1$ or $g\_K2$ from the Grandi cell model. With $\sigma_t=0.01$ as initial guess and fake data created for $\sigma_t=0.02$, the \url{minimize()} algorithm converged to $\sigma_t=0.020005$ after five iterations. Optimizing for both $\sigma_l$ and $\sigma_t$, with the same initial guesses and synthetic data, gave convergence in eight iterations. The value of the functional at each iteration step was consecutively $38.6, 11.7, 10.0, 3.19, 0.89, 0.023, 0.00063, 0.0000084$ and $0.0000098$. We also looked at synthetic spatially varying $\sigma_l$ and $\sigma_t$$\ldots$
+Using cbcbeat and the dolfin-adjoint software on which it is based, we can automatically compute the total derivative of $\mathcal{J}$ with respect to the optimization parameter $\sigma_l$. We can then use the scipy optimisation algorithm \url{minimize()} -which uses the limited memory Broyden–Fletcher–Goldfarb–Shanno (BFGS) method with bound support - to find an optimal value for $\sigma_l$. We first generated some fake observed data for $\sigma_l=0.15$, from $t=0.0$ to $t=5.0$ ms, with a timestep $dt=0.05$ ms. With $\sigma_l=0.10$ as initial guess, the \url{minimize()} algorithm returned $\sigma_l=?$ after ? iterations. Similarly, we can optimize for other parameters, such as $\sigma_t$, or $g\_Na$, $g\_CaL$, $g\_K1$ or $g\_K2$ from the Grandi cell model. 
+
+%With $\sigma_t=0.01$ as initial guess and fake data created for $\sigma_t=0.02$, the \url{minimize()} algorithm converged to $\sigma_t=0.020005$ after five iterations. Optimizing for both $\sigma_l$ and $\sigma_t$, with the same initial guesses and synthetic data, gave convergence in eight iterations. The value of the functional at each iteration step was consecutively $38.6, 11.7, 10.0, 3.19, 0.89, 0.023, 0.00063, 0.0000084$ and $0.0000098$. We also looked at synthetic spatially varying $\sigma_l$ and $\sigma_t$$\ldots$
 
 %Vragen:
 %welke parameters bedoelt hij??

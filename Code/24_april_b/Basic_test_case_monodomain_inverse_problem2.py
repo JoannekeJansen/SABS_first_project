@@ -1,10 +1,10 @@
 # Solver for the inverse problem of Basic_test_case_monodomain.py
 # ===========================================================
 #
-# Joanneke E Jansen, April 2017
 
 # Import the cbcbeat module
 from cbcbeat import *
+from mshr import *
 import numpy as np
 
 # Turn on FFC/FEniCS optimizations
@@ -15,7 +15,9 @@ parameters["form_compiler"]["cpp_optimize_flags"] = " ".join(flags)
 parameters["form_compiler"]["quadrature_degree"] = 3
 
 # Define a [0,5]^2 domain
-mesh = RectangleMesh(Point(0.0, 0.0), Point(5.0, 5.0), 100, 100)
+from mshr import *
+domain = Rectangle(Point(0.0, 0.0), Point(5.0, 5.0))
+mesh = generate_mesh(domain, 100)
 
 # Averaged nominal conductivities, surface to volume ratio and membrane
 # capacitance, as found in Sepulveda, Roth, & Wikswo. (1989), Table 1
@@ -34,8 +36,9 @@ def forward(sigma_l):
     #cell_model = FitzHughNagumoManual() # For fast tests
 
     # Define the external stimulus
-    stimulus = Expression('(x[0] > 2.25 && x[0] < 2.75 && x[1] > 2.25 \
-    and x[1] < 2.75 and t < 3.0 ? p : 0)', p=10.0, t=time, degree=1)
+    p = Expression('10', degree=1, domain=mesh)
+    stimulus = Expression('(x[0] > 2.0 and x[0] < 3.0 and x[1] > 2.0 \
+    and x[1] < 3.0 and t < 3.0 ? p : 0)', p=p, t=time, degree=1)
 
     # Scale conducitivites by 1/(C_m * chi)
     M_l = sigma_l/(C_m*beta) # mm^2 / ms
@@ -49,11 +52,9 @@ def forward(sigma_l):
 
     # Customize and create a splitting solver
     ps = SplittingSolver.default_parameters()
-    ps["theta"] = 1.0                       # First order Godunov splitting scheme
-    #ps["theta"] = 0.5                       # Second order Strang splitting scheme
+    ps["theta"] = 0.5                        # Second order splitting scheme
     ps["pde_solver"] = "monodomain"          # Use Monodomain model for the PDEs
-    ps["CardiacODESolver"]["scheme"] = "GRL1" # 1st order Rush-Larsen for the ODEs
-    #ps["MonodomainSolver"]["linear_solver_type"] = "direct"
+    ps["CardiacODESolver"]["scheme"] = "GRL1" #  1st order Rush-Larsen for the ODEs
     ps["MonodomainSolver"]["linear_solver_type"] = "iterative"
     ps["MonodomainSolver"]["algorithm"] = "cg"
     ps["MonodomainSolver"]["preconditioner"] = "petsc_amg"
@@ -66,25 +67,24 @@ def forward(sigma_l):
     vs.assign(cell_model.initial_conditions())
 
     # Time stepping parameters
-    h = 0.05 # Time step size
-    T = 20   # Final time
+    h = 1.0 # Time step size
+    T = 10.0 # Final time
     interval = (0.0, T)
 
     # Solve forward problem
     for (timestep, fields) in solver.solve(interval, h):
+        print "(t_0, t_1) = ", timestep
         # Extract the components of the field (vs_ at previous timestep,
         # current vs, current vur)
         (vs_, vs, vur) = fields
-        print "(t_0, t_1) = ", timestep
-        #print "v(2.5,2.5) = ", vs((2.5,2.5))[0]
 
     return vs_, vs, vur
 
 if __name__ == "__main__":
-    sigma_l = Constant(0.15)          # initial guess, sigma_l=0.15 in the test problem.
+    sigma_l = Constant(0.10)          # initial guess, sigma_l=0.15 in the test problem.
     #GNa= Constant(23)                # initial guess, GNa=23 in the test problem.
     ctrl1 = sigma_l
-    (vs_, vs, vur) = forward(ctrl1)   # solve the forward problem once. 
+    (vs_, vs, vur) = forward(ctrl1)             # solve the forward problem once. 
 
     # Load recorded data and define functional of interest
     times = np.loadtxt("Results/recorded_times.txt")
@@ -98,24 +98,51 @@ if __name__ == "__main__":
       vs_obs[i] = Function(Q, annotate=False)
       dataset_vs = "vs/vector_%d"%i
       hdf_vs.read(vs_obs[i], dataset_vs)
-      I = I + inner(split(vs)[0] - split(vs_obs[i])[0], split(vs)[0] - split(vs_obs[i])[0])*dx*dt[times[i]]
+      #I = I + inner(split(vs)[0] - split(vs_obs[i])[0], split(vs)[0] - split(vs_obs[i])[0])*dx*dt[times[i]]
       I = I + inner(split(vs)[38] - split(vs_obs[i])[38], split(vs)[38] - split(vs_obs[i])[38])*dx*dt[times[i]]
     del hdf_vs
-    J=Functional(I/N)
 
-    # Compute size of gradient for different values of ctrl1 and save to file
-    dJdctrl1 = {}
-    control_values=np.linspace(0.5*ctrl1, 1.5*ctrl1, num=50)
-    for i in range(np.size(control_values))
-        dJdctrl1[i] = compute_gradient(J, Control(control_values(i))
-    np.savetxt("Results/size_of_gradient.txt", dJdctrl1, control_values)
+    # If Test_convergence == True, do Taylor test
+    Test_convergence = False
+    if Test_convergence == True:
+        J = Functional(inner(vur, vur)*dx*dt[FINISH_TIME]) # Works
+        #J = Functional(inner(vur, vur)*dx*dt[8.0]) # Works not
+        #J = Functional(inner(split(vs_)[0], split(vs_)[0])*dx*dt[FINISH_TIME]) # Works
+        #J = Functional(inner(split(vs_)[0], split(vs_)[0])*dx*dt[8.0]) # Works not
+        #J = Functional(inner(split(vs_)[38], split(vs_)[38])*dx*dt[FINISH_TIME]) Works
+        #J = Functional(inner(split(vs_)[38], split(vs_)[38])*dx*dt[8.0]) Works not
+        #J = Functional(inner(split(vs)[0], split(vs)[0])*dx*dt[FINISH_TIME]) # Works not
+        #J = Functional(inner(split(vs)[0], split(vs)[0])*dx*dt[8.0]) # Works not
 
-    # # Define the reduced functional and solve the optimisation problem:
-    # rf = ReducedFunctional(J, Control(ctrl1))
-    # # assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
-    # rf.taylor_test(ctrl1, seed=1e-2)
-    # opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10, "ftol": 1e-15})
-    # print("ctrl1 = %f" %float(opt_ctrls))
+        # Indicate the control parameter of interest
+        dJdnu = compute_gradient(J, Control(ctrl1))
+        Jnu = assemble(inner(vur, vur)*dx) # current value
+        #Jnu = assemble(inner(split(vs_)[0], split(vs_)[0])*dx) # current value
+        #Jnu = assemble(inner(split(vs_)[38], split(vs_)[38])*dx) # current value
+        #Jnu = assemble(inner(split(vs)[0], split(vs)[0])*dx) # current value
+        #Jnu = assemble(inner(split(vs)[38], split(vs)[38])*dx) # current value
+
+        parameters["adjoint"]["stop_annotating"] = True # stop registering equations
+
+        def Jhat(ctrl1): # the functional as a pure function of M
+            (vs_ ,vs, vur) = forward(ctrl1)
+            return assemble(inner(vur, vur)*dx)
+            #return assemble(inner(split(vs_)[0], split(vs_)[0])*dx)
+            #return assemble(inner(split(vs_)[38], split(vs_)[38])*dx)
+            #return assemble(inner(split(vs)[0], split(vs)[0])*dx)
+            #return assemble(inner(split(vs_)[38], split(vs_)[38])*dx)
+
+        conv_rate = taylor_test(Jhat, Control(ctrl1), Jnu, dJdnu, seed=(0.01))
+    
+    # Otherwise, optimise        
+    else:
+        J=Functional(I/N)
+        # Define the reduced functional and solve the optimisation problem:
+        rf = ReducedFunctional(J, Control(ctrl1))
+        assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
+        #opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10})
+        opt_ctrls = minimize(rf, options={"gtol": 1e-20})
+        print("ctrl1 = %f" %float(opt_ctrls))
     
 
   
