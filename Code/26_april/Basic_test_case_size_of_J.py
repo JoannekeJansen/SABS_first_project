@@ -7,6 +7,11 @@
 from cbcbeat import *
 import numpy as np
 
+timer = Timer("xxx:Solve")
+
+# Turn off adjoint functionality
+parameters["adjoint"]["stop_annotating"] = True
+
 # Turn on FFC/FEniCS optimizations
 parameters["form_compiler"]["representation"] = "uflacs"
 parameters["form_compiler"]["cpp_optimize"] = True
@@ -67,65 +72,62 @@ def forward(GNa):
 
     # Time stepping parameters
     h = 0.05 # Time step size
-    T = 500.0   # Final time
+    T = 2.0   # Final time
     interval = (0.0, T)
+
+    # Create HDF5 file to save vs
+    hdf_vs_model = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_model_observations_vs.h5", "w")
+    i=0
 
     # Solve forward problem
     for (timestep, fields) in solver.solve(interval, h):
         # Extract the components of the field (vs_ at previous timestep,
         # current vs, current vur)
         (vs_, vs, vur) = fields
-        print "(t_0, t_1) = ", timestep
-        #print "v(2.5,2.5) = ", vs((2.5,2.5))[0]
-
+        #print "(t_0, t_1) = ", timestep
+        #Record vs at each time step or at each ms
+        if (abs(round(timestep[1])-timestep[1])) < (0.1*h):
+          hdf_vs_model.write(vs,"vs",i)
+          i=i+1
+    del hdf_vs_model
     return vs
 
-if __name__ == "__main__":
-    Optimize = False
-    Evaluate_J = True
-
-    #sigma_l = Constant(0.10)          # initial guess, sigma_l=0.15 in the test problem.
-    GNa= Constant(23)                # initial guess, GNa=23 in the test problem.
-    ctrl1 = GNa
-    vs = forward(ctrl1)               # solves the forward problem once. 
-
-    # Load recorded data and define functional of interest
+def size_of_cost_function(ctrl1):
+    vs = forward(ctrl1)
     times = np.loadtxt("Results/recorded_times.txt")
     hdf_vs = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_vs.h5", "r")
+    hdf_vs_model = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_model_observations_vs.h5", "r")
     attr_vs = hdf_vs.attributes("vs")
     N = attr_vs['count']
+    print "N=", N
     Q = vs.function_space()
     vs_obs = {}
     I = 0
     for i in range(N):
-        vs_obs[i] = Function(Q, annotate=False)
+        vs_obs = Function(Q, annotate=False)
+        vs_model = Function(Q, annotate=False)
         dataset_vs = "vs/vector_%d"%i
-        hdf_vs.read(vs_obs[i], dataset_vs)
-        I = I + (inner(split(vs)[0] - split(vs_obs[i])[0], split(vs)[0] - split(vs_obs[i])[0]) \
-            /inner(split(vs_obs[i])[0], split(vs_obs[i])[0])) *dx*dt[times[i]]
-        I = I + (inner(split(vs)[36] - split(vs_obs[i])[36], split(vs)[36] - split(vs_obs[i])[36]) \
-            /inner(split(vs_obs[i])[36], split(vs_obs[i])[36]))*dx*dt[times[i]]
-    del hdf_vs
-    J = Functional(I/N)
+        hdf_vs.read(vs_obs, dataset_vs)
+        hdf_vs_model.read(vs_model, dataset_vs)
+        I = I + (assemble(inner(split(vs_model)[0] - split(vs_obs)[0], split(vs_model)[0] - split(vs_obs)[0])*dx) \
+            /assemble(inner(split(vs_obs)[0], split(vs_obs)[0])*dx))
+        I = I + (assemble(inner(split(vs_model)[36] - split(vs_obs)[36], split(vs_model)[36] - split(vs_obs)[36])*dx) \
+            /assemble(inner(split(vs_obs)[36], split(vs_obs)[36])*dx))
+    del hdf_vs, hdf_vs_model
+    return (I/N)
 
-    # Define the reduced functional
-    rf = ReducedFunctional(J, Control(ctrl1))
-
-    # Solve the optimisation problem
-    if Optimize == True:
-        # assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
-        rf.taylor_test(ctrl1, seed=1e-2)
-        opt_ctrls = minimize(rf, tol=1e-02, options={"maxiter": 10, "gtol": 1e-15})
-        print("ctrl1 = %f" %float(opt_ctrls))
-    
-    # Compute value of J for different values of ctrl1 and save to file
-    if Evaluate_J == True:
-        M = 100 # Number of functional evaluations
-        J_values = np.zeros(M)
-        orig_val = 23    # the value of the control variable that was used to generate the recorded data
-        control_values=np.linspace(0.1*orig_val, 35, num=M)
-        for i in range(np.size(control_values)):
-            J_values[i]=rf(Constant(control_values[i]))
-        np.savetxt("Results/J_values.txt", np.column_stack((J_values, control_values)))
+if __name__ == "__main__":
+    #GNa= Constant(23)                # initial guess, GNa=23 in the test problem.
+    M = 2 # Number of functional evaluations
+    J_values = np.zeros(M)
+    orig_val = 23    # the value of the control variable that was used to generate the recorded data
+    control_values=np.linspace(0.5*orig_val, 2*orig_val, num=M)
+    for i in range(np.size(control_values)):
+        print "Control_value =", control_values[i]
+        J_values[i]=size_of_cost_function(control_values[i])
+        print "J_value = ", J_values[i]
+    np.savetxt("Results/J_values.txt", np.column_stack((J_values, control_values)))
 
     print "Success!"
+    timer.stop()
+    list_timings(TimingClear_keep, [TimingType_wall])

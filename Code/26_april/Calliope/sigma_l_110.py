@@ -10,9 +10,10 @@
 # Import the cbcbeat module
 from cbcbeat import *
 import numpy as np
+import bisect
 
 # Set to 'True' to create files that can be opened in Paraview
-Postprocessing=True
+Postprocessing=False
 
 # Turn on FFC/FEniCS optimizations
 parameters["form_compiler"]["representation"] = "uflacs"
@@ -25,14 +26,14 @@ parameters["form_compiler"]["quadrature_degree"] = 3
 parameters["adjoint"]["stop_annotating"] = True
 
 # Define a [0,5]^2 domain
-mesh = RectangleMesh(Point(0.0, 0.0), Point(5.0, 5.0), 50, 50)
+mesh = RectangleMesh(Point(0.0, 0.0), Point(5.0, 5.0), 100, 100)
 
 # Define averaged nominal conductivities, surface to volume ratio and membrane
 # capacitance, as found in Sepulveda, Roth, & Wikswo. (1989), Table 1
-sigma_l = 0.15			# mS / mm
-sigma_t = 0.02			# mS / mm
-beta = 200.0			# mm^{-1}
-C_m = 0.2				# mu F / mm^2
+sigma_l = 0.15*1.10          # mS / mm
+sigma_t = 0.02          # mS / mm
+beta = 200.0            # mm^{-1}
+C_m = 0.2               # mu F / mm^2
 
 # Scale conducitivites by 1/(C_m * chi)
 M_l = sigma_l/(C_m*beta) # mm^2 / ms
@@ -49,7 +50,7 @@ cell_model = Grandi_pasqualini_bers_2010()
 
 # Define the external stimulus
 stimulus = Expression('(x[0] > 2.25 && x[0] < 2.75 && x[1] > 2.25 \
-	&& x[1] < 2.75 && t < 3.0 ? p : 0)', p=10.0, t=time, degree=1)
+    && x[1] < 2.75 && t < 3.0 ? p : 0)', p=10.0, t=time, degree=1)
 
 # Collect this information into the CardiacModel class
 cardiac_model = CardiacModel(mesh, time, M, 'none', cell_model, stimulus)
@@ -74,11 +75,11 @@ vs.assign(cell_model.initial_conditions())
 
 # Set time stepping parameters
 h = 0.05 # Time step size
-T = 20.0   # Final time
+T = 500.0   # Final time
 interval = (0.0, T)
 
 # Create HDF5 file to save vs
-hdf_vs = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_vs.h5", "w")
+# hdf_vs = HDF5File(mesh.mpi_comm(), "../shared/Results/Basic_test_case_monodomain_synthetic_observations_vs.h5", "w")
 times = []
 v_centre = []
 v_corner = []
@@ -86,55 +87,62 @@ cai_centre = []
 cai_corner = []
 i=0
 
-#timer = Timer("xxx:Solve")
+# timer = Timer("xxx:Solve")
 
 # Solve
 for (timestep, fields) in solver.solve(interval, h):
     # Extract the components of the field (vs_ at previous timestep,
     # current vs, current vur)
     (vs_, vs, vur) = fields
-    print "(t_0, t_1) = ", timestep
-    print "v(2.5,2.5) = ", vs((2.5,2.5))[0]
+    # print "(t_0, t_1) = ", timestep
+    # print "v(2.5,2.5) = ", vs((2.5,2.5))[0]
     
     #Record vs at each time step or at each ms
-    #if (round(timestep[1])-timestep[1]) < (0.1*h):
-    hdf_vs.write(vs,"vs",i)
+    #if (abs(round(timestep[1])-timestep[1])) < (0.1*h):
+    # hdf_vs.write(vs,"vs",i)
     times.append(timestep[1])
     v_centre.append(vs((2.5,2.5))[0])
     v_corner.append(vs((0,0))[0])
-    cai_centre.append(vs((2.5,2.5))[0])
-    cai_corner.append(vs((0,0))[0])
+    cai_centre.append(vs((2.5,2.5))[36])
+    cai_corner.append(vs((0,0))[36])
     i=i+1
-del hdf_vs
 
 # Save time steps
-np.savetxt("Results/recorded_times.txt", times)
+np.savetxt("Results/recorded_times_sigma_l_110.txt", times)
 
-# Save v and [Ca]_i at point in centre and point in corner
-np.savetxt("Results/v_centre.txt", v_centre)
-np.savetxt("Results/v_corner.txt", v_corner)
-np.savetxt("Results/cai_centre.txt", cai_centre)
-np.savetxt("Results/cai_corner.txt", cai_corner)
+# # Save v and [Ca]_i at point in centre and point in corner
+np.savetxt("Results/v_centre_sigma_l_110.txt", v_centre)
+np.savetxt("Results/v_corner_sigma_l_110.txt", v_corner)
+np.savetxt("Results/cai_centre_sigma_l_110.txt", cai_centre)
+np.savetxt("Results/cai_corner_sigma_l_110.txt", cai_corner)
 
-#timer.stop()
-#list_timings(TimingClear_keep, [TimingType_wall])
+# timer.stop()
+# list_timings(TimingClear_keep, [TimingType_wall])
 
-# Postprocess recorded_times for plotting at cetain times in Paraview
+# Postprocess recorded_times to be able to plot certain times in Paraview
 if Postprocessing == True:
-    times_to_plot=[5, 15, 19] # Pick times to plot
-    hdf_vs = HDF5File(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_vs.h5", "r")
-    xf_v = XDMFFile(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_v_plot.xdmf")
-    xf_cai = XDMFFile(mesh.mpi_comm(), "Results/Basic_test_case_monodomain_synthetic_observations_cai_plot.xdmf")
+    times_to_plot=[0.05, 0.1] # Pick times to plot
+    hdf_vs = HDF5File(mesh.mpi_comm(), "../shared/Results/Basic_test_case_monodomain_synthetic_observations_vs.h5", "r")
+    xf_v = XDMFFile(mesh.mpi_comm(), "../shared/Results/Basic_test_case_monodomain_synthetic_observations_v_plot.xdmf")
+    xf_cai = XDMFFile(mesh.mpi_comm(), "../shared/Results/Basic_test_case_monodomain_synthetic_observations_cai_plot.xdmf")
     attr_vs = hdf_vs.attributes("vs")
     N = attr_vs['count']
     Q = vs.function_space()
     vs_obs = Function(Q)
-    idx=times.searchsorted(times_to_plot)
-    for i in range(idx):
-      dataset_vs = "vs/vector_%d"%idx[i]
+    for i in range(len(times_to_plot)):
+      # Find closest value of times_to_plot[i] to one of the recorded times
+      pos=bisect.bisect_left(times, times_to_plot[i])
+      before = times[pos - 1]
+      after = times[pos]
+      if after - times_to_plot[i] < times_to_plot[i] - before:
+        idx = pos
+      else:
+        idx = pos-1
+      # Retrieve respective values of v and [Ca]_i at that time step and save
+      dataset_vs = "vs/vector_%d"%idx
       hdf_vs.read(vs_obs, dataset_vs)
-      xf_v.write(vs_obs.split(deepcopy=True)[0], times[idx[i]], 1)
-      xf_cai.write(vs_obs.split(deepcopy=True)[36], times[idx[i]], 1)
+      xf_v.write(vs_obs.split(deepcopy=True)[0], times[idx])
+      xf_cai.write(vs_obs.split(deepcopy=True)[36], times[idx])
     del hdf_vs
 
 print "Success!"
