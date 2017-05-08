@@ -5,7 +5,20 @@
 \usepackage{color}
 \usepackage{circuitikz}
 \usepackage{url}
+%
+% Cal150, sigma50, sigma150
+% Jsigma(50-150)
+% Jcal(50:10:150)
+% daarna: misschien meer stappen (55:10:145)
+% optimize, eerst voor sigma, daarna voor JCal.
+% Misschien beter om ode's the optimizen en dan sigma?
 
+
+%H = hessian(J, m)
+%eig = H.eigendecomposition(n=30)
+
+%dJdm = Jhat.derivative()[0]
+%H = Jhat.hessian(dm)[0]
 \begin{document} 
 \section{The monodomain model} \label{The monodomain model}
 The monodomain equations are given by 
