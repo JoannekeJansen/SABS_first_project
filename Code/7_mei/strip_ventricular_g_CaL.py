@@ -136,6 +136,7 @@ def main(model):
         #print i
   return times, v_left, v_right, cai_left, cai_right
 
+params = Paci2013_ventricular.default_parameters()
 for fact in np.array([0.5,1.5]):
     print fact
     model = Paci2013_ventricular()
