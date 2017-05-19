@@ -62,9 +62,9 @@ where $g_k$ is the maximum conductance $g_k$ (in $\mu$S/$\mu$m$^2$), $u_k$ (in m
     \end{minipage}
     \begin{minipage}{0.47\textwidth}
   \textbf{(b)} \includegraphics[trim=0cm 4cm 0cm 4cm, clip=true, width=0.9\linewidth]{v15}
-  \textbf{(d)} \includegraphics[trim=0cm 4cm 0cm 4cm, clip=true, width=0.9\linewidth]{v150}
+  \textbf{(d)} \includegraphics[trim=0cm 4cm 0cm 4cm, clip=true, width=0.9\linewidth]{v250}
     \end{minipage}
-    \caption{Heat maps of $v$ (in V) of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=50$ms and \textbf{(d)} $t=100$ms. To increase visibility, we scaled the vertical axis of our $12$ mm by $0.01$ mm domain with a factor of $200$.}
+    \caption{Heat maps of $v$ (in V) of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=100$ms and \textbf{(d)} $t=250$ms. To increase visibility, we scaled the vertical axis of our $12$ mm by $0.01$ mm domain with a factor of $200$.}
     \label{fig:1}
 \end{figure}
 %
@@ -75,16 +75,16 @@ where $g_k$ is the maximum conductance $g_k$ (in $\mu$S/$\mu$m$^2$), $u_k$ (in m
     \end{minipage}
     \begin{minipage}{0.47\textwidth}
   \textbf{(b)} \includegraphics[trim=0cm 4cm 0cm 4cm, clip=true, width=0.9\linewidth]{c15}
-  \textbf{(d)} \includegraphics[trim=0cm 4cm 0cm 4cm, clip=true, width=0.9\linewidth]{c150}
+  \textbf{(d)} \includegraphics[trim=0cm 4cm 0cm 4cm, clip=true, width=0.9\linewidth]{c250}
     \end{minipage}
-    \caption{Heat maps of $[Ca]_i$ (in $\mu$M) of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=100$ms and \textbf{(d)} $t=150$ms. To increase visibility, we scaled the vertical axis of our $12$ mm by $0.01$ mm domain with a factor of $200$.}
+    \caption{Heat maps of $[Ca]_i$ (in $\mu$M) of our basic test case at \textbf{(a)} $t=5$ms, \textbf{(b)} $t=15$ms, \textbf{(c)} $t=100$ms and \textbf{(d)} $t=250$ms. To increase visibility, we scaled the vertical axis of our $12$ mm by $0.01$ mm domain with a factor of $200$.}
     \label{fig:2}
 \end{figure}
 %trim={<left> <lower> <right> <upper>}
 %
 \section{Basic test case} \label{Basic test case}
-We start with a test case, for which we take a rectangular strip of $12$ mm $\times\: 0.01$ mm as our domain. We solve our test case with the \url{splittingsolver} module from the cbcbeat Python package \cite{cbcbeat}\footnote{This electrophysiology solver package is based on the FEniCS Project software \cite{fenics} and the dolfin-adjoint software \cite{dolfin-adjoint}. We use a first order Godunov splitting scheme, a 1st order Rush-Larsen scheme for the ODEs and the CG algorithm with PETSc AMG preconditioner.}. The \url{splittingsolver} solves the monodomain PDE system and its coupled cell membrame dynamics ODE system separately, using the operator splitting scheme as described in \cite{Sundnes}. We retrieved the code for the Paci2013 cell models from the CellML repository: \url{http://models.cellml.org/e/16d/}. With a few minor adjustments\footnote{i.e. adding of necessary parentheses, fixing integer division, renaming of the membrane potential, removing the inbuilt stimulus and adding of the after conversion mysteriously dissapeared part of the \url{m_inf} parameter.}, we could convert the models to cbcbeat versions.  We take typical values $\sigma_l=0.15$ and $\sigma_t=0.02$ (in mS/mm) for the longitudinal and tangential conductivity respectively and take $C_m=0.2$ for the membrane capacitance (in $\mu$F/(mm$^2$)) and $\beta=200$ for the cell membrane area-to-volume ratio (in 1/mm) \cite{Roth}, data from \cite{Plonsey1882, Plonsey1984}. Without a stimulus, both the atrial and ventricular Paci2013 models beat spontaneously. We did not investigate this spontaneously beating, but applied a 1 Hz stimulus instead, as we assumed that this would produce more useful measurements in practice. Further, we only investigated the ventricular model. We choose the ventricular model over the atrial model because ventricular cells are more common than atrial cells and also the ones mainly used for drug tests \cite{Paci2015}.
-We ran the model for 800 s to reach a steady state, while applying a $1$ Hz stimulus of $5$ ms and $5.6$ A/F, the default stimulus values of the Paci2013 ventricular model, over the left $25\%$ of the domain, and subsequently recorded the membrane potential and intracellular calcium concentration for $2$ s. In Figure \ref{fig:1}, we show a heat map of $v$ at $t=5, 15, 100$ and $150$ ms after we started our recordings. A stimulus was applied during the first $5$ ms over the left $25\%$ of the domain. In Figure \ref{fig:2}, we show a heat map of $[Ca]_i$ at the same times. In Figure \ref{fig:3}, we plot $v$ and $[Ca]_i$ over time, both at a point at the left of the domain (in blue, at ($5$ mm, $0$ mm)), and at a point at the right of the domain (in red, at ($10$ mm, $0$ mm)). We see that the calcium concentration peaks approximately $140$ ms after the voltage does. 
+We start with a test case, for which we take a rectangular strip of $12$ mm $\times\: 0.01$ mm as our domain. We solve our test case with the \url{splittingsolver} module from the cbcbeat Python package \cite{cbcbeat}\footnote{This electrophysiology solver package is based on the FEniCS Project software \cite{fenics} and the dolfin-adjoint software \cite{dolfin-adjoint}. We use a first order Godunov splitting scheme, a 1st order Rush-Larsen scheme for the ODEs and the CG algorithm with PETSc AMG preconditioner.}. The \url{splittingsolver} solves the monodomain PDE system and its coupled cell membrame dynamics ODE system separately, using the operator splitting scheme as described in \cite{Sundnes}. We retrieved the code for the Paci2013 cell models from the CellML repository: \url{http://models.cellml.org/e/16d/}. With a few minor adjustments\footnote{i.e. adding of necessary parentheses, fixing integer division, renaming of the membrane potential, removing the inbuilt stimulus and adding of the after conversion mysteriously dissapeared part of the \url{m_inf} parameter.}, we could convert the models to cbcbeat versions. Without a stimulus, both the atrial and ventricular Paci2013 models beat spontaneously. We did not investigate this spontaneous beating, but applied a 1 Hz stimulus instead, as we assumed that this would produce more useful measurements in practice. Further, we only investigated the ventricular model. We choose the ventricular model over the atrial model because ventricular cells are more common than atrial cells and also the ones mainly used for drug tests \cite{Paci2015}. We took typical values $\sigma_t=0.02$ and $\sigma_l=0.2$ (in mS/mm) for the tangential and longitudinal conductivity respectively \cite{Roth}, data from \cite{Plonsey1882, Plonsey1984}. In the ventricular Paci2013 model, the total cell capacitance is $C_m=9.87109e-5$ (in $\mu$F). Further, we assumed that the total cell volume is a sum of the intracellular, $8800.00$ (in $\mu$m$^3$), and SR, $583.73$ (in $\mu$m$^3$), compartment volumes, as defined in the ventricular Paci2013 model.
+We ran the model for 800 s to reach a steady state, while applying a $1$ Hz stimulus of $5$ ms and $5.6$ A/F, the default stimulus values of the Paci2013 ventricular model, over the left $25\%$ of the domain, and subsequently recorded the membrane potential and intracellular calcium concentration for $1000$ ms. In Figure \ref{fig:1}, we show a heat map of $v$ at $t=5, 15, 100$ and $250$ ms after we started our recordings. A stimulus was applied during the first $5$ ms over the left $25\%$ of the domain. In Figure \ref{fig:2}, we show a heat map of $[Ca]_i$ at the same times. In Figure \ref{fig:3}, we plot $v$ and $[Ca]_i$ over time, both at a point at the left of the domain (in blue, at ($5$ mm, $0$ mm)), and at a point at the right of the domain (in red, at ($10$ mm, $0$ mm)). We see that the calcium concentration peaks approximately $140$ ms after the voltage does. 
 %
 \begin{figure}
    \includegraphics[width=1\linewidth]{strip} 
@@ -93,8 +93,8 @@ We ran the model for 800 s to reach a steady state, while applying a $1$ Hz stim
 \end{figure}
 %
 \section{The inverse problem} \label{The inverse problem}
-It is possible to obtain measurements $v_{\text{obs}}$ of the transmembrane potential and measurements $[Ca]_{i\text{obs}}$ of the intracellular calcium concentration over the whole domain at discrete points in time. With those measurements, we want to estimate the value of certain parameters in our model. We choose to optimize for the maximal conductance parameters $g_{Na}, g_{CaL}, g_{Kr}, g_{K1}, g_{Ks}, g_{f}$ and $g_{to}$, and for the longitudinal conductance parameter $\sigma_l$. We investigated the sensitivity of our data to those parameters by setting them subsequently to $50\%$ and $150\%$ of their original values. In Figures \ref{fig:4} and \ref{fig:5}, we plot the results. As before, we ran our model for 800 s to reach a steady state before recording $v$ and $[Ca]_i$.
-In Figures \ref{fig:6} and \ref{fig:7}, we show several biomarkers of our measurements: for both $[Ca]_i$ and $v$, we calculated the amplitude, the maximum upstroke velocity $V_{max}$, the conductance velocity $V_{C}$, and the time the measured concentration or potential was above $30\%, 50\%, 70\%$ and $90\%$ of its amplitude. For the calculation of all biomarkers except the conductance velocity, we only used the measurements at the single point ($5$ mm, $0$ mm), as the action potential and calcium concentration wave are similarly shaped at all points.
+It is possible to obtain measurements $v_{\text{obs}}$ of the transmembrane potential and measurements $[Ca]_{i\text{obs}}$ of the intracellular calcium concentration over the whole domain at discrete points in time. With those measurements, we want to estimate the value of certain parameters in our model. We choose to optimize for the maximal conductance parameters $g_{Na}, g_{CaL}, g_{Kr}, g_{K1}, g_{Ks}, g_{f}$ and $g_{to}$, and for the tangential conductance parameter $\sigma_t$. We investigated the sensitivity of our data to those parameters by setting them subsequently to $50\%$ and $150\%$ of their original values. In Figures \ref{fig:4} and \ref{fig:5}, we plot the results.
+In Figures \ref{fig:6} and \ref{fig:7}, we show several characteristics of our measurements: for both $[Ca]_i$ and $v$, we calculated the amplitude, the maximum upstroke velocity $V_{max}$, the conductance velocity $V_{C}$, and the time the measured concentration or potential was above $30\%, 50\%, 70\%$ and $90\%$ of its amplitude. For the calculation of all characteristics except the conductance velocity, we only used the measurements at the single point ($5$ mm, $0$ mm), as the action potential and calcium concentration wave have approximately the same shape at all points. We see that varying $g_{Ks}, g_{f}$ or $g_{to}$ has almost no visible effect on our measurements, so we assume those parameters are fixed. Further, we see that the upstroke velocity of $v$ is mainly sensitive to $g_{Na}$ and the upstroke velocity of $[Ca]_i$ is mainly sensitive to $g_{Cal}$, see Figure \ref{fig:6} (b). It is harder to distinguish between $g_{Kr}$, $g_{K1}$ and $\sigma_t$. A high conductance velocity might indicate that $\sigma_t$ is larger than usual, but could equally mean that $g_{K1}$ is smaller than usual, see Figure \ref{fig:6} (c). Similarly, a longer wave interval than usual could indicate an increased conductance, but also a decreased $g_{Kr}$ or $g_{K1}$, see Figure \ref{fig:7}. A combination of the three is possible as well of course. Note that $g_{Na}$ and $g_{Cal}$ affect the conductance velocity and wave interval length too, but we assume that we can approximate their values by looking at the upstroke velocity of $v$, as we observed above.
 %
 \begin{figure}
    \includegraphics[trim=3cm 0cm 4cm 0cm, clip=true, width=1\linewidth]{strip_gna} 
@@ -109,11 +109,10 @@ In Figures \ref{fig:6} and \ref{fig:7}, we show several biomarkers of our measur
    \includegraphics[trim=3cm 0cm 4cm 0cm, clip=true, width=1\linewidth]{strip_gks} 
    \includegraphics[trim=3cm 0cm 4cm 0cm, clip=true, width=1\linewidth]{strip_gf} 
       \includegraphics[trim=3cm 0cm 4cm 0cm, clip=true, width=1\linewidth]{strip_gto} 
-         \includegraphics[trim=3cm 0cm 4cm 0cm, clip=true, width=1\linewidth]{strip_sigmal} 
+         \includegraphics[trim=3cm 0cm 4cm 0cm, clip=true, width=1\linewidth]{strip_sigmat} 
     \caption{Plots of $v$ and $[Ca]_i$ against $t$, at the left of the domain (in blue, at ($5$ mm, $0$ mm)) and at the right of the domain (in red, at at ($10$ mm, $0$ mm)), for different parameter values. The total domain size is $12$ mm by $0.01$ mm.}
     \label{fig:5}
 \end{figure}
-%
 %
 \begin{figure}
  \textbf{(a)}  \includegraphics[trim=1cm 0cm 2cm 0cm, clip=true, width=1\linewidth]{amplitude} 
@@ -131,56 +130,40 @@ In Figures \ref{fig:6} and \ref{fig:7}, we show several biomarkers of our measur
     \caption{The time the measured $[Ca]_i$ (left) or $v$ (right) was above $30\%$ \textbf{(a)}, $50\%$ \textbf{(b)}, $70\%$ \textbf{(c)}, and $90\%$ \textbf{(d)} of its amplitude. Colour values are as in Figures \ref{fig:4} and \ref{fig:5}.}
     \label{fig:7}
 \end{figure}
-%\begin{table*}
-%{\begin{tabular}{ c|cccccccc }
-%\hline
-%$v$ & $50\% of g_{Na}$ & $150\% of g_{Na}$ & $50\% of g_{CaL}$ & $150\% of g_{CaL}$ & $50\% of g_{Kr}$ & $150\% of g_{Kr}$ & $50\% of g_{K1}$ & $50\% of g_{K1}$ \\
-%\hline 
-%Amplitude & $1.82\times 10^{-4}$ & $8.55\times 10^{-5}$ & $7.86\times 10^{-5}$ & $-1.05\times 10^{-4}$ & $3.42\times 10^{-4}$ & $3.34\times 10^{-4}$ & $8.84\times 10^{-5}$ & $9.75\times 10^{-5}$ \\
-%
-%$V_{max}$ & $1.76\times 10^{-4}$ & $1.08\times 10^{-4}$ & $1.28\times 10^{-3}$ & $4.04\times 10^{-3}$  & $7.83\times 10^{-3}$  & $7.64\times 10^{-3}$ & $7.63\times 10^{-3}$ & $7.83\times 10^{-3}$ \\
-%
-%$V_{C}$ & $1.76\times 10^{-4}$ & $1.08\times 10^{-4}$ & $1.28\times 10^{-3}$ & $4.04\times 10^{-3}$  & $7.83\times 10^{-3}$  & $7.64\times 10^{-3}$ & $7.63\times 10^{-3}$ & $7.83\times 10^{-3}$ \\
-%
-%$V_{C}$ & $1.76\times 10^{-4}$ & $1.08\times 10^{-4}$ & $1.28\times 10^{-3}$ & $4.04\times 10^{-3}$  & $7.83\times 10^{-3}$  & $7.64\times 10^{-3}$ & $7.63\times 10^{-3}$ & $7.83\times 10^{-3}$ \\
-%
-%$90\%$ & $1.76\times 10^{-4}$ & $1.08\times 10^{-4}$ & $1.28\times 10^{-3}$ & $4.04\times 10^{-3}$  & $7.83\times 10^{-3}$  & $7.64\times 10^{-3}$ & $7.63\times 10^{-3}$ & $7.83\times 10^{-3}$ \\
-%
-%$70\%$ & $1.76\times 10^{-4}$ & $1.08\times 10^{-4}$ & $1.28\times 10^{-3}$ & $4.04\times 10^{-3}$  & $7.83\times 10^{-3}$  & $7.64\times 10^{-3}$ & $7.63\times 10^{-3}$ & $7.83\times 10^{-3}$ \\
-%
-%$50\%$ & $1.76\times 10^{-4}$ & $1.08\times 10^{-4}$ & $1.28\times 10^{-3}$ & $4.04\times 10^{-3}$  & $7.83\times 10^{-3}$  & $7.64\times 10^{-3}$ & $7.63\times 10^{-3}$ & $7.83\times 10^{-3}$ \\
-%
-%$30\%$ & $1.76\times 10^{-4}$ & $1.08\times 10^{-4}$ & $1.28\times 10^{-3}$ & $4.04\times 10^{-3}$  & $7.83\times 10^{-3}$  & $7.64\times 10^{-3}$ & $7.63\times 10^{-3}$ & $7.83\times 10^{-3}$ \\
-%
-%%\hline
-%\multicolumn{2}{ c }{} \\
-%\hline
-%$[Ca]_i$ & 2.0 & 2.5 & 3.0 & 3.5 & 4.0 & 4.5 & 5.0 & 5.5 \\
-%\hline 
-%$\mu=0.1$ & $3.27\times 10^{-5}$ & $7.23\times 10^{-5}$ & $4.41\times 10^{-5}$  & $3.30\times 10^{-5}$ & $1.04\times 10^{-4}$ & $2.36\times 10^{-4}$ & $2.57\times 10^{-4}$ & $3.67\times 10^{-5}$\\
-%$\mu=0.9$  & $4.74\times 10^{-5}$ & $4.83\times 10^{-5}$  & $6.76\times 10^{-5}$ & $6.30\times 10^{-5}$ &   $4.82\times 10^{-5}$ &  $1.76\times 10^{-3}$ &    $1.43\times 10^{-3}$  &    $2.41\times 10^{-3}$ \\
-%%\hline
-%\end{tabular}}
-%\caption{The amplitude, maximum upstroke velocity $V_{max}$ and conductance velocity $V_{C}$ of $v$ and $[Ca]_i$, and the time the measured concentration or potential was above $30\%, 50\%, 70\%$ and $90\%$ of its amplitude.}
-%\label{table:1}
-%\end{table*}
-%, using an adjoint-based approach.\footnote{See, for example, \cite{Gunzburger} for an introductory text in adjoint-based optimization methods.} Here, as an example, we will try to estimate the values of the $\sigma_l$ parameter from the Grandi cell model.
-%We can formulate this problem as an optimisation problem: find $\sigma_l$, such that the functional
-%\begin{eqnarray}
-%\mathcal{J}(v, [Ca]_i, \sigma_l)= \frac{1}{N} \sum_{i=1}^{N} \frac{||v-v_{\text{obs}}(t_i)||^2_{L^2}}{||v_{\text{obs}}(t_i)||^2_{L^2}} + \frac{||[Ca]_i-[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}}{||[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}},\label{J}
-%\end{eqnarray}
+\newline
+To estimate the values of $g_{Na}$, $g_{Cal}$, $g_{Kr}$, $g_{K1}$ and $\sigma_t$, we will use an adjoint-based approach.\footnote{See, for example, \cite{Gunzburger} for an introductory text in adjoint-based optimization methods.} We formulate our optimisation problem as follows: find $g_{Na}$, $g_{Cal}$, $g_{Kr}$, $g_{K1}$ and $\sigma_t$, such that the functional
+\begin{eqnarray} \nonumber
+\mathcal{J}(v, [Ca]_i, g_{Na}, g_{Cal}, g_{Kr}, g_{K1}, \sigma_t)= \\
+\frac{1}{N} \sum_{i=1}^{N} \frac{||v-v_{\text{obs}}(t_i)||^2_{L^2}}{||v_{\text{obs}}(t_i)||^2_{L^2}} + \frac{||[Ca]_i-[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}}{||[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}},\label{J}
+\end{eqnarray}
 %%\begin{eqnarray} \nonumber
 %%\mathcal{J}(v, c, \sigma_l)= \\ \frac{1}{N} \sum_{i=1}^{N} \int_{H}(v(\textbf{x},t_i)-\Phi(\textbf{x},t_i))^2 \: \text{d}\textbf{x} + \int_{H}\left(c(\textbf{x},t_i)-\Psi(\textbf{x},t_i)\right)^2 \: \text{d}\textbf{x},\label{J}
 %%\end{eqnarray}
-%is minimized, subject to the requirements that $v, c$ and $\sigma_l$ satisfy the state system of equations \eqref{eq:a}-\eqref{eq:c} and initial conditions $v(\textbf{x},0)=v_0(\textbf{x})$ and $\mathbf{s}(\mathbf{x},0)=\mathbf{s}_0(\mathbf{x})$. Here, $N$ are the number of measurements in time and $t_i$, $i=1, \dots N$ the respective moments in time.
-%% https://fenicsproject.org/qa/6675/hdf-file-read-write-for-time-series
-%Using cbcbeat and the dolfin-adjoint software on which it is based, we can automatically compute the total derivative of $\mathcal{J}$ with respect to the optimization parameter $\sigma_l$. We can then use the scipy optimisation algorithm \url{minimize()} -which uses the limited memory Broyden–Fletcher–Goldfarb–Shanno (BFGS) method with bound support - to find an optimal value for $\sigma_l$. We first generated some fake observed data for $\sigma_l=0.15$, from $t=0.0$ to $t=5.0$ ms, with a timestep $dt=0.05$ ms. With $\sigma_l=0.10$ as initial guess, the \url{minimize()} algorithm returned $\sigma_l=?$ after ? iterations. Similarly, we can optimize for other parameters, such as $\sigma_t$, or $g\_Na$, $g\_CaL$, $g\_K1$ or $g\_K2$ from the Grandi cell model. 
-%
-%%With $\sigma_t=0.01$ as initial guess and fake data created for $\sigma_t=0.02$, the \url{minimize()} algorithm converged to $\sigma_t=0.020005$ after five iterations. Optimizing for both $\sigma_l$ and $\sigma_t$, with the same initial guesses and synthetic data, gave convergence in eight iterations. The value of the functional at each iteration step was consecutively $38.6, 11.7, 10.0, 3.19, 0.89, 0.023, 0.00063, 0.0000084$ and $0.0000098$. We also looked at synthetic spatially varying $\sigma_l$ and $\sigma_t$$\ldots$
+is minimized, subject to the requirements that $v, c$ and $\sigma_t$ satisfy the state system of equations \eqref{eq:a}-\eqref{eq:c} and initial conditions $v(\textbf{x},0)=v_0(\textbf{x})$ and $\mathbf{s}(\mathbf{x},0)=\mathbf{s}_0(\mathbf{x})$. Here, $N$ are the number of measurements in time and $t_i$, $i=1, \dots N$ the respective moments in time. We first generated some fake observed data, by saving the values of $v$ and $[Ca]_i$ every ms from $t=0$ to $t=1000$ ms at the whole domain. We then computed the sensitivity of $\mathcal{J}$ to the different parameters. In Figure \ref{fig:8}, we plot the left part of $\mathcal{J}$, the right part of $\mathcal{J}$, and its total value for different parameter values. By left and right part, we mean the contributions of $v$ and $[Ca]_i$ to the size of $\mathcal{J}$ respectively. 
+\begin{figure}
+\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{functional_values} 
+\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{functional_values2} 
+    \caption{The value of the part of $\mathcal{J}$ at the left side of the plus-sign (top), at the right side of the plus-sign (middle), and the total value of $\mathcal{J}$ (bottom), for varying percentages of the default parameter values. The minimum is marked with a red dot. }
+    \label{fig:8}
+\end{figure}
 \newline
-\\
+We are now ready to start our optimization. Using cbcbeat and the dolfin-adjoint software on which it is based, we can automatically compute the total derivative of $\mathcal{J}$ with respect to the different optimization parameters. We can then use the scipy optimisation algorithm \url{minimize()} with the Hessian based Newton-CG method. Optimizing for one parameter at a time, we retrieve our default parameter values when our initial guess is close enough, see Table \ref{table:1}. Uitleg over hoe dichtbij je komen moet en kunt. We did also optimize for all parameters together, with various initial guesses, see Table \ref{table:2}. 
 %
-$\cdots$
+%\begin{table*}
+%\begin{center}
+%  \begin{tabular}{|l|| l l | l l | l l | }
+%    \hline
+%     & $n=2$ & & $n=3$ & &  $n=6$ & \\ \hline 
+%     & $u$ & $v$ & $u$ & $v$ &  $u$ & $v$ \\ \hline \hline
+%   $95\%$ of $g_{Na}$ &1.2000  &    0.6922 & 1.2000  &   0.6920 & 1.2000  &   0.6920 \\
+%    $b_1$ & 0.0000  &   0.0000 & 0.0000  &   0.0000 & 0.0000 &   0.0000 \\
+%   $b_2$ &  0.2571  &  -0.0636 & 0.0000  &   0.0000 & 0.0000 &   0.0000 \\
+%    \hline
+%  \end{tabular}
+%\end{center}
+%\caption{Table .}
+%\label{table:1}
+%\end{table*}
 %
 \section{Conslusion} \label{Conclusion}
 %
@@ -191,6 +174,7 @@ $\cdots$
 \bibitem{Chen2016} Chen, Z., Xian, W., Bellin, M., Dorn, T., Tian, Q., Goedel, A., \ldots Hinkel, R. (2016). Subtype-specific promoter-driven action potential imaging for precise disease modelling and drug testing in hiPSC-derived cardiomyocytes. \textit{European Heart Journal, 38}, 292-301.
 \bibitem{Dempsey2016} Dempsey, G. T., Chaudhary, K. W., Atwater, N., Nguyen, C., Brown, B. S., McNeish, J. D., \ldots Kralj, J. M. (2016). Cardiotoxicity screening with simultaneous optogenetic pacing, voltage imaging and calcium imaging. \textit{Journal of pharmacological and toxicological methods, 81}, 240-250.
 \bibitem{Denning2016} Denning, C., Borgdorff, V., Crutchley, J., Firth, K. S., George, V., Kalra, S., \ldots Prodanov, L. (2016). Cardiomyocytes from human pluripotent stem cells: from laboratory curiosity to industrial biomedical platform. \textit{Biochimica et Biophysica Acta (BBA)-Molecular Cell Research, 1863}(7), 1728-1748.
+\bibitem{Gunzburger} Gunzburger, M. (2003). \textit{Perspectives in flow control and optimization} (Advances in design and control). Philadelphia, Pa.: SIAM.
 \bibitem{Lee2012} Lee, P., Klos, M., Bollensdorff, C., Hou, L., Ewart, P., Kamp, T. J., \ldots Jalife, J. (2012). Simultaneous Voltage and Calcium Mapping of Genetically Purified Human Induced Pluripotent Stem Cell–Derived Cardiac Myocyte MonolayersNovelty and Significance. \textit{Circulation research, 110}(12), 1556-1563.
 \bibitem{Leyton2014} Leyton-Mange, J. S., Mills, R. W., Macri, V. S., Jang, M. Y., Butte, F. N., Ellinor, P. T., \& Milan, D. J. (2014). Rapid cellular phenotyping of human pluripotent stem cell-derived cardiomyocytes using a genetically encoded fluorescent voltage sensor. \textit{Stem Cell Reports, 2}(2), 163-170.
 \bibitem{Ma2011} Ma, J., Guo, L., Fiene, S., Anson, B., Thomson, J., Kamp, T., \ldots January, C. (2011). High purity human-induced pluripotent stem cell-derived cardiomyocytes: Electrophysiological properties of action potentials and ionic currents. \textit{American Journal of Physiology. Heart and Circulatory Physiology, 301}(5), H2006-17.

@@ -1,0 +1,21 @@
+We have three different domains: a 3mm strip, a 12 mm strip and a 12x12 mm square domain. All files are named accordingly. In this file, we take the 3mm strip as an example.
+
+1) create_initial_conditions_3mm_strip.py must be used to create an h5 file: initial_conditions_3mm_strip.h5.
+
+2a) Thereafter, create_observations_3mm_strip.py must be used to create synthetic observations: observed_v_3mm_strip.h5, observed_cai_3mm_strip.h5, and observed_times_3mm_strip.txt.
+2b) Alternatively, create_noisy_observations_3mm_strip.py can be used to create noisy observations. The noise percentages can be given as arguments. The output files contain the noise percentages in their names.
+
+3) inverse_3mm_strip_50.py and inverse_3mm_strip_150.py solve the inverse problem. The levels of noise can be passed as arguments. The output file contains the size of the functional, its derivatives and the value of the control variables at every iteration step. The optimisation algorithm in inverse_3mm_strip_50.py/inverse_3mm_strip_150.py start with all parameters at 50%/150% of their original value as initial guess respectively.
+
+--------
+
+The cbcbeat folder contains de Paci2013 cell models we use. 
+
+--------
+
+In the folder named 'extra', we included some extra code:
+
+*) The single_cell_solve_spontaneous.py and single_cell_solve_stimulus.py solve the ventricular or atrial Paci cell model at a single point in space. 
+
+--------
+
