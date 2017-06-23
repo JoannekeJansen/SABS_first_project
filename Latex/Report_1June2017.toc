@@ -13,5 +13,10 @@
 \contentsline {subsection}{\numberline {3.1}Single cell computations}{9}
 \contentsline {subsection}{\numberline {3.2}Tissue computations}{9}
 \contentsline {subsection}{\numberline {3.3}Inversion}{12}
-\contentsline {section}{\numberline {4}Discussion}{12}
-\contentsline {section}{\numberline {5}Conslusion}{12}
+\contentsline {subsection}{\numberline {3.4}Alternative functionals}{16}
+\contentsline {section}{\numberline {4}Discussion}{16}
+\contentsline {subsection}{\numberline {4.1}Single cell computations}{16}
+\contentsline {subsection}{\numberline {4.2}Tissue computations}{16}
+\contentsline {subsection}{\numberline {4.3}Inversion}{16}
+\contentsline {subsection}{\numberline {4.4}Alternative functionals}{16}
+\contentsline {section}{\numberline {5}Conclusion}{16}

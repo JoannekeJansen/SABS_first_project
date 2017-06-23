@@ -30,7 +30,7 @@ a cardiac subtype specific GEVI was used, thus allowing for screening of only at
 \subsection{Overview}
 The aim of this report is to investigate the possibilities of parameter estimation of iPSC-CMs based on data obtained by optical mapping. We will both look at parameter estimation based on single cell voltage and calcium measurements and at parameter estimation based on larger tissue measurements.
 %In particular, we are interested to see what extra information can be inferred from the high spatial resolution and simultaneous calcium and voltage recordings, in contrast to the single cell voltage recordings obtained by patch clamping. 
-We will model the behaviour of a monolayer of iPSC-CMs with the classic monodomain equations, which we will introduce in Section \ref{The monodomain model}. To model the cell dynamics, we will use the Paci2013 cell model. The Paci2013 cell model is specifically developed for the simulation of iPSC-CMs action potentials and is based on data obtained on iPSC-CMs \cite{Paci2013, Ma2011}. Due to the already mentioned immature phenotype of currently produced iPSC-CMs, the variability in the action potential shape of different cells is large, even if they are part of the same cell cluster \cite{Blazeski, Zhu2016}. Therefore, the predictive value of the Paci2013 and other cell models will be limited and our investigation must be seen as a proof of concept. The development of iPSC-CMs technologies is rapid and it is hoped that future iPSC-CMs will be more homogeneous and similar to mature cardiomyocytes\cite{Denning2016}. 
+We will model the behaviour of a monolayer of iPSC-CMs with the classic monodomain equations, which we will introduce in Section \ref{The monodomain model}. To model the cell dynamics, we will use the Paci2013 cell model, as introduced in Section \ref{The Paci2013 cell model}. The Paci2013 cell model is specifically developed for the simulation of iPSC-CMs action potentials and is based on data obtained on iPSC-CMs \cite{Paci2013, Ma2011}. Due to the already mentioned immature phenotype of currently produced iPSC-CMs, the variability in the action potential shape of different cells is large, even if they are part of the same cell cluster \cite{Blazeski, Zhu2016}. Therefore, the predictive value of the Paci2013 and other cell models will be limited and our investigation must be seen as a proof of concept. The development of iPSC-CMs technologies is rapid and it is hoped that future iPSC-CMs will be more homogeneous and similar to mature cardiomyocytes\cite{Denning2016}. Sections \ref{Software}-\ref{The input data} discuss the used software, numerical approximation, the inverse problem and input data. In Chapter \ref{Results}, we introduce our results, which are discussed in Chapter \ref{Discussion}. We end with a conclusion in Chapter \ref{Conclusion}. 
 %
 \section{Methods} \label{Methods}
 \subsection{The monodomain model} \label{The monodomain model}
@@ -60,14 +60,14 @@ I_{k}=g_k m_k^{p_k}\ldots h_k^{q_k}(u_m-u_k),
 where $g_k$ is the maximum conductance $g_k$ (in $\mu$S/$\mu$m$^2$), $u_k$ (in mV) the Nernst potential and $m_k$, $h_k \ldots$ are a certain number of voltage and time dependent gating variables. Each ion channel type has different types and/or numbers of gating variables. The Paci2013 model contains ODEs to describe the dynamics of thirteen different ionic gating variable types. Apart from the ionic gating variables and an inner calcium dynamics gating variable, the state variables of the Paci2013 model include the intracellular sodium and calcium, and the sarcoplasmic reticulum calcium concentrations $[Na]_i, [Ca]_i$ and $[Ca]_{SR}$ \cite{Paci2013}. We assume we can only measure the intracellular calcium concentration, that rises in response to an action potential. The estimation of the model parameters is mainly based on patch clamp iPSC-CM data from \cite{Ma2011}. The iPCS-CMs studied by \cite{Ma2011} showed atrial-, nodal-, and ventricular-like action potentials. The Paci2013 model contains of two sets of parameters: one to simulate ventricular-like cells and one to simulate atrial-like cells. Without a stimulus, both the atrial and ventricular Paci2013 models beat spontaneously. We did not investigate this spontaneous beating, but applied a 1 Hz stimulus instead, as we assumed that this would produce more useful measurements in practice. Further, we only investigated the ventricular model. We choose the ventricular model over the atrial model because ventricular cells are more common than atrial cells and also the ones mainly used for drug tests \cite{Paci2015}.
 %
 \subsection{Software} \label{Software}
-We used the \url{SingleCellSolver} module for all single cell simulations and the \url{splittingsolver} module for all tissue simulations. Both modules are part of the Python package \cite{cbcbeat}. This electrophysiology solver package is based on the FEniCS Project software \cite{fenics} and the dolfin-adjoint software \cite{dolfin-adjoint}. We retrieved the code for the Paci2013 cell models from the CellML repository: \url{http://models.cellml.org/e/16d/}. With a few minor adjustments\footnote{i.e. adding of necessary parentheses, fixing integer division, renaming of the membrane potential, removing the inbuilt stimulus and adding of the after conversion mysteriously dissapeared part of the \url{m_inf} parameter.}, we could convert the models to cbcbeat versions. 
+We used the \url{SingleCellSolver} module for all single cell simulations and the \url{splittingsolver} module for all tissue simulations. Both modules are part of the Python package \cite{cbcbeat}. This electrophysiology solver package is based on the FEniCS Project software \cite{fenics} and the dolfin-adjoint software \cite{dolfin-adjoint}. We retrieved the code for the Paci2013 cell models from the CellML repository: \url{http://models.cellml.org/e/16d/}. With a few minor adjustments\footnote{i.e. adding of necessary parentheses, fixing integer division, renaming of the membrane potential, removing the inbuilt stimulus and adding of the after conversion disappeared part of the \url{m_inf} parameter.}, we could convert the models to cbcbeat versions. 
 %
 \subsection{Numerical approximation} \label{Numerical approximation}
 To solve the single cell Paci2013 ODE system, we used a first order generalized Rush-Larsen scheme. To solve the monodomain PDE system and its coupled cell membrame dynamics ODE system, we used a first order Godunov splitting scheme. With an operator splitting scheme, the linear PDE system and nonlinear ODE system are solved separately, after which the solutions can be combined to form an approximate solution of the full system of equations \cite{Sundnes}. The nonlinear ODEs are solved again with a first order generalized Rush-Larsen scheme. The PDE system is solved with CG 1 finite elements in space and a theta-scheme discretization, with $\theta=0.5$, in time. We use the conjugate gradient (CG) method with PETSc AMG preconditioner to solve the discretized PDE system.
 %
 \subsection{The inverse problem} \label{The inverse problem}
 With optical mapping techniques, it is possible to obtain measurements $v_{\text{obs}}$ of the transmembrane potential and measurements $[Ca]_{i\text{obs}}$ of the intracellular calcium concentration at discrete points in time. With those measurements, we want to estimate the value of certain parameters $\boldsymbol{c}\subseteq \{g_{Na}, g_{Cal}, g_{Kr}, g_{K1}, \ldots \}$. For our single cell measurements, we formulate our optimisation problem as follows: find $\boldsymbol{c} \subseteq\{ g_{Na}, g_{Cal}, g_{Kr}, g_{K1}, \ldots \}$, such that the functional
-\begin{eqnarray} \nonumber
+\begin{eqnarray}
 %\mathcal{J}(v, [Ca]_i, \boldsymbol{c})= \\
 \mathcal{J}_{\text{single cell}}(v, [Ca]_i, \boldsymbol{c}) = \frac{1}{N} \sum_{i=1}^{N} \frac{||v-v_{\text{obs}}(t_i)||^2}{||v_{\text{obs}}(t_i)||^2} + \frac{||[Ca]_i-[Ca]_{i\text{obs}}(t_i) ||^2}{||[Ca]_{i\text{obs}}(t_i) ||^2},\label{J_sc}
 \end{eqnarray}
@@ -76,7 +76,7 @@ With optical mapping techniques, it is possible to obtain measurements $v_{\text
 %%\end{eqnarray}
 is minimized, subject to the requirements that $v, [Ca]_i$ and $\boldsymbol{c}$ satisfy the state system of ODEs \eqref{eq:a} and initial conditions $v(\textbf{x},0)=v_0(\textbf{x})$ and $\mathbf{s}(\mathbf{x},0)=\mathbf{s}_0(\mathbf{x})$. Here, $N$ are the number of measurements in time and $t_i$, $i=1, \dots N$ the respective moments in time. 
 In a similar way, for the tissue measurements, we formulate our optimisation problem as follows: find $\boldsymbol{c} \subseteq\{ g_{Na}, g_{Cal}, g_{Kr}, g_{K1}, \ldots \}$, such that the functional
-\begin{eqnarray} \nonumber
+\begin{eqnarray} 
 %\mathcal{J}(v, [Ca]_i, \boldsymbol{c})= \\
 \mathcal{J}(v, [Ca]_i, \boldsymbol{c}) = \frac{1}{N} \sum_{i=1}^{N} \frac{||v-v_{\text{obs}}(t_i)||^2_{L^2}}{||v_{\text{obs}}(t_i)||^2_{L^2}} + \frac{||[Ca]_i-[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}}{||[Ca]_{i\text{obs}}(t_i) ||^2_{L^2}},\label{J}
 \end{eqnarray}
@@ -93,7 +93,7 @@ is minimized, subject to the requirements that $v, [Ca]_i$ and $\boldsymbol{c}$ 
     \label{fig:3}
 \end{figure}
 %
-We generated synthetic observed single cell and tissue measurements. For the tissue case, we solved the system on a rectangular test domain of $12$ mm $\times\: 0.01$ mm. We took typical values $\sigma_t=0.02$ and $\sigma_l=0.2$ (in mS/mm) for the tangential and longitudinal conductivity respectively \cite{Roth}, data from \cite{Plonsey1882, Plonsey1984}. In the ventricular Paci2013 model, the total cell capacitance is $C_m=9.87109e-5$ (in $\mu$F). Further, we assumed that the total cell volume is a sum of the intracellular, $8800.00$ (in $\mu$m$^3$), and SR, $583.73$ (in $\mu$m$^3$), compartment volumes, as defined in the ventricular Paci2013 model.
+We generated synthetic observed single cell and tissue measurements. For the tissue case, we solved the system on a rectangular test domain of $12$ mm $\times\: 0.01$ mm. We took typical values $\sigma_t=0.02$ and $\sigma_l=0.2$ (in mS/mm) for the tangential and longitudinal conductivity respectively \cite{Roth}, data from \cite{Plonsey1882, Plonsey1984}. In the ventricular Paci2013 model, the total cell capacitance is $C_m=9.87109e^{-5}$ (in $\mu$F). Further, we assumed that the total cell volume is a sum of the intracellular, $8800.00$ (in $\mu$m$^3$), and SR, $583.73$ (in $\mu$m$^3$), compartment volumes, as defined in the ventricular Paci2013 model.
 We ran the model in both cases for 800 s to reach a steady state, while applying a $1$ Hz stimulus of $5$ ms and $5.6$ A/F, the default stimulus values of the Paci2013 ventricular model. For the tissue case, we applied the stimulus over the left $0.5$ mm of the domain. We recorded and saved the values of $v$ and $[Ca]_i$ every ms from $t=0$ to $t=1000$ ms. For the tissue case, we saved those values at all points in our domain. In \cite{Lee2012}, 926 optical mapping recordings per second were made with a $128 \times 128$ pixel camera. Therefore, it seems reasonable to assume we can record the voltage and calcium concentration every ms. We assume that the accuracy and spatial resolution of our synthetic observed data is equal to our numerical solution at every recorded moment in time. In reality, the obtained data will be rounded to discrete values and averaged in space. Both the accuracy and spatial resolution of real data might be less than that of our synthetic data. In Figure \ref{fig:3}, we plot both two points of the observed tissue data (in blue, at ($5$ mm, $0$ mm) and in red, at ($10$ mm, $0$ mm)), and the observed single cell data (in yellow), over time. We see that the calcium concentration peaks approximately $140$ ms after the voltage does. We also see that the voltage peak of the tissue data is less sharp than that of the single cell data, due to diffusion. By decreasing the conductivity parameters, the shape of the action potential wave of the single cell data and tissue data can be made more similar.
 %
 \section{Results} \label{Results}
@@ -192,7 +192,16 @@ We investigated the sensitivity of our tissue data to the same parameters, and a
 %trim={<left> <lower> <right> <upper>}
 %
 \subsection{Inversion} \label{Inversion}
-We calculated the value of $\mathcal{J}_{\text{single cell}}$ and $\mathcal{J}$ while varying one of the parameters $g_{Na}, g_{CaL}, g_{K1}$ or $g_{Kr}$ and keeping the others fixed at $100\%$ of their original value. Note that our observed data is obtained with all parameters at $100\%$ of their original value. In Figure \ref{fig:8}, we plot the left part of $\mathcal{J}_{\text{single cell}}$, the right part of $\mathcal{J}_{\text{single cell}}$, and its total value for different parameter values. By left and right part, we mean the contributions of $v$ and $[Ca]_i$ to the size of $\mathcal{J}_{\text{single cell}}$ respectively. In Figure \ref{fig:9}, we similarly plot the left part, the right part and the total value of $\mathcal{J}$. In Figures \ref{fig:10} and \ref{fig:11}, we also plotted heat maps of the value of $\mathcal{J}_{\text{single cell}}$ and $\mathcal{J}$ while varying two parameters at a time.
+We calculated the value of $\mathcal{J}_{\text{single cell}}$ and $\mathcal{J}$ while varying one of the parameters $g_{Na}, g_{CaL}, g_{K1}$ or $g_{Kr}$ and keeping the others fixed at $100\%$ of their original value. Note that our observed data is obtained with all parameters at $100\%$ of their original value. In Figure \ref{fig:8}, we plot the left part of $\mathcal{J}_{\text{single cell}}$, the right part of $\mathcal{J}_{\text{single cell}}$, and its total value for different parameter values. By left and right part, we mean the contributions of $v$ and $[Ca]_i$ to the size of $\mathcal{J}_{\text{single cell}}$ respectively. In Figure \ref{fig:9}, we similarly plot the left part, the right part and the total value of $\mathcal{J}$. In Figure \ref{fig:11}, we also plot heat maps of the value of $\mathcal{J}$ while varying two parameters at a time. When varying more than two parameters simultaneously, it becomes harder to visualise the results. However, we did vary all four parameters from $90\%$ to $110\%$ of their original value in steps of $2\%$. We computed the value of $\mathcal{J}$ for all $11^4=14641$ points in this parameter space and found a unique local minimum when all four parameters are equal to their original values. Here, we define local minimum as an element in our four dimensional matrix that is surrounded in all eight directions by either larger or equally valued elements.
+
+\subsection{Alternative functionals} \label{Alternative functionals}
+When we look at Figure \ref{fig:9}, we see that $\mathcal{J}$ is mainly sensitive to $g_{Na}$. This is the case because our functional is mainly sensitive to changes in the wave speed which the other three parameters do barely affect, when we look at a range of $75\%$ to $125 \%$ of their original values, see Figures \ref{fig:1a} and \ref{fig:1b}. We define some alternative functionals: $\mathcal{J}_{\mbox{wave speed}}$, $\mathcal{J}_{\mbox{amplitude $v$}}$, $\mathcal{J}_{\mbox{amplitude $[Ca]_i$}}$, $\mathcal{J}_{v \:30 \%}$,
+$\mathcal{J}_{[Ca]_i \:30 \%}$, $\mathcal{J}_{v \:50 \%}$,
+$\mathcal{J}_{[Ca]_i \:50 \%}$,  $\mathcal{J}_{v \:70 \%}$,
+$\mathcal{J}_{[Ca]_i \:70 \%}$,  $\mathcal{J}_{v \:90 \%}$,
+$\mathcal{J}_{[Ca]_i \:90 \%}$, where the names of the functionals refer to the characteristics as already mentioned in Subsections \ref{Single cell computations} and \ref{Tissue computations}. We define $\mathcal{J}_{\mbox{wave speed}}$ as the scaled difference in wave speed between the observed and simulated data:
+
+For the other functionals, we calculated the average calcium and voltage wave, after time-shifting the data from every point in space so that all voltage peaks were overlapping. We then calculated the scaled difference between the observed and simulated data for that particular characteristic. In Figures \ref{fig:9a}, \ref{fig:9b} and \ref{fig:9c}, we plot the values of the functionals for different parameter values. Note that we didn't define functional for the upstroke velocity, a characteristic that we did calculate before. We did not include such a functional, because we assume that the time resolution of our measurements is not high enough to accurately determine the upstroke velocity of the measured voltage and calcium waves.
 \begin{figure}
 \includegraphics[trim=0cm 0cm 0cm 1cm, clip=true, width=1\linewidth]{sc_functional_values} 
 \includegraphics[trim=0cm 1cm 0cm 1cm, clip=true, width=1\linewidth]{sc_functional_values2} 
@@ -208,29 +217,47 @@ We calculated the value of $\mathcal{J}_{\text{single cell}}$ and $\mathcal{J}$ 
 \end{figure}
 %
 \begin{figure}
-\includegraphics[trim=0cm 8cm 0cm 1cm, clip=true, width=1\linewidth]{J2_functional_evaluations} 
-\includegraphics[trim=0cm 1cm 0cm 1cm, clip=true, width=1\linewidth]{J2_functional_values2} 
-    \caption{Tissue computations: the value of the part of $\mathcal{J}_2$ at the left side of the plus-sign (top), at the right side of the plus-sign (middle), and the total value of $\mathcal{J}_2$ (bottom), for varying percentages of the default parameter values.}
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_wave} 
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_amplic}
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_ampliv} 
+    \caption{Tissue computations: the value of the part of several functionals, for varying percentages of the default parameter values.}
     \label{fig:9a}
 \end{figure}
 %
 \begin{figure}
-%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gcalgna} 
-%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gk1gna} 
-%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gkrgna} 
-%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gcalgkr} 
-%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gcalgk1} 
-%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gkrgk1} 
-    \caption{Single cell computations: the value of the part of $\mathcal{J}_{\text{single cell}}$ at the left side of the plus-sign (left), at the right side of the plus-sign (middle), and the total value of $\mathcal{J}_{\text{single cell}}$ (right), for varying percentages of the default parameter values.}
-    \label{fig:10}
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_ca30} 
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_v30} 
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_ca50} 
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_v50} 
+    \caption{Tissue computations: the value of the part of several functionals, for varying percentages of the default parameter values.}
+    \label{fig:9b}
 \end{figure}
+%
+\begin{figure}
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_ca70} 
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_v70} 
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_ca90} 
+\includegraphics[trim=0cm 0cm 0cm 0.5cm, clip=true, width=1\linewidth]{J_v90} 
+    \caption{Tissue computations: the value of the part of several functionals, for varying percentages of the default parameter values.}
+    \label{fig:9c}
+\end{figure}
+%\begin{figure}
+%%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gcalgna} 
+%%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gk1gna} 
+%%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gkrgna} 
+%%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gcalgkr} 
+%%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gcalgk1} 
+%%\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{sc_gkrgk1} 
+%    \caption{Single cell computations: the value of the part of $\mathcal{J}_{\text{single cell}}$ at the left side of the plus-sign (left), at the right side of the plus-sign (middle), and the total value of $\mathcal{J}_{\text{single cell}}$ (right), for varying percentages of the default parameter values.}
+%    \label{fig:10}
+%\end{figure}
 %
 \begin{figure}
 \includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{gcalgna} 
 \includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{gk1gna} 
 \includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{gkrgna} 
 \includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{gcalgkr} 
-\includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{gcalgk1} 
+\includegraphics[scale = 1, trim=0cm 0cm 0cm 0cm, width=1\linewidth]{gcalgk1} 
 \includegraphics[trim=0cm 0cm 0cm 0cm, clip=true, width=1\linewidth]{gkrgk1} 
     \caption{Tissue computations: the value of the part of $\mathcal{J}$ at the left side of the plus-sign (left), at the right side of the plus-sign (middle), and the total value of $\mathcal{J}$ (right), for varying percentages of the default parameter values.}
     \label{fig:11}
@@ -254,21 +281,25 @@ We calculated the value of $\mathcal{J}_{\text{single cell}}$ and $\mathcal{J}$ 
 %\end{table*}
 %
 \section{Discussion} \label{Discussion}
+\subsection{Single cell computations} \label{Single cell computations 2}
+Looking at Figures \
+\subsection{Tissue computations} \label{Tissue computations 2}
 %
-$\cdots$
+\subsection{Inversion} \label{Inversion 2}
 %
-\section{Conslusion} \label{Conclusion}
+\subsection{Alternative functionals}
+\section{Conclusion} \label{Conclusion}
 %
-$\cdots$
+- blocking
+- optimization
 %
-
 \begin{thebibliography}{99}
 \bibitem{Blazeski} Blazeski, A., Zhu, R., Hunter, D. W., Weinberg, S. H., Boheler, K. R., Zambidis, E. T., \& Tung, L. (2012). Electrophysiological and contractile function of cardiomyocytes derived from human embryonic stem cells. \textit{Progress in Biophysics and Molecular Biology, 110}(0), 178–195.
 \bibitem{Chen2016} Chen, Z., Xian, W., Bellin, M., Dorn, T., Tian, Q., Goedel, A., \ldots Hinkel, R. (2016). Subtype-specific promoter-driven action potential imaging for precise disease modelling and drug testing in hiPSC-derived cardiomyocytes. \textit{European Heart Journal, 38}, 292-301.
 \bibitem{Dempsey2016} Dempsey, G. T., Chaudhary, K. W., Atwater, N., Nguyen, C., Brown, B. S., McNeish, J. D., \ldots Kralj, J. M. (2016). Cardiotoxicity screening with simultaneous optogenetic pacing, voltage imaging and calcium imaging. \textit{Journal of pharmacological and toxicological methods, 81}, 240-250.
 \bibitem{Denning2016} Denning, C., Borgdorff, V., Crutchley, J., Firth, K. S., George, V., Kalra, S., \ldots Prodanov, L. (2016). Cardiomyocytes from human pluripotent stem cells: from laboratory curiosity to industrial biomedical platform. \textit{Biochimica et Biophysica Acta (BBA)-Molecular Cell Research, 1863}(7), 1728-1748.
 \bibitem{Gunzburger} Gunzburger, M. (2003). \textit{Perspectives in flow control and optimization} (Advances in design and control). Philadelphia, Pa.: SIAM.
-\bibitem{Lee2012} Lee, P., Klos, M., Bollensdorff, C., Hou, L., Ewart, P., Kamp, T. J., \ldots Jalife, J. (2012). Simultaneous Voltage and Calcium Mapping of Genetically Purified Human Induced Pluripotent Stem Cell–Derived Cardiac Myocyte MonolayersNovelty and Significance. \textit{Circulation research, 110}(12), 1556-1563.
+\bibitem{Lee2012} Lee, P., Klos, M., Bollensdorff, C., Hou, L., Ewart, P., Kamp, T. J., \ldots Jalife, J. (2012). Simultaneous Voltage and Calcium Mapping of Genetically Purified Human Induced Pluripotent Stem Cell–Derived Cardiac Myocyte Monolayers. \textit{Circulation research, 110}(12), 1556-1563.
 \bibitem{Leyton2014} Leyton-Mange, J. S., Mills, R. W., Macri, V. S., Jang, M. Y., Butte, F. N., Ellinor, P. T., \& Milan, D. J. (2014). Rapid cellular phenotyping of human pluripotent stem cell-derived cardiomyocytes using a genetically encoded fluorescent voltage sensor. \textit{Stem Cell Reports, 2}(2), 163-170.
 \bibitem{Ma2011} Ma, J., Guo, L., Fiene, S., Anson, B., Thomson, J., Kamp, T., \ldots January, C. (2011). High purity human-induced pluripotent stem cell-derived cardiomyocytes: Electrophysiological properties of action potentials and ionic currents. \textit{American Journal of Physiology. Heart and Circulatory Physiology, 301}(5), H2006-17.
 \bibitem{KeenerI} Keener, J. P., \& Sneyd, J. (2009). \textit{Mathematical physiology (Vol. I)}. New York: Springer.
