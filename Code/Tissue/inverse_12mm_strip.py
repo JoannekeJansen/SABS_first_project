@@ -288,7 +288,7 @@ if __name__ == "__main__":
         rf = ReducedFunctional(J, [Control(ctrl2)] , eval_cb_post = eval_cb_post, derivative_cb_post = derivative_cb_post)
         # assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
         #rf.taylor_test(ctrl1, seed=1e-2)
-        problem = MinimizationProblem(rf, bounds=(0.5, 1.5))
+        problem = MinimizationProblem(rf, bounds=(0.9, 1.1))
         parameters = {"acceptable_tol": 1.0e-3, "maximum_iterations": 10}
         solver = IPOPTSolver(problem, parameters=parameters)
         a_opt = solver.solve()  
