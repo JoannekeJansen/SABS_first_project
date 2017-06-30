@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Report_27_June2017.aux
+The style file: gillow.bst
+Database file #1: refs.bib
+Warning--to sort, need author or key in cellml2
+Warning--to sort, need author or key in cbcbeat2
+Warning--to sort, need author or key in fenics2
+Warning--to sort, need author or key in dolfin-adjoint2
+Warning--to sort, need author or key in petsc-web-page
+You've used 32 entries,
+            2213 wiz_defined-function locations,
+            720 strings with 11101 characters,
+and the built_in function-call counts, 12582 in all, are:
+= -- 1138
+> -- 825
+< -- 3
++ -- 330
+- -- 295
+* -- 1132
+:= -- 2096
+add.period$ -- 93
+call.type$ -- 32
+change.case$ -- 235
+chr.to.int$ -- 0
+cite$ -- 37
+duplicate$ -- 390
+empty$ -- 860
+format.name$ -- 295
+if$ -- 2492
+int.to.chr$ -- 0
+int.to.str$ -- 32
+missing$ -- 30
+newline$ -- 159
+num.names$ -- 56
+pop$ -- 240
+preamble$ -- 1
+purify$ -- 207
+quote$ -- 0
+skip$ -- 236
+stack$ -- 0
+substring$ -- 687
+swap$ -- 91
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 120
+warning$ -- 5
+while$ -- 91
+width$ -- 34
+write$ -- 337
+(There were 5 warnings)
