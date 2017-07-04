@@ -1,0 +1,460 @@
+
+joanneke@calliope:~/Calliope2$ cd gnak
+joanneke@calliope:~/Calliope2/gnak$ python inverse_12mm_strip_onlygna_small.py -gnaf 1.0 -gcalf 1.0 -gkrf 1.0 -gk1f 1.0                                                   
+[PyIPOPT] Ipopt will use Hessian approximation.
+
+[PyIPOPT] Problem created
+
+List of options:
+
+                                    Name   Value                # times used
+                          acceptable_tol = 0.001                     1
+                   hessian_approximation = limited-memory            7
+                                max_iter = 10                        1
+                             print_level = 6                         2
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.12.8, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:        0
+
+Hessian approximation will be done in the space of all 1 x variables.
+
+Scaling parameter for objective function = 2.582368e-05
+objective scaling factor = 2.58237e-05
+No x scaling provided
+No c scaling provided
+No d scaling provided
+Moved initial values of x sufficiently inside the bounds.
+Initial values of s sufficiently inside the bounds.
+Total number of variables............................:        1
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        1
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+
+**************************************************
+*** Update HessianMatrix for Iteration 0:
+**************************************************
+
+Limited-Memory approximation started; store data at current iterate.
+
+
+**************************************************
+*** Summary of Iteration: 0:
+**************************************************
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  1.0127924e-01 0.00e+00 9.01e+01   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+
+**************************************************
+*** Beginning Iteration 0 from the following point:
+**************************************************
+
+Current barrier parameter mu = 1.0000000000000000e+00
+Current fraction-to-the-boundary parameter tau = 0.0000000000000000e+00
+
+||curr_x||_inf   = 9.0199999020999999e-01
+||curr_s||_inf   = 0.0000000000000000e+00
+||curr_y_c||_inf = 0.0000000000000000e+00
+||curr_y_d||_inf = 0.0000000000000000e+00
+||curr_z_L||_inf = 1.0000000000000000e+00
+||curr_z_U||_inf = 1.0000000000000000e+00
+||curr_v_L||_inf = 0.0000000000000000e+00
+||curr_v_U||_inf = 0.0000000000000000e+00
+
+
+***Current NLP Values for Iteration 0:
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.6154028911127125e-06    1.0127923705088497e-01
+Dual infeasibility......:   9.0063972825865491e+01    3.4876502142637535e+06
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   1.9800002079000012e-01    7.6673812320896313e+03
+Overall NLP error.......:   9.0063972825865491e+01    3.4876502142637535e+06
+
+
+
+
+**************************************************
+*** Update Barrier Parameter for Iteration 0:
+**************************************************
+
+Setting mu_max to 1.000000e+02.
+Staying in free mu mode.
+The current filter has 1 entries.
+Solving the Primal Dual System for the affine step
+In Ma27TSolverInterface::InitializeStructure: Using overestimation factor LiwFact = 2.000000e+00
+Size of integer work space recommended by MA27 is 5
+Setting integer work space size to 25
+Size of doublespace recommended by MA27 is 3
+Setting double work space size to 15
+Number of doubles for MA27 to hold factorization (INFO(9)) = 1
+Number of integers for MA27 to hold factorization (INFO(10)) = 3
+Factorization successful.
+Number of trial factorizations performed: 1
+Perturbation parameters: delta_x=0.000000e+00 delta_s=0.000000e+00
+                         delta_c=0.000000e+00 delta_d=0.000000e+00
+Solving the Primal Dual System for the centering step
+Factorization successful.
+Sigma = 8.134142e+01
+Barrier parameter mu computed by oracle is 8.134143e+00
+Barrier parameter mu after safeguards is 8.134143e+00
+Barrier Parameter: 8.134143e+00
+
+**************************************************
+*** Solving the Primal Dual System for Iteration 0:
+**************************************************
+
+residual_ratio = 4.730735e-15
+Factorization successful.
+residual_ratio = 3.078639e-18
+
+**************************************************
+*** Finding Acceptable Trial Point for Iteration 0:
+**************************************************
+
+--> Starting line search in iteration 0 <--
+Mu has changed in line search - resetting watchdog counters.
+The current filter has 0 entries.
+minimal step size ALPHA_MIN = 0.000000E+00
+Starting checks for alpha (primal) = 2.41e-02
+trial_max is initialized to 1.000000e+04
+trial_min is initialized to 1.000000e-04
+Checking acceptability for trial step size alpha_primal_test= 2.409979e-02:
+  New values of barrier function     =  6.3804587689789322e+01  (reference  6.3723659630638231e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 1
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 2.409979e-02:
+  New values of barrier function     =  6.3804587689712093e+01  (reference  6.3723659630638231e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 2
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 2.409979e-02:
+  New values of barrier function     =  6.3804587697070225e+01  (reference  6.3723659630638231e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 3
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 2.409979e-02:
+  New values of barrier function     =  6.3804587696602937e+01  (reference  6.3723659630638231e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 4
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 2.409979e-02:
+  New values of barrier function     =  6.3804587696875551e+01  (reference  6.3723659630638231e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 1.20e-02
+Checking acceptability for trial step size alpha_primal_test= 1.204989e-02:
+  New values of barrier function     =  3.7459110478480987e+01  (reference  6.3723659630638231e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Succeeded...
+Checking filter acceptability...
+Succeeded...
+
+**************************************************
+*** Update HessianMatrix for Iteration 1:
+**************************************************
+
+In limited-memory update, s_new_max is 9.801001e-02
+Limited-Memory test for skipping:
+     s^Ty = 8.830483e+00 snrm = 9.801001e-02 ynrm = 9.009777e+01
+     Perform the update.
+sigma (for B0) is 9.192711e+02
+Number of successive iterations with skipping: 0
+
+
+**************************************************
+*** Summary of Iteration: 1:
+**************************************************
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   1  4.5181582e-07 0.00e+00 8.20e+01   0.9 8.13e+00    -  1.00e+00 1.20e-02f  2  sigma=8.13e+01 qf=12
+
+**************************************************
+*** Beginning Iteration 1 from the following point:
+**************************************************
+
+Current barrier parameter mu = 8.1341428421630706e+00
+Current fraction-to-the-boundary parameter tau = 9.8999999999999999e-01
+
+||curr_x||_inf   = 1.0000100005010499e+00
+||curr_s||_inf   = 0.0000000000000000e+00
+||curr_y_c||_inf = 0.0000000000000000e+00
+||curr_y_d||_inf = 0.0000000000000000e+00
+||curr_z_L||_inf = 2.3043194162386327e-01
+||curr_z_U||_inf = 8.2160722789257917e+01
+||curr_v_L||_inf = 0.0000000000000000e+00
+||curr_v_U||_inf = 0.0000000000000000e+00
+
+
+***Current NLP Values for Iteration 1:
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.1667548402407236e-11    4.5181581945385688e-07
+Dual infeasibility......:   8.1964088638369248e+01    3.1739891360804485e+06
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   8.2152515342992345e+00    3.1812857988428423e+05
+Overall NLP error.......:   8.1964088638369248e+01    3.1739891360804485e+06
+
+
+
+
+**************************************************
+*** Update Barrier Parameter for Iteration 1:
+**************************************************
+
+Switching to fixed mu mode with mu =   3.2953188140803258e+00 and tau =   9.8999999999999999e-01.
+Barrier Parameter: 3.295319e+00
+
+**************************************************
+*** Solving the Primal Dual System for Iteration 1:
+**************************************************
+
+Number of doubles for MA27 to hold factorization (INFO(9)) = 1
+Number of integers for MA27 to hold factorization (INFO(10)) = 3
+Factorization successful.
+Factorization successful.
+Factorization successful.
+Number of trial factorizations performed: 1
+Perturbation parameters: delta_x=0.000000e+00 delta_s=0.000000e+00
+                         delta_c=0.000000e+00 delta_d=0.000000e+00
+residual_ratio = 0.000000e+00
+Factorization successful.
+residual_ratio = 0.000000e+00
+
+**************************************************
+*** Finding Acceptable Trial Point for Iteration 1:
+**************************************************
+
+--> Starting line search in iteration 1 <--
+Mu has changed in line search - resetting watchdog counters.
+The current filter has 0 entries.
+minimal step size ALPHA_MIN = 0.000000E+00
+Starting checks for alpha (primal) = 1.00e+00
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  1.5175503321059667e+01  (reference  1.5175503296876286e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 1
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  1.5175503321065898e+01  (reference  1.5175503296876286e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 2
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  1.5175503321057581e+01  (reference  1.5175503296876286e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 3
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  1.5175503321056931e+01  (reference  1.5175503296876286e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 4
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  1.5175503321058031e+01  (reference  1.5175503296876286e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 5.00e-01
+Checking acceptability for trial step size alpha_primal_test= 5.000000e-01:
+  New values of barrier function     =  1.5175503264748023e+01  (reference  1.5175503296876286e+01):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Succeeded...
+Checking filter acceptability...
+Succeeded...
+
+**************************************************
+*** Update HessianMatrix for Iteration 2:
+**************************************************
+
+In limited-memory update, s_new_max is 1.158414e-05
+Limited-Memory test for skipping:
+     s^Ty = 2.114909e-07 snrm = 1.158414e-05 ynrm = 1.825694e-02
+     Perform the update.
+sigma (for B0) is 1.576029e+03
+Number of successive iterations with skipping: 0
+
+
+**************************************************
+*** Summary of Iteration: 2:
+**************************************************
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   2  3.7320881e-07 0.00e+00 3.04e-03   0.5 2.32e-05    -  1.00e+00 5.00e-01f  2 FNhj
+
+**************************************************
+*** Beginning Iteration 2 from the following point:
+**************************************************
+
+Current barrier parameter mu = 3.2953188140803258e+00
+Current fraction-to-the-boundary parameter tau = 9.8999999999999999e-01
+
+||curr_x||_inf   = 9.9999841636462072e-01
+||curr_s||_inf   = 0.0000000000000000e+00
+||curr_y_c||_inf = 0.0000000000000000e+00
+||curr_y_d||_inf = 0.0000000000000000e+00
+||curr_z_L||_inf = 3.2949943073506908e+01
+||curr_z_U||_inf = 3.2937443206599909e+01
+||curr_v_L||_inf = 0.0000000000000000e+00
+||curr_v_U||_inf = 0.0000000000000000e+00
+
+
+***Current NLP Values for Iteration 2:
+
+                                   (scaled)                 (unscaled)
+Objective...............:   9.6376258616386183e-12    3.7320880754756789e-07
+Dual infeasibility......:   3.0409856306334859e-03    1.1775956415733377e+02
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   3.2949424561545260e+00    1.2759382472959037e+05
+Overall NLP error.......:   3.2949424561545260e+00    1.2759382472959037e+05
+
+
+
+
+**************************************************
+*** Update Barrier Parameter for Iteration 2:
+**************************************************
+
+Remaining in fixed mu mode.
+Reducing mu to   6.5906376281606516e-01 in fixed mu mode. Tau becomes   9.8999999999999999e-01
+Barrier Parameter: 6.590638e-01
+
+**************************************************
+*** Solving the Primal Dual System for Iteration 2:
+**************************************************
+
+Number of doubles for MA27 to hold factorization (INFO(9)) = 1
+Number of integers for MA27 to hold factorization (INFO(10)) = 3
+Factorization successful.
+Factorization successful.
+Factorization successful.
+Number of trial factorizations performed: 1
+Perturbation parameters: delta_x=0.000000e+00 delta_s=0.000000e+00
+                         delta_c=0.000000e+00 delta_d=0.000000e+00
+residual_ratio = 0.000000e+00
+Factorization successful.
+residual_ratio = 0.000000e+00
+
+**************************************************
+*** Finding Acceptable Trial Point for Iteration 2:
+**************************************************
+
+--> Starting line search in iteration 2 <--
+Mu has changed in line search - resetting watchdog counters.
+The current filter has 0 entries.
+minimal step size ALPHA_MIN = 0.000000E+00
+Starting checks for alpha (primal) = 1.00e+00
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  3.0351006574897368e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 1
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  3.0351006574857373e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 2
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  3.0351006574866060e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 3
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  3.0351006574879462e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Trying second order correction number 4
+Factorization successful.
+Checking acceptability for trial step size alpha_primal_test= 1.000000e+00:
+  New values of barrier function     =  3.0351006574856614e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 5.00e-01
+Checking acceptability for trial step size alpha_primal_test= 5.000000e-01:
+  New values of barrier function     =  3.0351006544477017e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 2.50e-01
+Checking acceptability for trial step size alpha_primal_test= 2.500000e-01:
+  New values of barrier function     =  3.0351006535276146e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 1.25e-01
+Checking acceptability for trial step size alpha_primal_test= 1.250000e-01:
+  New values of barrier function     =  3.0351006531845632e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 6.25e-02
+Checking acceptability for trial step size alpha_primal_test= 6.250000e-02:
+  New values of barrier function     =  3.0351006530561428e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 3.12e-02
+Checking acceptability for trial step size alpha_primal_test= 3.125000e-02:
+  New values of barrier function     =  3.0351006529986910e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 1.56e-02
+Checking acceptability for trial step size alpha_primal_test= 1.562500e-02:
+  New values of barrier function     =  3.0351006529744629e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 7.81e-03
+Checking acceptability for trial step size alpha_primal_test= 7.812500e-03:
+  New values of barrier function     =  3.0351006529640343e+00  (reference  3.0351006529573143e+00):
+  New values of constraint violation =  0.0000000000000000e+00  (reference  0.0000000000000000e+00):
+Checking Armijo Condition...
+Failed...
+Starting checks for alpha (primal) = 3.91e-03
+Segmentation fault (core dumped)
+joanneke@calliope:~/Calliope2/gnak$ capture-pane -S -3000
+capture-pane: command not found
+joanneke@calliope:~/Calliope2/gnak$

@@ -6,8 +6,8 @@
 # Import modules
 import sys
 sys.path.insert(0,'/home/joanneke/local/lib/python2.7/site-packages')
-# ff = open("test.out", 'w')
-# sys.stdout = ff
+ff = open("test.out", 'w')
+sys.stdout = ff
 from cbcbeat import *
 import numpy as np
 import time as time1
@@ -40,7 +40,7 @@ parser.add_argument("--control_var", type=str, help="The control variable, optio
 args = parser.parse_args()
 
 # When one control variable is given, we will calculate the value of J for various values of the control variable.
-# Otherwise, we optimize for one of the five control variables.
+# Otherwise, we optimize for all five control variables.
 if args.control_var:
     Optimize = False
     Evaluate_J = True
@@ -249,11 +249,11 @@ if __name__ == "__main__":
     print "N=", N
     Q = vur.function_space()
     I = 0
-    # I1= 0
-    # I2=0
-    # Ib = 0
-    # I1b= 0
-    # I2b=0
+    I1= 0
+    I2=0
+    Ib = 0
+    I1b= 0
+    I2b=0
     for i in range(N):
         print i
         v_obs = Function(Q)
@@ -263,17 +263,17 @@ if __name__ == "__main__":
         hdf_v.read(v_obs, dataset_v)
         hdf_cai.read(cai_obs, dataset_cai)
         I = I + (inner(split(vs)[0] - v_obs, split(vs)[0] - v_obs)*dx*dt[float(times[i])]) \
-        #     /(assemble(inner(v_obs, v_obs)*dx))
-        # I1 = I1 + (inner(split(vs)[0] - v_obs, split(vs)[0] - v_obs)*dx*dt[float(times[i])]) \
-        #     /(assemble(inner(v_obs, v_obs)*dx))
+            /(assemble(inner(v_obs, v_obs)*dx))
+        I1 = I1 + (inner(split(vs)[0] - v_obs, split(vs)[0] - v_obs)*dx*dt[float(times[i])]) \
+            /(assemble(inner(v_obs, v_obs)*dx))
         I = I + (inner(split(vs)[16] - cai_obs, split(vs)[16] - cai_obs)*dx*dt[float(times[i])]) \
             /(assemble(inner(cai_obs, cai_obs)*dx))
-        # I2 = I2 + (inner(split(vs)[16] - cai_obs, split(vs)[16] - cai_obs)*dx*dt[float(times[i])]) \
-            # /(assemble(inner(cai_obs, cai_obs)*dx))
+        I2 = I2 + (inner(split(vs)[16] - cai_obs, split(vs)[16] - cai_obs)*dx*dt[float(times[i])]) \
+            /(assemble(inner(cai_obs, cai_obs)*dx))
     del hdf_v, hdf_cai
     J = Functional(I/N)
-    # J1 = Functional(I1/N)
-    # J2 = Functional(I2/N)
+    J1 = Functional(I1/N)
+    J2 = Functional(I2/N)
 
     # Create files to save results
     if noise_percentage_gna > 0 or noise_percentage_gk1 > 0 or noise_percentage_gk1 > 0 or \

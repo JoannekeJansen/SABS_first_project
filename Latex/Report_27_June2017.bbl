@@ -1,13 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{cellml2}
+Cellml {W}eb page.
+
 \bibitem{cbcbeat2}
 Cbcbeat {W}eb page.
 \newblock \url{http://bitbucket.org/meg/cbcbeat}, accessed on 01 June 2017.
-
-\bibitem{cellml2}
-Cellml {W}eb page.
-\newblock \url{http://models.cellml.org/electrophysiology}, accessed on 01 June
-  2017.
 
 \bibitem{dolfin-adjoint2}
 Dolfin-adjoint {W}eb page.
@@ -201,6 +199,12 @@ Fenics {W}eb page.
 \newblock Induction of pluripotent stem cells from adult human fibroblasts by
   defined factors.
 \newblock {\em Cell}, {\bf 131}(5):861--872, 2007.
+
+\bibitem{Wachter2006}
+{\sc Andreas W{\"a}chter and Lorenz~T Biegler}.
+\newblock On the implementation of an interior-point filter line-search
+  algorithm for large-scale nonlinear programming.
+\newblock {\em Mathematical programming}, {\bf 106}(1):25--57, 2006.
 
 \bibitem{Zhu2016}
 {\sc Renjun Zhu, Michal~A Millrod, Elias~T Zambidis, and Leslie Tung}.

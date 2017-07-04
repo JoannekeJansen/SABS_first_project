@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  29 JUN 2017 17:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.26)  3 JUL 2017 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -550,14 +550,14 @@ Package epstopdf Info: Source file: <sc_gna.eps>
 (epstopdf)                    size: 335677 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_gna-eps-converted-to.pd
 f sc_gna.eps>
-(epstopdf)             \includegraphics on input line 106.
+(epstopdf)             \includegraphics on input line 108.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_gna-eps-converted-to.pdf, id=46, 716.6775pt x 223.83624pt>
 File: sc_gna-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_gna-eps-converted-to.pdf>
-Package pdftex.def Info: sc_gna-eps-converted-to.pdf used on input line 106.
+Package pdftex.def Info: sc_gna-eps-converted-to.pdf used on input line 108.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
 Package epstopdf Info: Source file: <sc_gcal.eps>
 (epstopdf)                    date: 2017-05-31 16:54:11
@@ -567,14 +567,14 @@ Package epstopdf Info: Source file: <sc_gcal.eps>
 (epstopdf)                    size: 333561 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_gcal-eps-converted-to.p
 df sc_gcal.eps>
-(epstopdf)             \includegraphics on input line 107.
+(epstopdf)             \includegraphics on input line 109.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_gcal-eps-converted-to.pdf, id=48, 716.6775pt x 223.83624pt>
 File: sc_gcal-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_gcal-eps-converted-to.pdf>
-Package pdftex.def Info: sc_gcal-eps-converted-to.pdf used on input line 107.
+Package pdftex.def Info: sc_gcal-eps-converted-to.pdf used on input line 109.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
 Package epstopdf Info: Source file: <sc_gkr.eps>
 (epstopdf)                    date: 2017-05-31 16:53:51
@@ -584,14 +584,14 @@ Package epstopdf Info: Source file: <sc_gkr.eps>
 (epstopdf)                    size: 336988 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_gkr-eps-converted-to.pd
 f sc_gkr.eps>
-(epstopdf)             \includegraphics on input line 108.
+(epstopdf)             \includegraphics on input line 110.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_gkr-eps-converted-to.pdf, id=50, 716.6775pt x 223.83624pt>
 File: sc_gkr-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_gkr-eps-converted-to.pdf>
-Package pdftex.def Info: sc_gkr-eps-converted-to.pdf used on input line 108.
+Package pdftex.def Info: sc_gkr-eps-converted-to.pdf used on input line 110.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
 Package epstopdf Info: Source file: <sc_gk1.eps>
 (epstopdf)                    date: 2017-05-31 16:54:01
@@ -601,14 +601,14 @@ Package epstopdf Info: Source file: <sc_gk1.eps>
 (epstopdf)                    size: 336557 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_gk1-eps-converted-to.pd
 f sc_gk1.eps>
-(epstopdf)             \includegraphics on input line 109.
+(epstopdf)             \includegraphics on input line 111.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_gk1-eps-converted-to.pdf, id=52, 716.6775pt x 223.83624pt>
 File: sc_gk1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_gk1-eps-converted-to.pdf>
-Package pdftex.def Info: sc_gk1-eps-converted-to.pdf used on input line 109.
+Package pdftex.def Info: sc_gk1-eps-converted-to.pdf used on input line 111.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
  [7 <./strip-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <sc_gks.eps>
@@ -619,14 +619,14 @@ Package epstopdf Info: Source file: <sc_gks.eps>
 (epstopdf)                    size: 336167 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_gks-eps-converted-to.pd
 f sc_gks.eps>
-(epstopdf)             \includegraphics on input line 115.
+(epstopdf)             \includegraphics on input line 117.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_gks-eps-converted-to.pdf, id=74, 716.6775pt x 223.83624pt>
 File: sc_gks-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_gks-eps-converted-to.pdf>
-Package pdftex.def Info: sc_gks-eps-converted-to.pdf used on input line 115.
+Package pdftex.def Info: sc_gks-eps-converted-to.pdf used on input line 117.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
 Package epstopdf Info: Source file: <sc_gf.eps>
 (epstopdf)                    date: 2017-05-31 16:53:30
@@ -636,14 +636,14 @@ Package epstopdf Info: Source file: <sc_gf.eps>
 (epstopdf)                    size: 335478 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_gf-eps-converted-to.pdf
  sc_gf.eps>
-(epstopdf)             \includegraphics on input line 116.
+(epstopdf)             \includegraphics on input line 118.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_gf-eps-converted-to.pdf, id=76, 716.6775pt x 223.83624pt>
 File: sc_gf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_gf-eps-converted-to.pdf>
-Package pdftex.def Info: sc_gf-eps-converted-to.pdf used on input line 116.
+Package pdftex.def Info: sc_gf-eps-converted-to.pdf used on input line 118.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
 Package epstopdf Info: Source file: <sc_gto.eps>
 (epstopdf)                    date: 2017-05-31 16:53:39
@@ -653,14 +653,14 @@ Package epstopdf Info: Source file: <sc_gto.eps>
 (epstopdf)                    size: 335771 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_gto-eps-converted-to.pd
 f sc_gto.eps>
-(epstopdf)             \includegraphics on input line 117.
+(epstopdf)             \includegraphics on input line 119.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_gto-eps-converted-to.pdf, id=78, 716.6775pt x 223.83624pt>
 File: sc_gto-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_gto-eps-converted-to.pdf>
-Package pdftex.def Info: sc_gto-eps-converted-to.pdf used on input line 117.
+Package pdftex.def Info: sc_gto-eps-converted-to.pdf used on input line 119.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
 Package epstopdf Info: Source file: <sc_amplitude.eps>
 (epstopdf)                    date: 2017-05-31 16:58:34
@@ -670,7 +670,7 @@ Package epstopdf Info: Source file: <sc_amplitude.eps>
 (epstopdf)                    size: 11204 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_amplitude-eps-converted
 -to.pdf sc_amplitude.eps>
-(epstopdf)             \includegraphics on input line 123.
+(epstopdf)             \includegraphics on input line 125.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_amplitude-eps-converted-to.pdf, id=80, 903.375pt x 223.83624pt>
@@ -678,7 +678,7 @@ File: sc_amplitude-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_amplitude-eps-converted-to.pdf>
 Package pdftex.def Info: sc_amplitude-eps-converted-to.pdf used on input line 1
-23.
+25.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <sc_v_max.eps>
 (epstopdf)                    date: 2017-05-31 16:58:21
@@ -688,22 +688,22 @@ Package epstopdf Info: Source file: <sc_v_max.eps>
 (epstopdf)                    size: 9863 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_v_max-eps-converted-to.
 pdf sc_v_max.eps>
-(epstopdf)             \includegraphics on input line 124.
+(epstopdf)             \includegraphics on input line 126.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_v_max-eps-converted-to.pdf, id=82, 903.375pt x 223.83624pt>
 File: sc_v_max-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_v_max-eps-converted-to.pdf>
-Package pdftex.def Info: sc_v_max-eps-converted-to.pdf used on input line 124.
+Package pdftex.def Info: sc_v_max-eps-converted-to.pdf used on input line 126.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 
-Overfull \hbox (16.75684pt too wide) in paragraph at lines 123--125
+Overfull \hbox (16.75684pt too wide) in paragraph at lines 125--127
 []\OT1/cmr/bx/n/10 (a) []
  []
 
 
-Overfull \hbox (17.55547pt too wide) in paragraph at lines 123--125
+Overfull \hbox (17.55547pt too wide) in paragraph at lines 125--127
 \OT1/cmr/bx/n/10 (b) [] 
  []
 
@@ -715,13 +715,13 @@ Package epstopdf Info: Source file: <sc_30p.eps>
 (epstopdf)                    size: 8420 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_30p-eps-converted-to.pd
 f sc_30p.eps>
-(epstopdf)             \includegraphics on input line 130.
+(epstopdf)             \includegraphics on input line 132.
 Package epstopdf Info: Output file is already uptodate.
 <sc_30p-eps-converted-to.pdf, id=84, 903.375pt x 223.83624pt>
 File: sc_30p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_30p-eps-converted-to.pdf>
-Package pdftex.def Info: sc_30p-eps-converted-to.pdf used on input line 130.
+Package pdftex.def Info: sc_30p-eps-converted-to.pdf used on input line 132.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <sc_50p.eps>
 (epstopdf)                    date: 2017-05-31 16:57:46
@@ -731,14 +731,14 @@ Package epstopdf Info: Source file: <sc_50p.eps>
 (epstopdf)                    size: 8300 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_50p-eps-converted-to.pd
 f sc_50p.eps>
-(epstopdf)             \includegraphics on input line 131.
+(epstopdf)             \includegraphics on input line 133.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_50p-eps-converted-to.pdf, id=86, 903.375pt x 223.83624pt>
 File: sc_50p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_50p-eps-converted-to.pdf>
-Package pdftex.def Info: sc_50p-eps-converted-to.pdf used on input line 131.
+Package pdftex.def Info: sc_50p-eps-converted-to.pdf used on input line 133.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <sc_70p.eps>
 (epstopdf)                    date: 2017-05-31 16:57:57
@@ -748,14 +748,14 @@ Package epstopdf Info: Source file: <sc_70p.eps>
 (epstopdf)                    size: 8416 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_70p-eps-converted-to.pd
 f sc_70p.eps>
-(epstopdf)             \includegraphics on input line 132.
+(epstopdf)             \includegraphics on input line 134.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_70p-eps-converted-to.pdf, id=88, 903.375pt x 223.83624pt>
 File: sc_70p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_70p-eps-converted-to.pdf>
-Package pdftex.def Info: sc_70p-eps-converted-to.pdf used on input line 132.
+Package pdftex.def Info: sc_70p-eps-converted-to.pdf used on input line 134.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <sc_90p.eps>
 (epstopdf)                    date: 2017-05-31 16:58:07
@@ -765,160 +765,160 @@ Package epstopdf Info: Source file: <sc_90p.eps>
 (epstopdf)                    size: 8584 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_90p-eps-converted-to.pd
 f sc_90p.eps>
-(epstopdf)             \includegraphics on input line 133.
+(epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_90p-eps-converted-to.pdf, id=90, 903.375pt x 223.83624pt>
 File: sc_90p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_90p-eps-converted-to.pdf>
-Package pdftex.def Info: sc_90p-eps-converted-to.pdf used on input line 133.
+Package pdftex.def Info: sc_90p-eps-converted-to.pdf used on input line 135.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 
-Overfull \hbox (16.75684pt too wide) in paragraph at lines 130--134
+Overfull \hbox (16.75684pt too wide) in paragraph at lines 132--136
 []\OT1/cmr/bx/n/10 (a) []
  []
 
 
-Overfull \hbox (17.55547pt too wide) in paragraph at lines 130--134
+Overfull \hbox (17.55547pt too wide) in paragraph at lines 132--136
 \OT1/cmr/bx/n/10 (b) []
  []
 
 
-Overfull \hbox (16.2777pt too wide) in paragraph at lines 130--134
+Overfull \hbox (16.2777pt too wide) in paragraph at lines 132--136
 \OT1/cmr/bx/n/10 (c) []
  []
 
 
-Overfull \hbox (17.55547pt too wide) in paragraph at lines 130--134
+Overfull \hbox (17.55547pt too wide) in paragraph at lines 132--136
 \OT1/cmr/bx/n/10 (d) [] 
  []
 
 <legend_cai.png, id=92, 558.085pt x 474.77374pt>
 File: legend_cai.png Graphic file (type png)
  <use legend_cai.png>
-Package pdftex.def Info: legend_cai.png used on input line 144.
+Package pdftex.def Info: legend_cai.png used on input line 147.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
 
 <cai_gna.png, id=94, 558.085pt x 474.77374pt>
 File: cai_gna.png Graphic file (type png)
  <use cai_gna.png>
-Package pdftex.def Info: cai_gna.png used on input line 145.
+Package pdftex.def Info: cai_gna.png used on input line 148.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 
 <legend_v2.png, id=96, 558.085pt x 474.77374pt>
 File: legend_v2.png Graphic file (type png)
  <use legend_v2.png>
-Package pdftex.def Info: legend_v2.png used on input line 148.
+Package pdftex.def Info: legend_v2.png used on input line 151.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
 
 <v_gna.png, id=98, 558.085pt x 474.77374pt>
 File: v_gna.png Graphic file (type png)
  <use v_gna.png>
-Package pdftex.def Info: v_gna.png used on input line 149.
+Package pdftex.def Info: v_gna.png used on input line 152.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 143--151
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 146--154
 []$[]$ $[]$ 
  []
 
 File: legend_cai.png Graphic file (type png)
 <use legend_cai.png>
-Package pdftex.def Info: legend_cai.png used on input line 157.
+Package pdftex.def Info: legend_cai.png used on input line 160.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
  <cai_gcal.png, id=101, 558.085pt x 474.77374pt>
 File: cai_gcal.png Graphic file (type png)
 
 <use cai_gcal.png>
-Package pdftex.def Info: cai_gcal.png used on input line 158.
+Package pdftex.def Info: cai_gcal.png used on input line 161.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 File: legend_v2.png Graphic file (type png)
  <use legend_v2.png>
-Package pdftex.def Info: legend_v2.png used on input line 161.
+Package pdftex.def Info: legend_v2.png used on input line 164.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
 
 <v_gcal.png, id=104, 558.085pt x 474.77374pt>
 File: v_gcal.png Graphic file (type png)
  <use v_gcal.png>
-Package pdftex.def Info: v_gcal.png used on input line 162.
+Package pdftex.def Info: v_gcal.png used on input line 165.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 156--164
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 159--167
 []$[]$ $[]$ 
  []
 
 File: legend_cai.png Graphic file (type png)
 <use legend_cai.png>
-Package pdftex.def Info: legend_cai.png used on input line 170.
+Package pdftex.def Info: legend_cai.png used on input line 173.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
  <cai_gkr.png, id=107, 558.085pt x 474.77374pt>
 File: cai_gkr.png Graphic file (type png)
 
 <use cai_gkr.png>
-Package pdftex.def Info: cai_gkr.png used on input line 171.
+Package pdftex.def Info: cai_gkr.png used on input line 174.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 File: legend_v2.png Graphic file (type png)
  <use legend_v2.png>
-Package pdftex.def Info: legend_v2.png used on input line 174.
+Package pdftex.def Info: legend_v2.png used on input line 177.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
 
 <v_gkr.png, id=110, 558.085pt x 474.77374pt>
 File: v_gkr.png Graphic file (type png)
  <use v_gkr.png>
-Package pdftex.def Info: v_gkr.png used on input line 175.
+Package pdftex.def Info: v_gkr.png used on input line 178.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 169--177
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 172--180
 []$[]$ $[]$ 
  []
 
 File: legend_cai.png Graphic file (type png)
 <use legend_cai.png>
-Package pdftex.def Info: legend_cai.png used on input line 183.
+Package pdftex.def Info: legend_cai.png used on input line 186.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
  <cai_gk1.png, id=113, 558.085pt x 474.77374pt>
 File: cai_gk1.png Graphic file (type png)
 
 <use cai_gk1.png>
-Package pdftex.def Info: cai_gk1.png used on input line 184.
+Package pdftex.def Info: cai_gk1.png used on input line 187.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 File: legend_v2.png Graphic file (type png)
  <use legend_v2.png>
-Package pdftex.def Info: legend_v2.png used on input line 187.
+Package pdftex.def Info: legend_v2.png used on input line 190.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
 
 <v_gk1.png, id=116, 558.085pt x 474.77374pt>
 File: v_gk1.png Graphic file (type png)
  <use v_gk1.png>
-Package pdftex.def Info: v_gk1.png used on input line 188.
+Package pdftex.def Info: v_gk1.png used on input line 191.
 (pdftex.def)             Requested size: 172.5pt x 146.74367pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 182--190
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 185--193
 []$[]$ $[]$ 
  []
 
 File: legend_cai.png Graphic file (type png)
 <use legend_cai.png>
-Package pdftex.def Info: legend_cai.png used on input line 195.
+Package pdftex.def Info: legend_cai.png used on input line 198.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
  <cai_sigma.png, id=119, 558.085pt x 478.78876pt>
 File: cai_sigma.png Graphic file (type png)
 
 <use cai_sigma.png>
-Package pdftex.def Info: cai_sigma.png used on input line 196.
+Package pdftex.def Info: cai_sigma.png used on input line 199.
 (pdftex.def)             Requested size: 172.5pt x 147.98463pt.
 File: legend_v2.png Graphic file (type png)
  <use legend_v2.png>
-Package pdftex.def Info: legend_v2.png used on input line 199.
+Package pdftex.def Info: legend_v2.png used on input line 202.
 (pdftex.def)             Requested size: 172.5pt x 32.4189pt.
 
 <v_sigma.png, id=122, 558.085pt x 478.78876pt>
 File: v_sigma.png Graphic file (type png)
  <use v_sigma.png>
-Package pdftex.def Info: v_sigma.png used on input line 200.
+Package pdftex.def Info: v_sigma.png used on input line 203.
 (pdftex.def)             Requested size: 172.5pt x 147.98463pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 194--202
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 197--205
 []$[]$ $[]$ 
  []
 
@@ -934,7 +934,7 @@ Package epstopdf Info: Source file: <sc_functional_values.eps>
 (epstopdf)                    size: 24637 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_functional_values-eps-c
 onverted-to.pdf sc_functional_values.eps>
-(epstopdf)             \includegraphics on input line 222.
+(epstopdf)             \includegraphics on input line 228.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_functional_values-eps-converted-to.pdf, id=246, 716.6775pt x 645.41125pt>
@@ -942,7 +942,7 @@ File: sc_functional_values-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_functional_values-eps-converted-to.pdf>
 Package pdftex.def Info: sc_functional_values-eps-converted-to.pdf used on inpu
-t line 222.
+t line 228.
 (pdftex.def)             Requested size: 345.0pt x 297.0028pt.
 Package epstopdf Info: Source file: <sc_functional_values2.eps>
 (epstopdf)                    date: 2017-05-31 17:59:17
@@ -953,7 +953,7 @@ Package epstopdf Info: Source file: <sc_functional_values2.eps>
 (epstopdf)                    size: 15789 bytes
 (epstopdf)             Command: <repstopdf --outfile=sc_functional_values2-eps-
 converted-to.pdf sc_functional_values2.eps>
-(epstopdf)             \includegraphics on input line 223.
+(epstopdf)             \includegraphics on input line 229.
 Package epstopdf Info: Output file is already uptodate.
 
 <sc_functional_values2-eps-converted-to.pdf, id=248, 716.6775pt x 400.49625pt>
@@ -961,7 +961,7 @@ File: sc_functional_values2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use sc_functional_values2-eps-converted-to.pdf>
 Package pdftex.def Info: sc_functional_values2-eps-converted-to.pdf used on inp
-ut line 223.
+ut line 229.
 (pdftex.def)             Requested size: 345.0pt x 165.40402pt.
 Package epstopdf Info: Source file: <functional_values.eps>
 (epstopdf)                    date: 2017-06-16 16:34:54
@@ -971,7 +971,7 @@ Package epstopdf Info: Source file: <functional_values.eps>
 (epstopdf)                    size: 24691 bytes
 (epstopdf)             Command: <repstopdf --outfile=functional_values-eps-conv
 erted-to.pdf functional_values.eps>
-(epstopdf)             \includegraphics on input line 229.
+(epstopdf)             \includegraphics on input line 235.
 Package epstopdf Info: Output file is already uptodate.
 
 <functional_values-eps-converted-to.pdf, id=250, 716.6775pt x 645.41125pt>
@@ -979,7 +979,7 @@ File: functional_values-eps-converted-to.pdf Graphic file (type pdf)
 
 <use functional_values-eps-converted-to.pdf>
 Package pdftex.def Info: functional_values-eps-converted-to.pdf used on input l
-ine 229.
+ine 235.
 (pdftex.def)             Requested size: 345.0pt x 297.0028pt.
 Package epstopdf Info: Source file: <functional_values2.eps>
 (epstopdf)                    date: 2017-05-30 21:27:49
@@ -989,7 +989,7 @@ Package epstopdf Info: Source file: <functional_values2.eps>
 (epstopdf)                    size: 18678 bytes
 (epstopdf)             Command: <repstopdf --outfile=functional_values2-eps-con
 verted-to.pdf functional_values2.eps>
-(epstopdf)             \includegraphics on input line 230.
+(epstopdf)             \includegraphics on input line 236.
 Package epstopdf Info: Output file is already uptodate.
 
 <functional_values2-eps-converted-to.pdf, id=252, 716.6775pt x 400.49625pt>
@@ -997,7 +997,7 @@ File: functional_values2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use functional_values2-eps-converted-to.pdf>
 Package pdftex.def Info: functional_values2-eps-converted-to.pdf used on input 
-line 230.
+line 236.
 (pdftex.def)             Requested size: 345.0pt x 165.40402pt.
 Package epstopdf Info: Source file: <J_wave.eps>
 (epstopdf)                    date: 2017-06-12 18:53:17
@@ -1007,14 +1007,14 @@ Package epstopdf Info: Source file: <J_wave.eps>
 (epstopdf)                    size: 16243 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_wave-eps-converted-to.pd
 f J_wave.eps>
-(epstopdf)             \includegraphics on input line 236.
+(epstopdf)             \includegraphics on input line 242.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_wave-eps-converted-to.pdf, id=254, 698.61pt x 257.96375pt>
 File: J_wave-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_wave-eps-converted-to.pdf>
-Package pdftex.def Info: J_wave-eps-converted-to.pdf used on input line 236.
+Package pdftex.def Info: J_wave-eps-converted-to.pdf used on input line 242.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_amplic.eps>
 (epstopdf)                    date: 2017-06-12 18:52:50
@@ -1024,14 +1024,14 @@ Package epstopdf Info: Source file: <J_amplic.eps>
 (epstopdf)                    size: 19850 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_amplic-eps-converted-to.
 pdf J_amplic.eps>
-(epstopdf)             \includegraphics on input line 237.
+(epstopdf)             \includegraphics on input line 243.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_amplic-eps-converted-to.pdf, id=256, 698.61pt x 257.96375pt>
 File: J_amplic-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_amplic-eps-converted-to.pdf>
-Package pdftex.def Info: J_amplic-eps-converted-to.pdf used on input line 237.
+Package pdftex.def Info: J_amplic-eps-converted-to.pdf used on input line 243.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_ampliv.eps>
 (epstopdf)                    date: 2017-06-12 18:53:06
@@ -1041,14 +1041,14 @@ Package epstopdf Info: Source file: <J_ampliv.eps>
 (epstopdf)                    size: 19810 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_ampliv-eps-converted-to.
 pdf J_ampliv.eps>
-(epstopdf)             \includegraphics on input line 238.
+(epstopdf)             \includegraphics on input line 244.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_ampliv-eps-converted-to.pdf, id=258, 698.61pt x 257.96375pt>
 File: J_ampliv-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_ampliv-eps-converted-to.pdf>
-Package pdftex.def Info: J_ampliv-eps-converted-to.pdf used on input line 238.
+Package pdftex.def Info: J_ampliv-eps-converted-to.pdf used on input line 244.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_ca30.eps>
 (epstopdf)                    date: 2017-06-12 18:50:00
@@ -1058,14 +1058,14 @@ Package epstopdf Info: Source file: <J_ca30.eps>
 (epstopdf)                    size: 17923 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_ca30-eps-converted-to.pd
 f J_ca30.eps>
-(epstopdf)             \includegraphics on input line 244.
+(epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_ca30-eps-converted-to.pdf, id=260, 698.61pt x 257.96375pt>
 File: J_ca30-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_ca30-eps-converted-to.pdf>
-Package pdftex.def Info: J_ca30-eps-converted-to.pdf used on input line 244.
+Package pdftex.def Info: J_ca30-eps-converted-to.pdf used on input line 250.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_v30.eps>
 (epstopdf)                    date: 2017-06-12 18:50:12
@@ -1075,14 +1075,14 @@ Package epstopdf Info: Source file: <J_v30.eps>
 (epstopdf)                    size: 18123 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_v30-eps-converted-to.pdf
  J_v30.eps>
-(epstopdf)             \includegraphics on input line 245.
+(epstopdf)             \includegraphics on input line 251.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_v30-eps-converted-to.pdf, id=262, 698.61pt x 257.96375pt>
 File: J_v30-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_v30-eps-converted-to.pdf>
-Package pdftex.def Info: J_v30-eps-converted-to.pdf used on input line 245.
+Package pdftex.def Info: J_v30-eps-converted-to.pdf used on input line 251.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_ca50.eps>
 (epstopdf)                    date: 2017-06-12 18:49:37
@@ -1092,14 +1092,14 @@ Package epstopdf Info: Source file: <J_ca50.eps>
 (epstopdf)                    size: 17869 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_ca50-eps-converted-to.pd
 f J_ca50.eps>
-(epstopdf)             \includegraphics on input line 246.
+(epstopdf)             \includegraphics on input line 252.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_ca50-eps-converted-to.pdf, id=264, 698.61pt x 257.96375pt>
 File: J_ca50-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_ca50-eps-converted-to.pdf>
-Package pdftex.def Info: J_ca50-eps-converted-to.pdf used on input line 246.
+Package pdftex.def Info: J_ca50-eps-converted-to.pdf used on input line 252.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_v50.eps>
 (epstopdf)                    date: 2017-06-12 18:49:48
@@ -1109,14 +1109,14 @@ Package epstopdf Info: Source file: <J_v50.eps>
 (epstopdf)                    size: 17504 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_v50-eps-converted-to.pdf
  J_v50.eps>
-(epstopdf)             \includegraphics on input line 247.
+(epstopdf)             \includegraphics on input line 253.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_v50-eps-converted-to.pdf, id=266, 698.61pt x 257.96375pt>
 File: J_v50-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_v50-eps-converted-to.pdf>
-Package pdftex.def Info: J_v50-eps-converted-to.pdf used on input line 247.
+Package pdftex.def Info: J_v50-eps-converted-to.pdf used on input line 253.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_ca70.eps>
 (epstopdf)                    date: 2017-06-12 18:49:09
@@ -1126,14 +1126,14 @@ Package epstopdf Info: Source file: <J_ca70.eps>
 (epstopdf)                    size: 17822 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_ca70-eps-converted-to.pd
 f J_ca70.eps>
-(epstopdf)             \includegraphics on input line 253.
+(epstopdf)             \includegraphics on input line 259.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_ca70-eps-converted-to.pdf, id=268, 698.61pt x 257.96375pt>
 File: J_ca70-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_ca70-eps-converted-to.pdf>
-Package pdftex.def Info: J_ca70-eps-converted-to.pdf used on input line 253.
+Package pdftex.def Info: J_ca70-eps-converted-to.pdf used on input line 259.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_v70.eps>
 (epstopdf)                    date: 2017-06-12 18:49:20
@@ -1143,14 +1143,14 @@ Package epstopdf Info: Source file: <J_v70.eps>
 (epstopdf)                    size: 18044 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_v70-eps-converted-to.pdf
  J_v70.eps>
-(epstopdf)             \includegraphics on input line 254.
+(epstopdf)             \includegraphics on input line 260.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_v70-eps-converted-to.pdf, id=270, 698.61pt x 257.96375pt>
 File: J_v70-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_v70-eps-converted-to.pdf>
-Package pdftex.def Info: J_v70-eps-converted-to.pdf used on input line 254.
+Package pdftex.def Info: J_v70-eps-converted-to.pdf used on input line 260.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_ca90.eps>
 (epstopdf)                    date: 2017-06-12 18:48:46
@@ -1160,14 +1160,14 @@ Package epstopdf Info: Source file: <J_ca90.eps>
 (epstopdf)                    size: 18182 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_ca90-eps-converted-to.pd
 f J_ca90.eps>
-(epstopdf)             \includegraphics on input line 255.
+(epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_ca90-eps-converted-to.pdf, id=272, 698.61pt x 257.96375pt>
 File: J_ca90-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_ca90-eps-converted-to.pdf>
-Package pdftex.def Info: J_ca90-eps-converted-to.pdf used on input line 255.
+Package pdftex.def Info: J_ca90-eps-converted-to.pdf used on input line 261.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 Package epstopdf Info: Source file: <J_v90.eps>
 (epstopdf)                    date: 2017-06-12 18:48:56
@@ -1177,53 +1177,53 @@ Package epstopdf Info: Source file: <J_v90.eps>
 (epstopdf)                    size: 18135 bytes
 (epstopdf)             Command: <repstopdf --outfile=J_v90-eps-converted-to.pdf
  J_v90.eps>
-(epstopdf)             \includegraphics on input line 256.
+(epstopdf)             \includegraphics on input line 262.
 Package epstopdf Info: Output file is already uptodate.
 
 <J_v90-eps-converted-to.pdf, id=274, 698.61pt x 257.96375pt>
 File: J_v90-eps-converted-to.pdf Graphic file (type pdf)
 
 <use J_v90-eps-converted-to.pdf>
-Package pdftex.def Info: J_v90-eps-converted-to.pdf used on input line 256.
+Package pdftex.def Info: J_v90-eps-converted-to.pdf used on input line 262.
 (pdftex.def)             Requested size: 345.0pt x 120.36584pt.
 
 <gcalgna.pdf, id=276, 1030.85126pt x 209.78375pt>
 File: gcalgna.pdf Graphic file (type pdf)
  <use gcalgna.pdf>
-Package pdftex.def Info: gcalgna.pdf used on input line 272.
+Package pdftex.def Info: gcalgna.pdf used on input line 278.
 (pdftex.def)             Requested size: 345.0pt x 70.20836pt.
 
 <gk1gna.pdf, id=278, 1030.85126pt x 209.78375pt>
 File: gk1gna.pdf Graphic file (type pdf)
  <use gk1gna.pdf>
-Package pdftex.def Info: gk1gna.pdf used on input line 273.
+Package pdftex.def Info: gk1gna.pdf used on input line 279.
 (pdftex.def)             Requested size: 345.0pt x 70.20836pt.
 
 <gkrgna.pdf, id=280, 1030.85126pt x 209.78375pt>
 File: gkrgna.pdf Graphic file (type pdf)
  <use gkrgna.pdf>
-Package pdftex.def Info: gkrgna.pdf used on input line 274.
+Package pdftex.def Info: gkrgna.pdf used on input line 280.
 (pdftex.def)             Requested size: 345.0pt x 70.20836pt.
 
 <gcalgkr.pdf, id=282, 1030.85126pt x 209.78375pt>
 File: gcalgkr.pdf Graphic file (type pdf)
  <use gcalgkr.pdf>
-Package pdftex.def Info: gcalgkr.pdf used on input line 275.
+Package pdftex.def Info: gcalgkr.pdf used on input line 281.
 (pdftex.def)             Requested size: 345.0pt x 70.20836pt.
 
 <gcalgk1.pdf, id=284, 1030.85126pt x 209.78375pt>
 File: gcalgk1.pdf Graphic file (type pdf)
  <use gcalgk1.pdf>
-Package pdftex.def Info: gcalgk1.pdf used on input line 276.
+Package pdftex.def Info: gcalgk1.pdf used on input line 282.
 (pdftex.def)             Requested size: 1030.84874pt x 209.78322pt.
 
 <gkrgk1.pdf, id=285, 1030.85126pt x 209.78375pt>
 File: gkrgk1.pdf Graphic file (type pdf)
  <use gkrgk1.pdf>
-Package pdftex.def Info: gkrgk1.pdf used on input line 277.
+Package pdftex.def Info: gkrgk1.pdf used on input line 283.
 (pdftex.def)             Requested size: 345.0pt x 70.20836pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--278
+Underfull \hbox (badness 10000) in paragraph at lines 278--284
 []
  []
 
@@ -1235,13 +1235,13 @@ Package epstopdf Info: Source file: <blocking.eps>
 (epstopdf)                    size: 443136 bytes
 (epstopdf)             Command: <repstopdf --outfile=blocking-eps-converted-to.
 pdf blocking.eps>
-(epstopdf)             \includegraphics on input line 287.
+(epstopdf)             \includegraphics on input line 293.
 Package epstopdf Info: Output file is already uptodate.
 <blocking-eps-converted-to.pdf, id=287, 716.6775pt x 223.83624pt>
 File: blocking-eps-converted-to.pdf Graphic file (type pdf)
 
 <use blocking-eps-converted-to.pdf>
-Package pdftex.def Info: blocking-eps-converted-to.pdf used on input line 287.
+Package pdftex.def Info: blocking-eps-converted-to.pdf used on input line 293.
 (pdftex.def)             Requested size: 345.0pt x 107.7544pt.
  [11 <./sc_amplitude-eps-converted-to.pdf> <./sc_v_max-eps-converted-to.pdf>] [
 12 <./sc_30p-eps-converted-to.pdf> <./sc_50p-eps-converted-to.pdf> <./sc_70p-ep
@@ -1249,34 +1249,24 @@ s-converted-to.pdf> <./sc_90p-eps-converted-to.pdf>] [13 <./legend_cai.png (PNG
  copy)> <./cai_gna.png (PNG copy)> <./legend_v2.png (PNG copy)> <./v_gna.png (P
 NG copy)> <./cai_gcal.png (PNG copy)> <./v_gcal.png (PNG copy)>] [14 <./cai_gkr
 .png (PNG copy)> <./v_gkr.png (PNG copy)> <./cai_gk1.png (PNG copy)> <./v_gk1.p
-ng (PNG copy)>]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no “ in font cmr10!
- [15 <./cai_sigma.png (PNG copy)> <./v_sigma.png (PNG copy)>] [16 <./sc_functio
-nal_values-eps-converted-to.pdf> <./sc_functional_values2-eps-converted-to.pdf>
-] [17 <./functional_values-eps-converted-to.pdf> <./functional_values2-eps-conv
-erted-to.pdf>] [18 <./J_wave-eps-converted-to.pdf> <./J_amplic-eps-converted-to
-.pdf> <./J_ampliv-eps-converted-to.pdf>] [19 <./J_ca30-eps-converted-to.pdf> <.
-/J_v30-eps-converted-to.pdf> <./J_ca50-eps-converted-to.pdf> <./J_v50-eps-conve
-rted-to.pdf>] [20 <./J_ca70-eps-converted-to.pdf> <./J_v70-eps-converted-to.pdf
-> <./J_ca90-eps-converted-to.pdf> <./J_v90-eps-converted-to.pdf>] [21 <./gcalgn
-a.pdf> <./gk1gna.pdf> <./gkrgna.pdf> <./gcalgkr.pdf> <./gkrgk1.pdf> <./gcalgk1.
-pdf>] [22 <./blocking-eps-converted-to.pdf>] [23] (./Report_27_June2017.bbl [24
-] [25]
-Underfull \hbox (badness 1210) in paragraph at lines 106--109
+ng (PNG copy)>] [15 <./cai_sigma.png (PNG copy)> <./v_sigma.png (PNG copy)>] [1
+6 <./sc_functional_values-eps-converted-to.pdf> <./sc_functional_values2-eps-co
+nverted-to.pdf>] [17 <./functional_values-eps-converted-to.pdf> <./functional_v
+alues2-eps-converted-to.pdf>] [18 <./J_wave-eps-converted-to.pdf> <./J_amplic-e
+ps-converted-to.pdf> <./J_ampliv-eps-converted-to.pdf>] [19 <./J_ca30-eps-conve
+rted-to.pdf> <./J_v30-eps-converted-to.pdf> <./J_ca50-eps-converted-to.pdf> <./
+J_v50-eps-converted-to.pdf>] [20 <./J_ca70-eps-converted-to.pdf> <./J_v70-eps-c
+onverted-to.pdf> <./J_ca90-eps-converted-to.pdf> <./J_v90-eps-converted-to.pdf>
+] [21 <./gcalgna.pdf> <./gk1gna.pdf> <./gkrgna.pdf> <./gcalgkr.pdf> <./gkrgk1.p
+df> <./gcalgk1.pdf>] [22 <./blocking-eps-converted-to.pdf>] [23] (./Report_27_J
+une2017.bbl [24] [25]
+Underfull \hbox (badness 1210) in paragraph at lines 104--107
 \OT1/cmr/m/sc/10 Poul F Nielsen\OT1/cmr/m/n/10 .  The cellml model repos-i-tory
 .  \OT1/cmr/m/it/10 Bioin-for-mat-ics\OT1/cmr/m/n/10 ,
  []
 
 [26]
-Underfull \hbox (badness 1728) in paragraph at lines 199--204
+Underfull \hbox (badness 1728) in paragraph at lines 197--202
 []\OT1/cmr/m/sc/10 Kazutoshi Taka-hashi, Koji Tan-abe, Mari Ohnuki, Megumi
  []
 
@@ -1289,13 +1279,13 @@ Package epstopdf Info: Source file: <strip_gna.eps>
 (epstopdf)                    size: 622533 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_gna-eps-converted-to
 .pdf strip_gna.eps>
-(epstopdf)             \includegraphics on input line 356.
+(epstopdf)             \includegraphics on input line 361.
 Package epstopdf Info: Output file is already uptodate.
  <strip_gna-eps-converted-to.pdf, id=870, 903.375pt x 223.83624pt>
 File: strip_gna-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_gna-eps-converted-to.pdf>
-Package pdftex.def Info: strip_gna-eps-converted-to.pdf used on input line 356.
+Package pdftex.def Info: strip_gna-eps-converted-to.pdf used on input line 361.
 
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <strip_gcal.eps>
@@ -1306,14 +1296,14 @@ Package epstopdf Info: Source file: <strip_gcal.eps>
 (epstopdf)                    size: 623839 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_gcal-eps-converted-t
 o.pdf strip_gcal.eps>
-(epstopdf)             \includegraphics on input line 357.
+(epstopdf)             \includegraphics on input line 362.
 Package epstopdf Info: Output file is already uptodate.
 
 <strip_gcal-eps-converted-to.pdf, id=872, 903.375pt x 223.83624pt>
 File: strip_gcal-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_gcal-eps-converted-to.pdf>
-Package pdftex.def Info: strip_gcal-eps-converted-to.pdf used on input line 357
+Package pdftex.def Info: strip_gcal-eps-converted-to.pdf used on input line 362
 .
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <strip_gkr.eps>
@@ -1324,14 +1314,14 @@ Package epstopdf Info: Source file: <strip_gkr.eps>
 (epstopdf)                    size: 629011 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_gkr-eps-converted-to
 .pdf strip_gkr.eps>
-(epstopdf)             \includegraphics on input line 358.
+(epstopdf)             \includegraphics on input line 363.
 Package epstopdf Info: Output file is already uptodate.
 
 <strip_gkr-eps-converted-to.pdf, id=874, 903.375pt x 223.83624pt>
 File: strip_gkr-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_gkr-eps-converted-to.pdf>
-Package pdftex.def Info: strip_gkr-eps-converted-to.pdf used on input line 358.
+Package pdftex.def Info: strip_gkr-eps-converted-to.pdf used on input line 363.
 
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <strip_gk1.eps>
@@ -1342,14 +1332,14 @@ Package epstopdf Info: Source file: <strip_gk1.eps>
 (epstopdf)                    size: 641669 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_gk1-eps-converted-to
 .pdf strip_gk1.eps>
-(epstopdf)             \includegraphics on input line 359.
+(epstopdf)             \includegraphics on input line 364.
 Package epstopdf Info: Output file is already uptodate.
 
 <strip_gk1-eps-converted-to.pdf, id=876, 903.375pt x 223.83624pt>
 File: strip_gk1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_gk1-eps-converted-to.pdf>
-Package pdftex.def Info: strip_gk1-eps-converted-to.pdf used on input line 359.
+Package pdftex.def Info: strip_gk1-eps-converted-to.pdf used on input line 364.
 
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <strip_gks.eps>
@@ -1360,14 +1350,14 @@ Package epstopdf Info: Source file: <strip_gks.eps>
 (epstopdf)                    size: 628007 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_gks-eps-converted-to
 .pdf strip_gks.eps>
-(epstopdf)             \includegraphics on input line 365.
+(epstopdf)             \includegraphics on input line 370.
 Package epstopdf Info: Output file is already uptodate.
 
 <strip_gks-eps-converted-to.pdf, id=878, 903.375pt x 223.83624pt>
 File: strip_gks-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_gks-eps-converted-to.pdf>
-Package pdftex.def Info: strip_gks-eps-converted-to.pdf used on input line 365.
+Package pdftex.def Info: strip_gks-eps-converted-to.pdf used on input line 370.
 
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <strip_gf.eps>
@@ -1378,14 +1368,14 @@ Package epstopdf Info: Source file: <strip_gf.eps>
 (epstopdf)                    size: 631039 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_gf-eps-converted-to.
 pdf strip_gf.eps>
-(epstopdf)             \includegraphics on input line 366.
+(epstopdf)             \includegraphics on input line 371.
 Package epstopdf Info: Output file is already uptodate.
 
 <strip_gf-eps-converted-to.pdf, id=880, 903.375pt x 223.83624pt>
 File: strip_gf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_gf-eps-converted-to.pdf>
-Package pdftex.def Info: strip_gf-eps-converted-to.pdf used on input line 366.
+Package pdftex.def Info: strip_gf-eps-converted-to.pdf used on input line 371.
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <strip_gto.eps>
 (epstopdf)                    date: 2017-05-19 00:06:29
@@ -1395,14 +1385,14 @@ Package epstopdf Info: Source file: <strip_gto.eps>
 (epstopdf)                    size: 627799 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_gto-eps-converted-to
 .pdf strip_gto.eps>
-(epstopdf)             \includegraphics on input line 367.
+(epstopdf)             \includegraphics on input line 372.
 Package epstopdf Info: Output file is already uptodate.
 
 <strip_gto-eps-converted-to.pdf, id=882, 903.375pt x 223.83624pt>
 File: strip_gto-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_gto-eps-converted-to.pdf>
-Package pdftex.def Info: strip_gto-eps-converted-to.pdf used on input line 367.
+Package pdftex.def Info: strip_gto-eps-converted-to.pdf used on input line 372.
 
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <strip_sigmat.eps>
@@ -1413,7 +1403,7 @@ Package epstopdf Info: Source file: <strip_sigmat.eps>
 (epstopdf)                    size: 631324 bytes
 (epstopdf)             Command: <repstopdf --outfile=strip_sigmat-eps-converted
 -to.pdf strip_sigmat.eps>
-(epstopdf)             \includegraphics on input line 368.
+(epstopdf)             \includegraphics on input line 373.
 Package epstopdf Info: Output file is already uptodate.
 
 <strip_sigmat-eps-converted-to.pdf, id=884, 903.375pt x 223.83624pt>
@@ -1421,7 +1411,7 @@ File: strip_sigmat-eps-converted-to.pdf Graphic file (type pdf)
 
 <use strip_sigmat-eps-converted-to.pdf>
 Package pdftex.def Info: strip_sigmat-eps-converted-to.pdf used on input line 3
-68.
+73.
 (pdftex.def)             Requested size: 345.0pt x 109.66022pt.
 Package epstopdf Info: Source file: <amplitude.eps>
 (epstopdf)                    date: 2017-05-19 10:11:16
@@ -1431,14 +1421,14 @@ Package epstopdf Info: Source file: <amplitude.eps>
 (epstopdf)                    size: 12388 bytes
 (epstopdf)             Command: <repstopdf --outfile=amplitude-eps-converted-to
 .pdf amplitude.eps>
-(epstopdf)             \includegraphics on input line 374.
+(epstopdf)             \includegraphics on input line 379.
 Package epstopdf Info: Output file is already uptodate.
 
 <amplitude-eps-converted-to.pdf, id=886, 903.375pt x 223.83624pt>
 File: amplitude-eps-converted-to.pdf Graphic file (type pdf)
 
 <use amplitude-eps-converted-to.pdf>
-Package pdftex.def Info: amplitude-eps-converted-to.pdf used on input line 374.
+Package pdftex.def Info: amplitude-eps-converted-to.pdf used on input line 379.
 
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <v_max.eps>
@@ -1449,14 +1439,14 @@ Package epstopdf Info: Source file: <v_max.eps>
 (epstopdf)                    size: 10933 bytes
 (epstopdf)             Command: <repstopdf --outfile=v_max-eps-converted-to.pdf
  v_max.eps>
-(epstopdf)             \includegraphics on input line 375.
+(epstopdf)             \includegraphics on input line 380.
 Package epstopdf Info: Output file is already uptodate.
 
 <v_max-eps-converted-to.pdf, id=888, 903.375pt x 223.83624pt>
 File: v_max-eps-converted-to.pdf Graphic file (type pdf)
 
 <use v_max-eps-converted-to.pdf>
-Package pdftex.def Info: v_max-eps-converted-to.pdf used on input line 375.
+Package pdftex.def Info: v_max-eps-converted-to.pdf used on input line 380.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <v_c.eps>
 (epstopdf)                    date: 2017-05-19 10:10:54
@@ -1466,27 +1456,27 @@ Package epstopdf Info: Source file: <v_c.eps>
 (epstopdf)                    size: 9660 bytes
 (epstopdf)             Command: <repstopdf --outfile=v_c-eps-converted-to.pdf v
 _c.eps>
-(epstopdf)             \includegraphics on input line 376.
+(epstopdf)             \includegraphics on input line 381.
 Package epstopdf Info: Output file is already uptodate.
 
 <v_c-eps-converted-to.pdf, id=890, 903.375pt x 223.83624pt>
 File: v_c-eps-converted-to.pdf Graphic file (type pdf)
 
 <use v_c-eps-converted-to.pdf>
-Package pdftex.def Info: v_c-eps-converted-to.pdf used on input line 376.
+Package pdftex.def Info: v_c-eps-converted-to.pdf used on input line 381.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 
-Overfull \hbox (16.75684pt too wide) in paragraph at lines 374--377
+Overfull \hbox (16.75684pt too wide) in paragraph at lines 379--382
 []\OT1/cmr/bx/n/10 (a) []
  []
 
 
-Overfull \hbox (17.55547pt too wide) in paragraph at lines 374--377
+Overfull \hbox (17.55547pt too wide) in paragraph at lines 379--382
 \OT1/cmr/bx/n/10 (b) []
  []
 
 
-Overfull \hbox (16.2777pt too wide) in paragraph at lines 374--377
+Overfull \hbox (16.2777pt too wide) in paragraph at lines 379--382
 \OT1/cmr/bx/n/10 (c) [] 
  []
 
@@ -1498,13 +1488,13 @@ Package epstopdf Info: Source file: <30p.eps>
 (epstopdf)                    size: 9614 bytes
 (epstopdf)             Command: <repstopdf --outfile=30p-eps-converted-to.pdf 3
 0p.eps>
-(epstopdf)             \includegraphics on input line 382.
+(epstopdf)             \includegraphics on input line 387.
 Package epstopdf Info: Output file is already uptodate.
 <30p-eps-converted-to.pdf, id=892, 903.375pt x 223.83624pt>
 File: 30p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 30p-eps-converted-to.pdf>
-Package pdftex.def Info: 30p-eps-converted-to.pdf used on input line 382.
+Package pdftex.def Info: 30p-eps-converted-to.pdf used on input line 387.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <50p.eps>
 (epstopdf)                    date: 2017-05-19 10:09:58
@@ -1514,14 +1504,14 @@ Package epstopdf Info: Source file: <50p.eps>
 (epstopdf)                    size: 9492 bytes
 (epstopdf)             Command: <repstopdf --outfile=50p-eps-converted-to.pdf 5
 0p.eps>
-(epstopdf)             \includegraphics on input line 383.
+(epstopdf)             \includegraphics on input line 388.
 Package epstopdf Info: Output file is already uptodate.
 
 <50p-eps-converted-to.pdf, id=894, 903.375pt x 223.83624pt>
 File: 50p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 50p-eps-converted-to.pdf>
-Package pdftex.def Info: 50p-eps-converted-to.pdf used on input line 383.
+Package pdftex.def Info: 50p-eps-converted-to.pdf used on input line 388.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <70p.eps>
 (epstopdf)                    date: 2017-05-19 10:10:16
@@ -1531,14 +1521,14 @@ Package epstopdf Info: Source file: <70p.eps>
 (epstopdf)                    size: 9611 bytes
 (epstopdf)             Command: <repstopdf --outfile=70p-eps-converted-to.pdf 7
 0p.eps>
-(epstopdf)             \includegraphics on input line 384.
+(epstopdf)             \includegraphics on input line 389.
 Package epstopdf Info: Output file is already uptodate.
 
 <70p-eps-converted-to.pdf, id=896, 903.375pt x 223.83624pt>
 File: 70p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 70p-eps-converted-to.pdf>
-Package pdftex.def Info: 70p-eps-converted-to.pdf used on input line 384.
+Package pdftex.def Info: 70p-eps-converted-to.pdf used on input line 389.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 Package epstopdf Info: Source file: <90p.eps>
 (epstopdf)                    date: 2017-05-19 10:10:39
@@ -1548,32 +1538,32 @@ Package epstopdf Info: Source file: <90p.eps>
 (epstopdf)                    size: 9780 bytes
 (epstopdf)             Command: <repstopdf --outfile=90p-eps-converted-to.pdf 9
 0p.eps>
-(epstopdf)             \includegraphics on input line 385.
+(epstopdf)             \includegraphics on input line 390.
 Package epstopdf Info: Output file is already uptodate.
 
 <90p-eps-converted-to.pdf, id=898, 903.375pt x 223.83624pt>
 File: 90p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use 90p-eps-converted-to.pdf>
-Package pdftex.def Info: 90p-eps-converted-to.pdf used on input line 385.
+Package pdftex.def Info: 90p-eps-converted-to.pdf used on input line 390.
 (pdftex.def)             Requested size: 345.0pt x 94.40335pt.
 
-Overfull \hbox (16.75684pt too wide) in paragraph at lines 382--386
+Overfull \hbox (16.75684pt too wide) in paragraph at lines 387--391
 []\OT1/cmr/bx/n/10 (a) []
  []
 
 
-Overfull \hbox (17.55547pt too wide) in paragraph at lines 382--386
+Overfull \hbox (17.55547pt too wide) in paragraph at lines 387--391
 \OT1/cmr/bx/n/10 (b) []
  []
 
 
-Overfull \hbox (16.2777pt too wide) in paragraph at lines 382--386
+Overfull \hbox (16.2777pt too wide) in paragraph at lines 387--391
 \OT1/cmr/bx/n/10 (c) []
  []
 
 
-Overfull \hbox (17.55547pt too wide) in paragraph at lines 382--386
+Overfull \hbox (17.55547pt too wide) in paragraph at lines 387--391
 \OT1/cmr/bx/n/10 (d) [] 
  []
 
@@ -1583,40 +1573,43 @@ Overfull \hbox (17.55547pt too wide) in paragraph at lines 382--386
 ip_gto-eps-converted-to.pdf> <./strip_sigmat-eps-converted-to.pdf>] [31 <./ampl
 itude-eps-converted-to.pdf> <./v_max-eps-converted-to.pdf> <./v_c-eps-converted
 -to.pdf>] [32 <./30p-eps-converted-to.pdf> <./50p-eps-converted-to.pdf> <./70p-
-eps-converted-to.pdf> <./90p-eps-converted-to.pdf>] (./Report_27_June2017.aux) 
-) 
+eps-converted-to.pdf> <./90p-eps-converted-to.pdf>] (./Report_27_June2017.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 12701 strings out of 493089
- 251364 string characters out of 6134841
- 297287 words of memory out of 5000000
- 15836 multiletter control sequences out of 15000+600000
+ 12703 strings out of 493089
+ 251393 string characters out of 6134841
+ 297291 words of memory out of 5000000
+ 15838 multiletter control sequences out of 15000+600000
  18395 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,17n,54p,2807b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-dist/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Report_27_June2017.pdf (32 pages, 9000230 bytes).
+ 55i,17n,54p,2810b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Report_27_June2017.pdf (32 pages, 8999985 bytes).
 PDF statistics:
  1235 PDF objects out of 1440 (max. 8388607)
  796 compressed objects within 8 object streams
