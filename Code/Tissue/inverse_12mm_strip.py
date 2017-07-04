@@ -12,14 +12,7 @@ from cbcbeat import *
 import numpy as np
 import time as time1
 import argparse
-
-try:
-    import pyipopt
-except ImportError:
-    info_red("""This example depends on IPOPT and pyipopt. \
-  When compiling IPOPT, make sure to link against HSL, as it \
-  is a necessity for practical problems.""")
-    raise
+import pyipopt
 
 # Set log level
 set_log_level(WARNING)
