@@ -6,14 +6,21 @@
 # Import modules
 import sys
 sys.path.insert(0,'/home/joanneke/local/lib/python2.7/site-packages')
+
 ff = open("test.out", 'w')
 sys.stdout = ff
 from cbcbeat import *
 import numpy as np
 import time as time1
 import argparse
-import pyipopt
 
+try:
+    import pyipopt
+except ImportError:
+    info_red("""This example depends on IPOPT and pyipopt. \
+  When compiling IPOPT, make sure to link against HSL, as it \
+  is a necessity for practical problems.""")
+    raise
 # Set log level
 set_log_level(WARNING)
 
@@ -33,7 +40,7 @@ parser.add_argument("--control_var", type=str, help="The control variable, optio
 args = parser.parse_args()
 
 # When one control variable is given, we will calculate the value of J for various values of the control variable.
-# Otherwise, we optimize for all five control variables.
+# Otherwise, we optimize for all four control variables.
 if args.control_var:
     Optimize = False
     Evaluate_J = True
@@ -194,14 +201,14 @@ def derivative_cb_post(j, dj, m):
     print 'j  = ', j
     print 'dj = ', [float(va) for va in dj]
     print 'm  = ', [float(va) for va in m]
-    if noise_percentage_gna > 0 or noise_percentage_gk1 > 0 or noise_percentage_gk1 > 0 or \
-      noise_percentage_gkr > 0 or noise_percentage_gcal > 0 or noise_percentage_v >0 or noise_percentage_cai > 0:
-        f = open('Opti_{0}_{1}_{2}_{3}_12mm_strip_{4}_{5}_{6}_{7}_{8}_{9}.txt'.format(gnaf,gk1f,gkrf,gcalf, \
-          noise_percentage_gna, noise_percentage_gk1, noise_percentage_gkr, noise_percentage_gcal, noise_percentage_v, noise_percentage_cai), 'a')
-    else:
-        f = open('Opti_{0}_{1}_{2}_{3}_12mm_strip.txt'.format(gnaf,gk1f,gkrf,gcalf), 'a')
-    np.savetxt(f, np.column_stack((j, dj, m)))
-    f.close()
+    #if noise_percentage_gna > 0 or noise_percentage_gk1 > 0 or noise_percentage_gk1 > 0 or \
+    #  noise_percentage_gkr > 0 or noise_percentage_gcal > 0 or noise_percentage_v >0 or noise_percentage_cai > 0:
+    #    f = open('Opti_{0}_{1}_{2}_{3}_12mm_strip_{4}_{5}_{6}_{7}_{8}_{9}.txt'.format(gnaf,gk1f,gkrf,gcalf, \
+    #      noise_percentage_gna, noise_percentage_gk1, noise_percentage_gkr, noise_percentage_gcal, noise_percentage_v, noise_percentage_cai), 'a')
+    #else:
+    #    f = open('Opti_{0}_{1}_{2}_{3}_12mm_strip.txt'.format(gnaf,gk1f,gkrf,gcalf), 'a')
+    #np.savetxt(f, np.column_stack((j, dj, m)))
+    #f.close()
      
 # Define function that is evaluated after each function evaluation
 def eval_cb_post(j, m):
@@ -220,10 +227,10 @@ def eval_cb_post(j, m):
     print ">>>>"
 
 if __name__ == "__main__":
-    factor_gna = Constant(1.0)          # initial guess
+    factor_gna = Constant(0.9)          # initial guess
     factor_gcal = Constant(1.1)         # initial guess
-    factor_gk1 = Constant(1.0)          # initial guess
-    factor_gkr = Constant(1.0)          # initial guess
+    factor_gk1 = Constant(0.9)          # initial guess
+    factor_gkr = Constant(1.1)          # initial guess
 
     ctrl1 = factor_gna
     ctrl2 = factor_gcal
@@ -278,14 +285,12 @@ if __name__ == "__main__":
 
     # Solve the optimisation problem
     if Optimize == True:
-        rf = ReducedFunctional(J, [Control(ctrl2)] , eval_cb_post = eval_cb_post, derivative_cb_post = derivative_cb_post)
+        rf = ReducedFunctional(J, [Control(ctrl1), Control(ctrl2), Control(ctrl3), Control(ctrl4)] , eval_cb_post = eval_cb_post, derivative_cb_post = derivative_cb_post)
         # assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
         #rf.taylor_test(ctrl1, seed=1e-2)
-        problem = MinimizationProblem(rf, bounds=(0.9, 1.1))
-        parameters = {"acceptable_tol": 1.0e-3, "maximum_iterations": 10}
-        solver = IPOPTSolver(problem, parameters=parameters)
+        solver = IPOPTSolver(MinimizationProblem(rf, bounds=[(0.9, 1.1), (0.9, 1.1),(0.9, 1.1), (0.9, 1.1)]))
         a_opt = solver.solve()  
-
+              
     # Compute value of J for different values of ctrl5 and save to file
     if Evaluate_J == True:
         rf = ReducedFunctional(J, [Control(controls[args.control_var])])
@@ -303,7 +308,5 @@ if __name__ == "__main__":
             J2_values[i]=rf2(Constant(control_values[i]))
             print "Control values and J value", control_values[i], J_values[i]
             np.savetxt('J_values_{0}_{1}_{2}_{3}_12mm_strip_{4}.txt'.format(gnaf,gk1f,gkrf,gcalf,args.control_var), np.column_stack((J_values, J1_values, J2_values, control_values)))
-
-    ff.close()
 
     print "Success!"

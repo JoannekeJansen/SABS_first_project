@@ -1,0 +1,196 @@
+\begin{thebibliography}{10}
+
+\bibitem{petsc-user-ref}
+{\sc Satish Balay, Shrirang Abhyankar, Mark~F Adams, Jed Brown, Peter Brune,
+  Kris Buschelman, Lisandro Dalcin, Victor Eijkhout, William~D Gropp, Dinesh
+  Kaushik, Matthew~G Knepley, Lois~Curfman McInnes, Karl Rupp, Barry~F Smith,
+  Stefano Zampini, Hong Zhang, and Hong Zhang}.
+\newblock {PETS}c users manual.
+\newblock Technical Report ANL-95/11 - Revision 3.7, Argonne National
+  Laboratory, 2016.
+
+\bibitem{petsc-efficient}
+{\sc Satish Balay, William~D Gropp, Lois~C McInnes, and Barry~F Smith}.
+\newblock Efficient management of parallelism in object oriented numerical
+  software libraries.
+\newblock In {\sc Erlend Arge, Are~Magnus Bruaset, and Hans~Petter Langtangen},
+  editors, {\em Modern Software Tools in Scientific Computing}, pages 163--202.
+  Birkh{\"{a}}user Press, 1997.
+
+\bibitem{Plonsey1984}
+{\sc Roger~C Barr and Robert Plonsey}.
+\newblock Propagation of excitation in idealized anisotropic two-dimensional
+  tissue.
+\newblock {\em Biophysical Journal}, {\bf 45}(6):1191--1202, 1984.
+
+\bibitem{Blazeski}
+{\sc Adriana Blazeski, Renjun Zhu, David~W Hunter, Seth~H Weinberg, Kenneth~R
+  Boheler, Elias~T Zambidis, and Leslie Tung}.
+\newblock Electrophysiological and contractile function of cardiomyocytes
+  derived from human embryonic stem cells.
+\newblock {\em Progress in Biophysics and Molecular Biology}, {\bf
+  110}(2):178--195, 2012.
+
+\bibitem{Chen2016}
+{\sc Zhifen Chen, Wenying Xian, Milena Bellin, Tatjana Dorn, Qinghai Tian,
+  Alexander Goedel, Lisa Dreizehnter, Christine~M Schneider, Dorien Ward-van
+  Oostwaard, Judy King~Man Ng, et~al.}
+\newblock Subtype-specific promoter-driven action potential imaging for precise
+  disease modelling and drug testing in hipsc-derived cardiomyocytes.
+\newblock {\em European Heart Journal}, {\bf 38}(4):292--301, 2017.
+
+\bibitem{Dempsey2016}
+{\sc Graham~T Dempsey, Khuram~W Chaudhary, Nicholas Atwater, Cuong Nguyen,
+  Barry~S Brown, John~D McNeish, Adam~E Cohen, and Joel~M Kralj}.
+\newblock Cardiotoxicity screening with simultaneous optogenetic pacing,
+  voltage imaging and calcium imaging.
+\newblock {\em Journal of Pharmacological and Toxicological Methods}, {\bf
+  81}:240--250, 2016.
+
+\bibitem{Denning2016}
+{\sc Chris Denning, Viola Borgdorff, James Crutchley, Karl~SA Firth, Vinoj
+  George, Spandan Kalra, Alexander Kondrashov, Minh~Duc Hoang, Diogo Mosqueira,
+  Asha Patel, et~al.}
+\newblock Cardiomyocytes from human pluripotent stem cells: from laboratory
+  curiosity to industrial biomedical platform.
+\newblock {\em Biochimica et Biophysica Acta (BBA)-Molecular Cell Research},
+  {\bf 1863}(7):1728--1748, 2016.
+
+\bibitem{dolfin-adjoint}
+{\sc Patrick~E Farrell, David~A Ham, Simon~W Funke, and Marie~E Rognes}.
+\newblock Automated derivation of the adjoint of high-level transient finite
+  element programs.
+\newblock {\em SIAM Journal on Scientific Computing}, {\bf 35}(4):C369--C393,
+  2013.
+
+\bibitem{Gunzburger}
+{\sc Max~D Gunzburger}.
+\newblock {\em Perspectives in flow control and optimization}.
+\newblock SIAM, 2002.
+
+\bibitem{KeenerI}
+{\sc James~P Keener and James Sneyd}.
+\newblock {\em Mathematical Physiology}.
+\newblock Springer, 2009.
+
+\bibitem{Lee2012}
+{\sc Peter Lee, Matt Klos, Christian Bollensdorff, Luqia Hou, Paul Ewart,
+  Timothy~J Kamp, Jianhua Zhang, Alexandra Bizy, Guadalupe Guerrero-Serna,
+  Peter Kohl, et~al.}
+\newblock Simultaneous voltage and calcium mapping of genetically purified
+  human induced pluripotent stem cell--derived cardiac myocyte monolayers.
+\newblock {\em Circulation Research}, {\bf 110}(12):1556--1563, 2012.
+
+\bibitem{cellml}
+{\sc Catherine~M Lloyd, James~R Lawson, Peter~J Hunter, and Poul~F Nielsen}.
+\newblock The cellml model repository.
+\newblock {\em Bioinformatics}, {\bf 24}(18):2122--2123, 2008.
+
+\bibitem{fenics}
+{\sc Anders Logg, Kent-Andre Mardal, and Garth Wells}.
+\newblock {\em Automated solution of differential equations by the finite
+  element method: The FEniCS book}, ~{\bf 84}.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{Ma2011}
+{\sc Junyi Ma, Liang Guo, Steve~J Fiene, Blake~D Anson, James~A Thomson,
+  Timothy~J Kamp, Kyle~L Kolaja, Bradley~J Swanson, and Craig~T January}.
+\newblock High purity human-induced pluripotent stem cell-derived
+  cardiomyocytes: Electrophysiological properties of action potentials and
+  ionic currents.
+\newblock {\em American Journal of Physiology - Heart and Circulatory
+  Physiology}, {\bf 301}(5):H2006--H2017, 2011.
+
+\bibitem{Paci2013}
+{\sc Michelangelo Paci, Jari Hyttinen, Katriina Aalto-Set{\"a}l{\"a}, and
+  Stefano Severi}.
+\newblock Computational models of ventricular-and atrial-like human induced
+  pluripotent stem cell derived cardiomyocytes.
+\newblock {\em Annals of Biomedical Engineering}, {\bf 41}(11):2334--2348,
+  2013.
+
+\bibitem{Paci2015}
+{\sc Michelangelo Paci, Jari Hyttinen, Blanca Rodriguez, and Stefano Severi}.
+\newblock Human induced pluripotent stem cell-derived versus adult
+  cardiomyocytes: an \emph{in silico} electrophysiological study on effects of
+  ionic current block.
+\newblock {\em British Journal of Pharmacology}, {\bf 172}(21):5147--5160,
+  2015.
+
+\bibitem{Plonsey1982}
+{\sc Robert Plonsey and Roger Barr}.
+\newblock The four-electrode resistivity technique as applied to cardiac
+  muscle.
+\newblock {\em IEEE Transactions on Biomedical Engineering}, {\bf
+  29}(7):541--546, 1982.
+
+\bibitem{Rajamohan2013}
+{\sc Divya Rajamohan, Elena Matsa, Spandan Kalra, James Crutchley, Asha Patel,
+  Vinoj George, and Chris Denning}.
+\newblock Current status of drug screening and disease modelling in human
+  pluripotent stem cells.
+\newblock {\em Bioessays}, {\bf 35}(3):281--298, 2013.
+
+\bibitem{cbcbeat}
+{\sc Marie~E {Rognes}, Patrick~E {Farrell}, Simon~W {Funke}, Johan~E {Hake},
+  and Molly Maleckar}.
+\newblock Cbcbeat: an adjoint-enabled framework for computational cardiac
+  electrophysiology.
+\newblock {\em Journal of Open Source Software}, 06/2017 2017.
+
+\bibitem{sakmann2013}
+{\sc Bert Sakmann}.
+\newblock {\em Single-channel recording}.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem{Sallam2016}
+{\sc Luca Sala, Milena Bellin, and Christine~L Mummery}.
+\newblock Integrating cardiomyocytes from human pluripotent stem cells in
+  safety pharmacology: has the time come?
+\newblock {\em British Journal of Pharmacology}.
+\newblock http://dx.doi.org/10.1111/bph.13577 [Epub], 2016.
+
+\bibitem{Roth}
+{\sc Nestor~G Sepulveda, Bradley~J Roth, and John~P Wikswo}.
+\newblock Current injection into a two-dimensional anisotropic bidomain.
+\newblock {\em Biophysical Journal}, {\bf 55}(5):987--999, 1989.
+
+\bibitem{Shukla2017}
+{\sc Praveen Shukla and Joseph~C Wu}.
+\newblock Cardiac subtype characterization using all-optical action potential
+  imaging.
+\newblock {\em European Heart Journal}, {\bf 38}(4):302, 2017.
+
+\bibitem{rush1978}
+{\sc Joakim Sundnes, Robert Artebrant, Ola Skavhaug, and Aslak Tveito}.
+\newblock A second-order algorithm for solving dynamic cell membrane equations.
+\newblock {\em IEEE Transactions on Biomedical Engineering}, {\bf
+  56}(10):2546--2548, Oct 2009.
+
+\bibitem{Sundnes}
+{\sc Joakim Sundnes, Bj{\o}rn~Fredrik Nielsen, Kent~Andre Mardal, Xing Cai,
+  Glenn~Terje Lines, and Aslak Tveito}.
+\newblock On the computational complexity of the bidomain and the monodomain
+  models of electrophysiology.
+\newblock {\em Annals of Biomedical Engineering}, {\bf 34}(7):1088--1097, 2006.
+
+\bibitem{Takahashi2007}
+{\sc Kazutoshi Takahashi, Koji Tanabe, Mari Ohnuki, Megumi Narita, Tomoko
+  Ichisaka, Kiichiro Tomoda, and Shinya Yamanaka}.
+\newblock Induction of pluripotent stem cells from adult human fibroblasts by
+  defined factors.
+\newblock {\em Cell}, {\bf 131}(5):861--872, 2007.
+
+\bibitem{Wachter2006}
+{\sc Andreas W{\"a}chter and Lorenz~T Biegler}.
+\newblock On the implementation of an interior-point filter line-search
+  algorithm for large-scale nonlinear programming.
+\newblock {\em Mathematical programming}, {\bf 106}(1):25--57, 2006.
+
+\bibitem{Zhu2016}
+{\sc Renjun Zhu, Michal~A Millrod, Elias~T Zambidis, and Leslie Tung}.
+\newblock Variability of action potentials within and among cardiac cell
+  clusters derived from human embryonic stem cells.
+\newblock {\em Scientific Reports}, {\bf 6}, 2016.
+
+\end{thebibliography}
