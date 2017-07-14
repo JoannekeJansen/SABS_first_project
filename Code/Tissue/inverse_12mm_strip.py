@@ -288,7 +288,8 @@ if __name__ == "__main__":
         rf = ReducedFunctional(J, [Control(ctrl1), Control(ctrl2), Control(ctrl3), Control(ctrl4)] , eval_cb_post = eval_cb_post, derivative_cb_post = derivative_cb_post)
         # assert rf.taylor_test(ctrl1, seed=1e-2) > 1.5
         #rf.taylor_test(ctrl1, seed=1e-2)
-        solver = IPOPTSolver(MinimizationProblem(rf, bounds=[(0.9, 1.1), (0.9, 1.1),(0.9, 1.1), (0.9, 1.1)]))
+        parameters = {"acceptable_tol": 1.0e-1, "maximum_iterations": 10}
+        solver = IPOPTSolver(MinimizationProblem(rf, bounds=[(0.9, 1.1), (0.9, 1.1),(0.9, 1.1), (0.9, 1.1)]), parameters=parameters)
         a_opt = solver.solve()  
               
     # Compute value of J for different values of ctrl5 and save to file
